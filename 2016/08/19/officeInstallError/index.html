@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            解决Win10安装Office 2013出现Error 2203错误
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/19/officeInstallError/"> 
+                    解决Win10安装Office 2013出现Error 2203错误 
+                </a>
+            </h1>
+            <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-19   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-2203/">error 2203</a></li></ul>
+            </div>
+<div class="toc">
+  
+</div>
+            <div class="content">
+                <p>由于不是办公电脑，所以之前一直用的是LibreOffice，金山的WPS也用过，因为广告比较多家人容易误点所以卸载了。Libreoffice的界面虽然没有微软的好看，不过功能一点都不少，而且兼容性作为普通的浏览是没有问题的，促使我更换的原因是启动太慢的问题。</p>
+<a id="more"></a>
+<p>LibreOffice打开文档的速度太慢了，这个原因我估计也不在软件，可能系统的问题比较大，我在Linux里面也用过速度是很快的。当然电脑的配置也是一个重要的原因。不过每次打开的时间确实太长了，而且第一次打开后，第二次接着打开需要的时间几乎一样。后来还是妥协了，换回了微软自己的产品，这里没有再尝试OpenOffice.感兴趣的可以测试一下OpenOffice在Win下面表现如何。</p>
+<p>罗嗦的太多了，进入正题，在安装Office2013的过程中出现了<code>Error 2203</code>错误，之前从没遇到过，网络搜索以后发现出现这个问题的还不少。</p>
+<p>解决的方法参考下面的博客：<a href="http://www.cnblogs.com/navybcloud/articles/1915236.html" target="_blank" rel="noopener">博客链接</a></p>
+<p><strong>处理方法：在当前的用户变量中编辑TEMP变量，在最后增加变量值 <code>%USERPROFILE%\Local Settings\Temp</code> 即可解决。记得变量之间要用<code>;</code>隔开。</strong></p>
+
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>aoenian</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://aoenian.github.io/2016/08/19/officeInstallError/">https://aoenian.github.io/2016/08/19/officeInstallError/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+    <div class="prev">
+   <a href="/2016/10/01/raspXunlei/">  树莓派下载系列（一）————迅雷远程</a>
+    </div>
+
+<div></div>
+
+    <div class="next">
+    <a href="/2016/08/10/deleteUbuntuos/"> 双系统删除Ubuntu（Win7+Ubuntu） </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Fri Aug 19 2016 17:08:26 GMT+0800",
+    owner: "",
+    repo: "",
+    oauth: {
+      client_id:"",
+      client_secret: "",
+    }
+  })
+  gitment.render('comments')
+</script>
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            树莓派下载系列（一）————迅雷远程
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/10/01/raspXunlei/"> 
+                    树莓派下载系列（一）————迅雷远程 
+                </a>
+            </h1>
+            <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-10-01   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry-Pi/">Raspberry Pi</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/download/">download</a></li></ul>
+            </div>
+<div class="toc">
+  <ol class="toc-list"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#准备工作"><span class="toc-list-text">准备工作</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#开工"><span class="toc-list-text">开工</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#到这里基本就完成了，至于速度就是你的资源热度和网速了。"><span class="toc-list-text">到这里基本就完成了，至于速度就是你的资源热度和网速了。</span></a></li></ol>
+</div>
+            <div class="content">
+                <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>树莓派一个（已经安装好raspberrypi系统）</p>
+<p>迅雷帐号一个（需要用来远程管理）</p>
+<p><em>经过使用，我的是电信宽带10M，树莓派3，迅雷普通会员，但是没什么卵用，下载依然具慢，而且十分容易死机。所以大家不要报太大的希望，和电脑绝对是两码事。</em></p>
+<a id="more"></a>
+<h3 id="开工"><a href="#开工" class="headerlink" title="开工"></a>开工</h3><p>参考教程：[树莓派安装迅雷远程下载][1] 里面有些内容不适合新版的系统具体可参考下面的介绍。<br>[1]: <a href="http://luyou.xunlei.com/thread-430-1-1.html?_t=1466157534" target="_blank" rel="noopener">http://luyou.xunlei.com/thread-430-1-1.html?_t=1466157534</a></p>
+<ul>
+<li>设定root密码并打开root用户登录限制</li>
+</ul>
+<p>教程请查看<a href="http://www.shumeipaiba.com/wanpai/jiaocheng/2.html" target="_blank" rel="noopener">这里</a></p>
+<p>默认登录名为： pi </p>
+<p>默认登录密码为：raspberry （建议等会儿改成简单的，太麻烦）</p>
+<p>登入系统以后打开终端，如果ssh的话就只有终端界面，执行命令</p>
+<pre><code># 设定root用户密码
+sudo passwd   # 回车以后输入两次root密码（密码不会显示）
+
+# 打开root用户登录限制,因为默认是不允许root用户直接登录
+sudo passwd --unlock root  # 但是你会发现新版的树莓派系统这个命令不行了接着看下面
+
+# 需要修改ssh的配置文件 这里我用vi 你也可以用 nano
+sudo vi /etc/ssh/sshd_config
+
+# 把PermitRootLogin 的参数更改为 yes
+PermitRootLogin yes
+
+# 重启即可用root用户登录
+sudo reboot
+
+# 修该pi用户密码 根据自己需要
+sudo passwd pi
+</code></pre><ul>
+<li>挂载u盘</li>
+</ul>
+<p>这里需要注意，新版的系统默认已经安装ntfs-3g模块，如果没有请执行</p>
+<p><code>sudo apt-get install ntfs-3g   # 新版系统好像已经安装</code></p>
+<p>这里我使用的是手动挂载u盘，一个原因是上面教程中的自动挂载没有用，另一个我的树莓派并不是下载为主，只是偶尔使用。</p>
+<p>需要自动挂载可以查看<a href="https://blog.gtwang.org/iot/raspberry-pi-auto-mount-usb-disk/" target="_blank" rel="noopener">这里</a><br>不过我并没有验证是否有效，后面验证完毕后会更新这里的内容。</p>
+<p>下面介绍手动挂载</p>
+<pre><code># 插入u盘后，查看dev 如果出现sda1 则说明u盘已经识别
+ls /dev/sd*
+# 在/mnt 目录下建立挂载目录
+sudo mkdir /mnt/usb
+# 挂载
+sudo mount -t ntfs /dev/sda1 /mnt/usb
+# 卸载
+sudo umount /mnt/usb
+</code></pre><p>然后就可在/media/usb 目录下看到u盘的文件。具体的mount命令使用可查看[mount][m]<br>[m]: <a href="http://www.runoob.com/linux/linux-comm-mount.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-comm-mount.html</a></p>
+<ul>
+<li>安装迅雷程序</li>
+</ul>
+<p>先把下载的迅雷文件的压缩包解压出来，然后放在u盘里面，文件下载地址：[点我][2]<br>[2]: <a href="http://luyou.xunlei.com/thread-12545-1-1.html" target="_blank" rel="noopener">http://luyou.xunlei.com/thread-12545-1-1.html</a><br>树莓派请下载： Xware1.0.31_armel_v5te_glibc.zip 然后把u盘插入树莓派 </p>
+<pre><code># 当然先挂载，然后进入u盘目录，我把迅雷的名字更改,纯粹为了方便
+mv Xware1.0.31_armel_v5te_glibc xunlei
+# 启动远程下载
+./portal
+</code></pre><p>接着会出现<code>THE ACTIVE CODE IS: ******</code> 星号代表你的设备码。然后登录远程迅雷在面板左侧添加设备，把设备码输入即可。</p>
+<p><a href="http://yuancheng.xunlei.com/login.html#" target="_blank" rel="noopener">远程迅雷地址</a></p>
+<h3 id="到这里基本就完成了，至于速度就是你的资源热度和网速了。"><a href="#到这里基本就完成了，至于速度就是你的资源热度和网速了。" class="headerlink" title="到这里基本就完成了，至于速度就是你的资源热度和网速了。"></a>到这里基本就完成了，至于速度就是你的资源热度和网速了。</h3><p><strong>注：由于迅雷远程会查看文件的版权以及是否非法，所以如果有些无法下载的种子或磁力，建议使用 transmission-cli 下载。</strong></p>
+
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>aoenian</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://aoenian.github.io/2016/10/01/raspXunlei/">https://aoenian.github.io/2016/10/01/raspXunlei/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+    <div class="prev">
+   <a href="/2016/10/06/vimVundleMarkdown/">  Vim安装vundle和markdown插件(Windows)</a>
+    </div>
+
+<div></div>
+
+    <div class="next">
+    <a href="/2016/08/19/officeInstallError/"> 解决Win10安装Office 2013出现Error 2203错误 </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Sat Oct 01 2016 11:24:04 GMT+0800",
+    owner: "",
+    repo: "",
+    oauth: {
+      client_id:"",
+      client_secret: "",
+    }
+  })
+  gitment.render('comments')
+</script>
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

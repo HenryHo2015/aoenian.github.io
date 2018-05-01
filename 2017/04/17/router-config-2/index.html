@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            路由器配置2——单臂路由
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+            <h1>
+                <a class="title" href="/2017/04/17/router-config-2/"> 
+                    路由器配置2——单臂路由 
+                </a>
+            </h1>
+            <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2017-04-17   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Router/">Router</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/router/">router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单臂路由/">单臂路由</a></li></ul>
+            </div>
+<div class="toc">
+  <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-1"><span class="toc-list-text">交换机S0配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-2"><span class="toc-list-text">PC的设置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-3"><span class="toc-list-text">路由器R0的配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-4"><span class="toc-list-text">测试</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-5"><span class="toc-list-text">参考博客</span></a></li></ol>
+</div>
+            <div class="content">
+                
+
+<p>
+<a href="http://baike.baidu.com/item/%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1" target="_blank" rel="noopener">单臂路由</a>:是指在路由器的一个接口上通过配置子接口（或“逻辑接口”，并不存在真正物理接口）的方式，实现原来相互隔离的不同VLAN（虚拟局域网）之间的互联互通。
+</p>
+
+<p>
+<a href="https://github.com/aoenian/cisco-pkt" target="_blank" rel="noopener">配置好的pkt文件</a>
+</p>
+
+<a id="more"></a>
+
+<p>
+拓扑图：
+<img src="http://i4.buimg.com/567571/36c26c7adffe3ce0.png" alt="36c26c7adffe3ce0.png">
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">交换机S0配置</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+
+<pre class="src src-C">Switch(config)#hostname S0
+S0(config)#exit
+S0#vlan database                // 进入vlan数据库模式
+S0(vlan)#vlan 10 name v10       // 创建vlan10并命名为v10
+VLAN 10 modified:
+    Name: v10
+S0(vlan)#vlan 20 n v20          // 创建vlan20
+VLAN 20 added:
+    Name: v20
+S0(config)#interface r f0/1-10  // 把端口1-10划分给vlan10
+S0(config-if-range)#swi mode acc        // 更改端口模式为 access
+S0(config-if-range)#swi access vlan 10  // 端口加入vlan10
+S0(config-if-range)#exit
+S0(config)#interface r f0/11-20
+S0(config-if-range)#swi mode acc
+S0(config-if-range)#swi acc vlan 20
+
+S0(config)#inter f0/24          // 设置与路由器R0连接的端口24
+// 这里由于交换机只支持802.1q协议，所以没有设置协议，只设置模式
+S0(config-if)#swi mode trunk 
+S0(config-if)#swi trunk allowed vlan all        // 允许所有vlan通过
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">PC的设置</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left">
+
+<col class="right">
+
+<col class="left">
+
+<col class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="right">vlan</th>
+<th scope="col" class="left">IP</th>
+<th scope="col" class="left">gateway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">PC0</td>
+<td class="right">10</td>
+<td class="left">192.168.1.11/24</td>
+<td class="left">192.168.1.254/24</td>
+</tr>
+
+<tr>
+<td class="left">PC1</td>
+<td class="right">20</td>
+<td class="left">192.168.2.11/24</td>
+<td class="left">192.168.2.254/24</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">路由器R0的配置</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+
+<pre class="src src-C">Router&gt;enable
+Router#conf
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname R0
+R0(config)#inter f0/0   // 进入路由器和交换机相连的端口
+R0(config-if)#no shutdown       // 启用端口
+R0(config-if)#exit
+R0(config)#inter f0/0.1         // 进入逻辑子接口0.1
+R0(config-subif)#encapsulation dot1Q 10         // 设置协议封装并建立与vlan10的关联
+R0(config-subif)#ip add 192.168.1.254 255.255.255.0     // 设置ip地址（也就是网关地址）
+R0(config-subif)#exit
+R0(config)#inter f0/0.2
+R0(config-subif)#encapsulation dot1Q 20
+R0(config-subif)#ip add 192.168.2.254 255.255.255.0
+R0(config-subif)#exit
+R0(config)#exit
+R0#write memory         // 写入配置
+Building configuration...
+[OK]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">测试</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+PC0与PC1之间能够互相ping通。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">参考博客</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><a href="http://blog.csdn.net/junmuzi/article/details/49912217" target="_blank" rel="noopener">Cisco单臂路由配置，图文实例详解</a>
+</li>
+<li><a href="http://baike.baidu.com/item/%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1" target="_blank" rel="noopener">单臂路由</a>
+</li>
+</ul>
+</div>
+</div>
+
+Last Updated 2018-05-01 二 16:27.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
+
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>aoenian</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://aoenian.github.io/2017/04/17/router-config-2/">https://aoenian.github.io/2017/04/17/router-config-2/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+    <div class="prev">
+   <a href="/2017/04/19/emacs-broken-hardlink/">  如何避免Emacs破坏文件的硬链接</a>
+    </div>
+
+<div></div>
+
+    <div class="next">
+    <a href="/2017/03/22/switch-config-6/"> 交换机配置6——生成树协议（STP） </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Mon Apr 17 2017 00:00:00 GMT+0800",
+    owner: "",
+    repo: "",
+    oauth: {
+      client_id:"",
+      client_secret: "",
+    }
+  })
+  gitment.render('comments')
+</script>
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            Hexo使用过程中遇到的问题
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/08/hexoErrors/"> 
+                    Hexo使用过程中遇到的问题 
+                </a>
+            </h1>
+            <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-08   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo404/">hexo404</a></li></ul>
+            </div>
+<div class="toc">
+  <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#1-点击继续阅读或文章标题出现404页面"><span class="toc-list-text">1.点击继续阅读或文章标题出现404页面</span></a></li></ol>
+</div>
+            <div class="content">
+                <h2 id="1-点击继续阅读或文章标题出现404页面"><a href="#1-点击继续阅读或文章标题出现404页面" class="headerlink" title="1.点击继续阅读或文章标题出现404页面"></a>1.点击继续阅读或文章标题出现404页面</h2><p>这几天在看博客的时候突然发现自己的文章在首页显示，但是点击标题或者继续阅读以后直接出现404页面，第一反应就是被防火墙干扰了，然后赶紧试试代理，发现还是这样，这时候发现问题没那么简单了。</p>
+<p>然后用hexo s 测试本地的访问情况，却发现是没有问题的。不过重新部署以后依然404.</p>
+<a id="more"></a>
+<p>回忆出现问题前的改动：<em>只有一个地方，我把post目录里面文章的文件名改动了(大家千万别学我)</em>，但是删除缓存以后，使用hexo s 命令以后发现没有问题。这时候才部署到github，不过在pages中显示还是有问题。</p>
+<p><strong>尝试过的解决方法</strong>：</p>
+<ul>
+<li>改回原来的名字，失败</li>
+<li>删除<code>&lt;!-- more --&gt;</code>，首页成功显示，点击文章标题访问失败</li>
+<li>新建一个测试页面成功，排除了hexo本身的问题，看来需要用命令重建文章</li>
+<li>用 new 命令重建同名文章，然后把内容复制过去。同样失败。</li>
+</ul>
+<p><strong>最后的大招</strong></p>
+<p>后来想想既然不行，那就全部重新来一遍，把所有的文章全部移出去，删除缓存，重新生成（这时候已经没有文章了），重新部署。部署的时候看到提示删除了所有的文章的网页。我估计这时候就把所有之前出错的网页和链接全部删除了。</p>
+<p><strong>然后重新使用命令新建文章，再把内容复制过来，部署测试，OK！！</strong></p>
+<p>update:2016-8-14</p>
+<p><em>经测试，直接把md文件放入_post目录内也是可以识别并正常部署到githubPages，所以之前的处理可以把所有的文章全部移出，然后重新生成静态文件后部署，这时候会把之前的一些失效链接删掉，然后把文章移进post目录，生成、部署即可。（理论推测）</em></p>
+
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>aoenian</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://aoenian.github.io/2016/08/08/hexoErrors/">https://aoenian.github.io/2016/08/08/hexoErrors/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+    <div class="prev">
+   <a href="/2016/08/10/deleteUbuntuos/">  双系统删除Ubuntu（Win7+Ubuntu）</a>
+    </div>
+
+<div></div>
+
+    <div class="next">
+    <a href="/2016/08/08/chromePlugin/"> Chrome以及插件的下载与安装 </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Mon Aug 08 2016 18:51:27 GMT+0800",
+    owner: "",
+    repo: "",
+    oauth: {
+      client_id:"",
+      client_secret: "",
+    }
+  })
+  gitment.render('comments')
+</script>
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

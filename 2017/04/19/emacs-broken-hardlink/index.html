@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            如何避免Emacs破坏文件的硬链接
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+            <h1>
+                <a class="title" href="/2017/04/19/emacs-broken-hardlink/"> 
+                    如何避免Emacs破坏文件的硬链接 
+                </a>
+            </h1>
+            <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2017-04-19   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Emacs/">Emacs</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/broken/">broken</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/emacs/">emacs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hard-link/">hard link</a></li></ul>
+            </div>
+<div class="toc">
+  
+</div>
+            <div class="content">
+                
+
+<p>
+使用了markdown以后感觉不错，能够全心放在写作内容上面，不过用了一段时间以后开始发愁编辑器的问题，在网络搜索的过程中进入了org-mode的坑，配上emacs，用着很爽，也不会发愁注册啦，版权之类的问题。所以就开始使用org-mode记录。
+</p>
+
+<p>
+问题的出现是在写博客的过程中，在blog目录下写完一篇文章后我会把文件硬链接到post目录下，这样呢如果文章预览解析有问题需要更改，那么留在blog目录下的文章也会随之改变，保证两边的文章是一样的。
+</p>
+
+<a id="more"></a>
+
+<p>
+原来用vim的时候一直样做，改成emacs也没多想，但是发现问题了，建立文件硬链接以后都正常，但是用emacs打开其中一个文件更改保存后，发现两个文件的 <code>inode</code> 不同了，感觉就像emacs自动创建了一个副本。
+</p>
+
+<p>
+解决的方法就是在你的配置文件里面加入如下配置：
+</p>
+
+<p>
+<code>(setq backup-by-copying t)</code> 
+</p>
+
+<p>
+如果你只想在链接的时候用这个配置，请使用下面的代码：
+</p>
+
+<p>
+<code>(setq backup-by-copying-when-linked t)</code>
+</p>
+
+<p>
+具体的详细介绍可查看 <a href="https://emacs.stackexchange.com/questions/4237/how-to-prevent-emacs-from-breaking-hard-links/4240#4240" target="_blank" rel="noopener">How to prevent Emacs from breaking hard links?</a>
+</p>
+
+Last Updated 2018-05-01 二 16:27.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
+
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>aoenian</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://aoenian.github.io/2017/04/19/emacs-broken-hardlink/">https://aoenian.github.io/2017/04/19/emacs-broken-hardlink/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+    <div class="prev">
+   <a href="/2017/04/29/website-collect/">  一些好的网站备份</a>
+    </div>
+
+<div></div>
+
+    <div class="next">
+    <a href="/2017/04/17/router-config-2/"> 路由器配置2——单臂路由 </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Wed Apr 19 2017 00:00:00 GMT+0800",
+    owner: "",
+    repo: "",
+    oauth: {
+      client_id:"",
+      client_secret: "",
+    }
+  })
+  gitment.render('comments')
+</script>
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

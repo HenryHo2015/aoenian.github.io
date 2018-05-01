@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            交换机配置4——三层交换机VLAN联通
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+            <h1>
+                <a class="title" href="/2017/03/08/switch-config-4/"> 
+                    交换机配置4——三层交换机VLAN联通 
+                </a>
+            </h1>
+            <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2017-03-08   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Switch/">Switch</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vlan/">vlan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/三层交换机/">三层交换机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/链路聚合/">链路聚合</a></li></ul>
+            </div>
+<div class="toc">
+  <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-1"><span class="toc-list-text">二层交换机配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-2"><span class="toc-list-text">三层交换机S0的配置</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-1"><span class="toc-list-text">三层交换机和二层交换机的接口</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-2"><span class="toc-list-text">S0的具体配置</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-3"><span class="toc-list-text">S1和S0之间聚合链路的配置</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#sec-2-3-1"><span class="toc-list-text">S0三层交换机的配置</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#sec-2-3-2"><span class="toc-list-text">S1的配置</span></a></li><li class="toc-list-item toc-list-level-4"><a class="toc-list-link" href="#sec-2-3-3"><span class="toc-list-text">S2配置</span></a></li></ol></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-4"><span class="toc-list-text">测试</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-5"><span class="toc-list-text">参考链接</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-6"><span class="toc-list-text">拓展阅读</span></a></li></ol></li></ol>
+</div>
+            <div class="content">
+                
+
+<p>
+<b>三层和二层交换机的链路聚合没有成功。可以通信，但聚合链路中拿走一条链路后则通信中断，这个是PT5.3版本的坑！！</b>
+</p>
+
+<p>
+<b>PT5.3这个大坑我上来就踩上了，这个版本的链路聚合有问题，当只有一条链路的时候，无法ping通。所以直觉就是链路聚合没有配置成功。请用6.2版本。</b>
+</p>
+
+<p>
+拓扑图如下：
+</p>
+
+
+<div class="figure">
+<p><img src="http://p1.bqimg.com/567571/05c407df35ae45f7.png" alt="05c407df35ae45f7.png">
+</p>
+</div>
+
+<a id="more"></a>
+
+<p>
+配置好的思科模拟器文件地址：<a href="https://github.com/aoenian/cisco-pkt/" target="_blank" rel="noopener">cisco-pkt</a>
+</p>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">二层交换机配置</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+S1和S2的配置类似与之前的 <a href="https://aoenian.github.io/2017/03/05/switch-config-3/">跨交换机vlan划分</a> 这里不再重复，需要的配置如下：
+</p>
+
+<ul class="org-ul">
+<li>在S1和S2上划分vlan10和vlan20
+</li>
+<li>把相应的端口加入vlan
+<ul class="org-ul">
+<li>PC2-S1-f0/2 PC4-S2-f0/2  vlan20
+</li>
+<li>PC1-S1-f0/1 PC3-S2-f0/1  vlan10
+</li>
+</ul>
+</li>
+<li>把PC的IP地址和网关地址配置完成
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">三层交换机S0的配置</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">三层交换机和二层交换机的接口</h3>
+<div class="outline-text-3" id="text-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+
+<col class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">S1</th>
+<th scope="col" class="left">S2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">S0</td>
+<td class="left">f0/22 f0/23</td>
+<td class="left">f0/24</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+注：这里我把S1与S0之间用两条链路主要为了配置链路聚合。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">S0的具体配置</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+
+<pre class="src src-C">Switch&gt;enable
+Switch#configure terminal 
+Switch(config)#hostname S0
+S0(config)#vlan 10
+S0(config-vlan)#name v10
+S0(config-vlan)#exit
+S0(config)#vlan 20
+S0(config-vlan)#name v20
+S0(config-vlan)#exit
+S0(config)#interface vlan 10
+S0(config-if)#ip address 192.168.1.254 255.255.255.0    // 设置vlan的网关地址
+S0(config-if)#no shutdown               // 启用vlan
+S0(config-if)#exit
+S0(config)#interface vlan 20
+S0(config-if)#ip address 192.168.2.254 255.255.255.0
+S0(config-if)#no shutdown 
+S0(config-if)#exit
+S0(config)#ip routing       // 启用ip路由
+S0#show ip route                // 查看三层交换机路由表
+</pre>
+</div>
+
+<p>
+注：这个时候如果二层交换机和三层交换机连接的接口模式都已经配置为 <code>trunk</code> ，vlan间即可通信。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">S1和S0之间聚合链路的配置</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+首先配置S0路由器的 22 和 23 号端口，这里在网络上搜索的配置不尽相同，有多有少。所以这里根据我自己的理解进行配置，如果不正确或者需要补充，请大家留言或通过邮件联系我，谢谢！
+</p>
+</div>
+
+<div id="outline-container-sec-2-3-1" class="outline-4">
+<h4 id="sec-2-3-1">S0三层交换机的配置</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<div class="org-src-container">
+
+<pre class="src src-C">S0(config)#interface range f0/22-23
+S0(config-if-range)#channel-protocol pagp       // 设置聚合协议为pagp
+S0(config-if-range)#channel-group 1 mode auto   // 设置工作模式
+S0(config-if-range)#exit
+S0(config)#interface port-channel 1
+S0(config-if)#switchport trunk encapsulation dot1q // 802.1Q封装
+S0(config-if)#switchport mode trunk     // 更改端口模式
+S0(config-if)#switchport trunk allowed vlan all         // 允许vlan通过
+
+S0(config)#interface f0/24              // 与S2的相连端口设置
+S0(config-if)#switchport trunk allowed vlan all
+S0(config-if)#switchport trunk encapsulation dot1q
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3-2" class="outline-4">
+<h4 id="sec-2-3-2">S1的配置</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<div class="org-src-container">
+
+<pre class="src src-C">S1(config)#interface range f0/22-23
+S1(config-if-range)#channel-protocol pagp 
+S1(config-if-range)#channel-group 1 mode auto
+S1(config-if-range)#exit
+S1(config)#interface port-channel 1
+S1(config-if)#switchport trunk allowed vlan all
+S1(config-if)#switchport mode trunk 
+
+S1#show etherchannel summary
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3-3" class="outline-4">
+<h4 id="sec-2-3-3">S2配置</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<div class="org-src-container">
+
+<pre class="src src-C">S2#configure 
+S2(config)#interface f0/24
+S2(config-if)#switchport mode trunk
+S2(config-if)#switchport trunk allowed vlan all
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">测试</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li>不同vlan之间的pc可以互相通信
+</li>
+<li>S1和S0之间的两条链路都可传输信息， <b>但是如果去除一条链路和无法通信</b>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">参考链接</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li><a href="http://www.jb51.net/softjc/56598.html" target="_blank" rel="noopener">通过三层交换实现VLAN间互通的方法(图文教程)</a>
+</li>
+<li><a href="http://www.cnblogs.com/mchina/archive/2012/07/14/2591598.html" target="_blank" rel="noopener">Packet Tracer 5.0实验(四) 利用三层交换机实现VLAN间路由</a>
+</li>
+<li><a href="http://www.cisco.com/c/zh_cn/support/docs/lan-switching/inter-vlan-routing/41860-howto-L3-intervlanrouting.html" target="_blank" rel="noopener">在第三层交换机的配置VLAN间路由</a>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6">拓展阅读</h3>
+<div class="outline-text-3" id="text-2-6">
+<ul class="org-ul">
+<li><a href="http://blog.csdn.net/dog250/article/details/8219141" target="_blank" rel="noopener">VLAN/Trunk以及三层交换</a>
+</li>
+<li><a href="http://www.maiziedu.com/article/11162/" target="_blank" rel="noopener">链路聚合、Trunk、端口绑定和捆绑简析</a>
+</li>
+<li><a href="https://gnu4cn.gitbooks.io/ccna-60d/content/d33-EtherChannels-and-Link-Aggregation-Protocols.html" target="_blank" rel="noopener">以太网通道及链路聚合协议</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+Last Updated 2018-05-01 二 16:27.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
+
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>aoenian</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://aoenian.github.io/2017/03/08/switch-config-4/">https://aoenian.github.io/2017/03/08/switch-config-4/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+    <div class="prev">
+   <a href="/2017/03/12/router-config-1/">  思科路由器配置1——密码配置</a>
+    </div>
+
+<div></div>
+
+    <div class="next">
+    <a href="/2017/03/05/switch-config-3/"> 交换机配置3——多交换机vlan划分 </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Wed Mar 08 2017 00:00:00 GMT+0800",
+    owner: "",
+    repo: "",
+    oauth: {
+      client_id:"",
+      client_secret: "",
+    }
+  })
+  gitment.render('comments')
+</script>
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

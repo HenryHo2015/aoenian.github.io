@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            思科模拟器交换机设置1——密码设置
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+            <h1>
+                <a class="title" href="/2017/03/04/switch-config-1/"> 
+                    思科模拟器交换机设置1——密码设置 
+                </a>
+            </h1>
+            <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2017-03-04   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Switch/">Switch</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ciscoPT/">ciscoPT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/">switch</a></li></ul>
+            </div>
+<div class="toc">
+  <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-1"><span class="toc-list-text">仿真终端配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-2"><span class="toc-list-text">交换机模式介绍</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-1"><span class="toc-list-text">用户模式</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-2"><span class="toc-list-text">特权模式</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-3"><span class="toc-list-text">全局配置模式</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-4"><span class="toc-list-text">接口配置模式</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-2-5"><span class="toc-list-text">line配置模式</span></a></li></ol></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-3"><span class="toc-list-text">交换机初始配置</span></a><ol class="toc-list-child"><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-3-1"><span class="toc-list-text">配置console口密码</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-3-2"><span class="toc-list-text">配置特权密码</span></a></li><li class="toc-list-item toc-list-level-3"><a class="toc-list-link" href="#sec-3-3"><span class="toc-list-text">配置远程登录密码（telenet）</span></a></li></ol></li></ol>
+</div>
+            <div class="content">
+                
+
+<p>
+<b>交换机的配置将会是一个系列文章，我会把自己配置过的例子都写出来做一个系列，也避免之后每次遇到都要去网络搜索。使用 packet tracer 的版本号为6.2(5.3版本会出现问题)，查看此文需要对思科模拟器有一定的了解。</b>
+</p>
+
+<a id="more"></a>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">仿真终端配置</h2>
+<div class="outline-text-2" id="text-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="right">
+
+<col class="right">
+
+<col class="left">
+
+<col class="right">
+
+<col class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">bps</th>
+<th scope="col" class="right">Data Bits</th>
+<th scope="col" class="left">parity</th>
+<th scope="col" class="right">stop bits</th>
+<th scope="col" class="left">flow control</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">9600</td>
+<td class="right">8</td>
+<td class="left">None</td>
+<td class="right">1</td>
+<td class="left">None</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">交换机模式介绍</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">用户模式</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+刚进入交换机时命令行状态为 <code>Switch&gt;</code> ，此时所处为用户模式，这个模式一般用于查看显示系统信息、改变终端设置和执行一些最基本的测试命令，如ping、traceroute等
+</p>
+
+<p>
+<b>注意：直接输入 <code>?</code> 并回车，可获得该模式下允许执行的命令。其他模式同样适用</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">特权模式</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+用户模式下，执行 <code>enable</code> 命令，可能需要输入密码，密码输入时不回显，完成后直接回车即可。
+</p>
+
+<p>
+特权模式的命令行状态为： <code>Switch#</code>
+</p>
+
+<p>
+离开特权模式的命令为： <code>exit</code> 或 <code>disable</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3">全局配置模式</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+在特权模式下，执行 <code>configure  terminal</code> 命令，即可进入全局配置模式。在该模式下，只要输入一条有效的配置命令并回车，内存中正在运行的配置就会立即改变生效。该模式下的配置命令的作用域是全局性的，是对整个交换机起作用。
+</p>
+
+<p>
+全局配置模式的命令行状态为： <code>Switch(config)#</code>
+</p>
+
+<p>
+在全局配置模式，还可进入接口配置、line配置等子模式。从子模式返回全局配置模式，执行 exit 命令；从全局配置模式返回特权模式，执行exit命令；若要退出任何配置模式，直接返回特权模式，则要直接end命令或按Ctrl+Z组合键。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4">接口配置模式</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+在全局配置模式下，执行 <code>interface</code> 命令，即进入接口配置模式。在该模式下，可对选定的接口（端口）进行配置，并且只能执行配置交换机端口的命令。
+</p>
+
+<p>
+接口配置模式的命令行提示符为： <code>Switch(config-if)#</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5">line配置模式</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+在全局配置模式下，执行 <code>line vty</code> 或 <code>line console</code> 命令，将进入Line配置模式。该模式主要用于对虚拟终端（vty）和控制台端口进行配置，其配置主要是设置虚拟终端和控制台的用户级登录密码。  
+</p>
+
+<p>
+Line配置模式的命令行提示符为： <code>Switch(config-line)#</code>
+</p>
+
+<p>
+<b>其他的模式在后面使用的时候再进行介绍，参考文档 <a href="https://wenku.baidu.com/view/4867dc4d767f5acfa1c7cd70.html" target="_blank" rel="noopener">思科交换机的配置模式和命令</a></b>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">交换机初始配置</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<i>初始的交换机是没有任何密码，也不能远程登录，所以首次配置需要使用 console 控制线进行配置</i>
+</p>
+
+<p>
+注意：下面所有的密码配置都是 <code>cisco</code> 
+</p>
+</div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">配置console口密码</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+
+<pre class="src src-C">Switch&gt;enable           // 进入特权模式
+Switch#config t         // 进入全局配置模式
+Enter configuration commands, one per line.  End with CNTL/Z.   
+Switch(config)#line console 0           // 进入console口配置
+Switch(config-line)#password cisco      // 设置密码
+Switch(config-line)#login               // 启用密码 很重要
+
+Switch(config-line)#end         // 退出到特权模式，也可以使用 exit
+Switch#copy running-config startup-config       // 把刚才的配置保存，避免重启后丢失
+
+Switch#reload           // 重启 验证
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">配置特权密码</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="org-src-container">
+
+<pre class="src src-C">// 特权密码有两种设置方法，password 和 secret ，建议使用 secret 设置
+// secret 设置优先级高，而且密码会使用密文显示
+Switch(config)#enable ?         // 两种密码设置方式
+  password  Assign the privileged level password
+  secret    Assign the privileged level secret
+
+Switch(config)#enable secret cisco      // 在全局模式下设置
+
+// 记得验证然后写入配置
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3">配置远程登录密码（telenet）</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+如果每次配置交换机都需要用配置线在交换机的配置口配置，那估计要疯掉了，所以我们需要配置远程登录。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java">// 因为远程配置需要ip地址，所以需要给交换机配置管理ip
+Switch(config)#interface vlan 1         // 进入交换机的默认 1 号vlan
+Switch(config-if)#ip address 192.168.1.1 255.255.255.0  // 设置管理IP
+Switch(config-if)#no shutdown           // 启用vlan
+
+%LINK-5-CHANGED: Interface Vlan1, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+
+Switch(config-if)#exit          // 退出到全局模式
+Switch(config)#line vty 0 4     // 配置远程虚拟接口 0 4 指5个接口 0到4
+Switch(config-line)#password cisco      // 设置密码
+Switch(config-line)#login               // 启用密码
+Switch(config-line)#end         // 退出
+</pre>
+</div>
+
+<p>
+然后可以通过在一个局域网的电脑进行网络链接，在电脑的 cmd 命令行中执行如下命令：
+</p>
+
+<p>
+<code>telnet 192.168.1.1</code>  回车输入密码即可。这里需要注意的是，如果通过telnet登录的话，不仅需要远程telnet登录密码，还需要设置特权密码，不然的话是不能进入特权模式的。
+</p>
+</div>
+</div>
+</div>
+
+Last Updated 2018-05-01 二 16:27.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
+
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>aoenian</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://aoenian.github.io/2017/03/04/switch-config-1/">https://aoenian.github.io/2017/03/04/switch-config-1/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+    <div class="prev">
+   <a href="/2017/03/05/switch-config-2/">  交换机配置2——单交换机VLAN划分</a>
+    </div>
+
+<div></div>
+
+    <div class="next">
+    <a href="/2017/02/22/broadcast-multicast/"> IP地址相关以及广播和组播的区别 </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Sat Mar 04 2017 00:00:00 GMT+0800",
+    owner: "",
+    repo: "",
+    oauth: {
+      client_id:"",
+      client_secret: "",
+    }
+  })
+  gitment.render('comments')
+</script>
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

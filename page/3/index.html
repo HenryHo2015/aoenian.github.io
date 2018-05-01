@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            aoenian&#39;s blog
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <section class="posts">
+    
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/10/08/disableVimAutoComment/"> 
+                    禁止Vim换行自动添加注释符号 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-10-08   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/auto-comment/">auto comment</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>在用vim编写程序的时候换行后总会自动添加注释符号，所以就上网搜索如何去掉vim中换行后自动添加的注释符号。</p>
+<p>找了很多终于有个靠谱的，地址为：<a href="http://stackoverflow.com/a/23326474" target="_blank" rel="noopener">http://stackoverflow.com/a/23326474</a> </p>
+<p><em>总觉得自己遇到的问题都特别奇葩。</em></p>
+<p>具体操作方法就是在vimrc文件中加入如下命令即可</p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/10/08/disableVimAutoComment/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/10/06/vimVundleMarkdown/"> 
+                    Vim安装vundle和markdown插件(Windows) 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-10-06   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vundle/">vundle</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>因为这段时间发现了markdown这个好东西，所以就学习一下，而又在练习vim，所有还是希望能在vim里面也使用markdown语法。下面记录一下配置过程。</p>
+<p>由于是刚开始入门vim的使用都还是基本的配置，所以我使用的方法就是最原始的，没有插件管理之类。但是发现vim安装插件还是比较麻烦的，所以就搜索插件管理插件的使用，比较拗口吧。下面先安装vundle插件。</p>
+<h3 id="Vundle插件安装"><a href="#Vundle插件安装" class="headerlink" title="Vundle插件安装"></a>Vundle插件安装</h3><p>vim-markdown 地址如下 <a href="https://github.com/plasticboy/vim-markdown" target="_blank" rel="noopener">https://github.com/plasticboy/vim-markdown</a></p>
+<p>不过安装插件之前先安装vundle插件，这样比较方便。当然也可以直接安装。</p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/10/06/vimVundleMarkdown/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/10/01/raspXunlei/"> 
+                    树莓派下载系列（一）————迅雷远程 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-10-01   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry-Pi/">Raspberry Pi</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/download/">download</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>树莓派一个（已经安装好raspberrypi系统）</p>
+<p>迅雷帐号一个（需要用来远程管理）</p>
+<p><em>经过使用，我的是电信宽带10M，树莓派3，迅雷普通会员，但是没什么卵用，下载依然具慢，而且十分容易死机。所以大家不要报太大的希望，和电脑绝对是两码事。</em></p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/10/01/raspXunlei/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/19/officeInstallError/"> 
+                    解决Win10安装Office 2013出现Error 2203错误 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-19   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Office/">Office</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/error-2203/">error 2203</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>由于不是办公电脑，所以之前一直用的是LibreOffice，金山的WPS也用过，因为广告比较多家人容易误点所以卸载了。Libreoffice的界面虽然没有微软的好看，不过功能一点都不少，而且兼容性作为普通的浏览是没有问题的，促使我更换的原因是启动太慢的问题。</p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/08/19/officeInstallError/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/10/deleteUbuntuos/"> 
+                    双系统删除Ubuntu（Win7+Ubuntu） 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-10   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>这个也是无奈之举，个人是很喜欢linux系统，不过ATI显卡确实不适合linux，本来机器就老了，散热也不行，加上显卡发热太大，开机不到一个小时就过热自动关机。所以没办法啦，只能删除Ubuntu。</p>
+<p><strong>注意：不能直接删除分区，直接删除Win7就进不去了。因为Ubuntu在管理Grub</strong><br>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/08/10/deleteUbuntuos/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/08/hexoErrors/"> 
+                    Hexo使用过程中遇到的问题 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-08   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo404/">hexo404</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <h2 id="1-点击继续阅读或文章标题出现404页面"><a href="#1-点击继续阅读或文章标题出现404页面" class="headerlink" title="1.点击继续阅读或文章标题出现404页面"></a>1.点击继续阅读或文章标题出现404页面</h2><p>这几天在看博客的时候突然发现自己的文章在首页显示，但是点击标题或者继续阅读以后直接出现404页面，第一反应就是被防火墙干扰了，然后赶紧试试代理，发现还是这样，这时候发现问题没那么简单了。</p>
+<p>然后用hexo s 测试本地的访问情况，却发现是没有问题的。不过重新部署以后依然404.</p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/08/08/hexoErrors/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/08/chromePlugin/"> 
+                    Chrome以及插件的下载与安装 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-08   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chrome/">Chrome</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/download/">download</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/extension/">extension</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>本来一个浏览器的事情，按说用不着大张旗鼓，可是一个浏览器关乎着我们的阅读质量，使用效率。所以还是用一个靠谱的比较放心。当然推荐Chrome，其实如果两年前我会推荐firefox，不过现在已经很长时间没用了。虽然电脑里面的ff一直没有卸载，不过也没再更新。</p>
+<h3 id="Chrome下载"><a href="#Chrome下载" class="headerlink" title="Chrome下载"></a>Chrome下载</h3>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/08/08/chromePlugin/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/08/vimClipboard/"> 
+                    Vim系统剪切板 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-08   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Vim/">Vim</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/clipboard/">clipboard</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>学习了Vim以后感觉挺好用的，现在基本的编辑文本都用Vim来处理。不过也有一些不是太方便的地方：比如和其他程序间的复制、粘贴。这个就比较麻烦,这次就是解决这个问题（也是平常网络上说的很多的Vim的<code>+</code>号剪切板）。由于Windows下面使用的Gvim基本不存在这种问题，下面说一下Mac和Linux。</p>
+<p><strong> 下面说的情况全部在终端环境，不习惯用图形化的，个人感觉不方便。</strong></p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/08/08/vimClipboard/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/08/winCmdCopy/"> 
+                    如何复制Windows命令行中的文本 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-08   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Windows/">Windows</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/cmd/">cmd</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>有时候需要在复制Windows的命令行中的一些内容，这个时候我们平时使用的CTRL+C命令就不适合了，因为在命令行里面的作用是直接中断。</p>
+<p><strong>一个简单的复制方法就是首先用鼠标选中需要复制的文本，然后按Enter按键（也就是回车）即可。</strong></p>
+
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/08/08/winCmdCopy/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
+                <a class="title" href="/2016/08/08/githubPages/"> 
+                    GithubPages和Hexo建立个人博客 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2016-08-08   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Github/">Github</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>之前一直用现成的博客网站写博客（其实就是记性不好），后来感觉限制太多，而且编辑方式也不是很方便（没有markdown）。也想到建一个自己的网站，不过太麻烦（其实不会弄）。后来发现了githubpages，良心产品，所以就整了一个。</p>
+<p>不说废话，第一篇博客还是记录一下自己的配置过程。（下面并没有具体的操作步骤，要学会站在巨人的肩膀）</p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2016/08/08/githubPages/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+</section>
+
+  <nav class="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>

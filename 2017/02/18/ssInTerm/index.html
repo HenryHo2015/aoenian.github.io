@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>
+        
+            MacOS/Linux/RPI 终端使用ss代理
+        
+    </title>
+    <link rel="icon" href="/img/favicon.png"/>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <link rel="stylesheet" href="/css/hljs.min.css">
+    <script src="/js/hljs.min.js"></script>  
+    <script src="/js/gitment.browser.js"></script>  
+</head>
+<body>
+    <header class="header" id="header">
+    <h1>
+        <a class="title" href="/">
+            aoenian&#39;s blog
+        </a>
+    </h1>
+    <h2>
+        <a class="motto">
+            珍惜时间，浪费在爱的人和事上！
+        </a>
+    </h2>
+    <nav class="navbar">
+        <ul class="menu">
+            
+            
+                <li class="menu-item">
+                    <a href="/" class="menu-item-link">
+                        Home
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/archives/" class="menu-item-link">
+                        Archives
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="/about/" class="menu-item-link">
+                        About
+                    </a>
+                </li>
+            
+                
+            
+                <li class="menu-item">
+                    <a href="https://github.com/aoenian" class="menu-item-link">
+                        Github
+                    </a>
+                </li>
+            
+                
+            
+                
+                
+                <li class="menu-item">
+                    <a class="menu-item-link search">
+                        Search                   
+                        <i class="fa fa-long-arrow-right search-icon" aria-hidden="true"></i>
+                    </a>
+                        <input placeholder="Search..." class="search-input" style="display:none;border:none!important;" onkeydown="onEnter(event)" onkeypress="onEnter(event)"></input>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+    <main class="main">
+        <article class="post">
+            <h1>
+                <a class="title" href="/2017/02/18/ssInTerm/"> 
+                    MacOS/Linux/RPI 终端使用ss代理 
+                </a>
+            </h1>
+            <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2017-02-18   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry-Pi/">Raspberry Pi</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RPI/">RPI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ss/">ss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/terminal/">terminal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树莓派/">树莓派</a></li></ul>
+            </div>
+<div class="toc">
+  <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-1"><span class="toc-list-text">安装ss</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-2"><span class="toc-list-text">运行ss</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-3"><span class="toc-list-text">使用终端代理</span></a></li></ol>
+</div>
+            <div class="content">
+                
+
+<p>
+这段时间需要编写程序访问一个网站，不过出现一个问题就是，网站无法在国内正常的访问，我是真的崩溃了。vim下载个插件，网络出问题，emacs整个配置也是问题百出。哎，无语凝噎！！
+</p>
+
+<p>
+所以咱们不能坐以待毙，终端使用ss走起。
+</p>
+
+<a id="more"></a>
+
+<p>
+<b>测试环境：</b>
+</p>
+<ul class="org-ul">
+<li>操作系统：RaspberryPi MacOS
+</li>
+</ul>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">安装ss</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<code>pip install shadowsocks</code>
+</p>
+
+<p>
+编辑ss的配置文件，位置 <code>/etc/shadowsocks.json</code> ，填写代码如下：
+</p>
+
+<p>
+<i>注意：/etc 目录下面没有配置文件无所谓，在home下面找个地方随便建一个就可以</i>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">{
+    "server":"your_server_ip",
+    "server_port":8388,
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "password":"yourpassword",
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "fast_open": false
+}
+</pre>
+</div>
+
+<p>
+<b>配置文件中的 <code>method</code> 需要注意，如果需要类似 <code>chacha20</code> 的加密方式，那么请看 <a href="https://ls12.me/libsodium-install.html" target="_blank" rel="noopener">这里</a> ，不过我没有尝试。</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">运行ss</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+启动： <code>sslocal -c /etc/shadowsocks.json</code>
+</p>
+
+<p>
+停止直接 <code>ctrl-c</code>
+这里我没有选择后台运行主要是为了查看访问网站时候的出错信息
+</p>
+
+<p>
+如果需要后台运行可以使用如下命令：
+</p>
+
+<pre class="example">
+启动：sslocal -c /etc/shadowsocks.json -d start
+停止：sslocal -c /etc/shadowsocks.json -d stop
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">使用终端代理</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+这里主要是由于ss使用的socks5协议终端不支持，所以需要使用协议转换工具。
+</p>
+
+<p>
+这里原文的 <code>polipo</code> 我这里没有成功，所以使用另一个软件 <code>proxychains</code>
+</p>
+
+<ul class="org-ul">
+<li>安装proxychains
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-bash"># Debian/Ubuntu:
+apt-get install proxychains
+# Mac OS X:
+brew install proxychains-ng
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>配置文件
+</li>
+</ul>
+
+<p>
+编辑 <code>~/.proxychains/proxychains.conf</code> 如果没有直接建一个
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">strict_chain
+proxy_dns 
+remote_dns_subnet 224
+tcp_read_time_out 15000
+tcp_connect_time_out 8000
+localnet 127.0.0.0/255.0.0.0
+quiet_mode
+
+[ProxyList]
+socks5  127.0.0.1 1080
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>使用方法
+
+<ul class="org-ul">
+<li>通过proxychains运行命令：
+
+<p>
+<code>proxychains4 curl https://www.twitter.com</code>
+</p>
+
+<p>
+<code>proxychains4 git push origin master</code>
+</p>
+</li>
+
+<li>直接代理bash（个人推荐，省心省力）
+
+<p>
+<code>proxychains4 bash</code>
+</p>
+</li>
+
+<li>测试
+
+<p>
+<code>curl ip.gs</code>  可以查看你现在的ip地址 来检测现在是否代理成功
+</p>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<p>
+<b>参考文章链接如下：</b>
+</p>
+<ul class="org-ul">
+<li><a href="http://www.jianshu.com/p/8e7d7f57bf59" target="_blank" rel="noopener">http://www.jianshu.com/p/8e7d7f57bf59</a>
+</li>
+<li><a href="https://segmentfault.com/a/1190000002589135" target="_blank" rel="noopener">https://segmentfault.com/a/1190000002589135</a>
+</li>
+</ul>
+</div>
+</div>
+
+Last Updated 2018-05-01 二 16:27.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
+
+            </div>
+          
+           
+            <div class="copyright">
+                <div class="name">
+                    <a>本文作者:</a>
+                    <a>aoenian</a>
+                </div>
+                <div class="link">
+                    <a>本文链接:</a>
+                    <a class="permalink" href="https://aoenian.github.io/2017/02/18/ssInTerm/">https://aoenian.github.io/2017/02/18/ssInTerm/</a>
+                </div>
+                <div class="license">
+                    <a>版权声明:</a>
+                    <a>本博客所有文章除特别声明外，均采用许可协议 CC BY-NC-SA 3.0 CN。转载请注明出处！</a>
+                </div>
+            </div>
+            
+
+          
+
+
+</article>
+
+
+<div class="more">
+
+    <div class="prev">
+   <a href="/2017/02/22/broadcast-multicast/">  IP地址相关以及广播和组播的区别</a>
+    </div>
+
+<div></div>
+
+    <div class="next">
+    <a href="/2017/02/16/raspDisableWirelessCard/"> 树莓派永久禁用无线网卡 </a>
+    </div>
+    
+</div>
+
+<div class="bdsharebuttonbox">
+<a href="#" class="bds_weixin fa fa-weixin" data-cmd="weixin" title="分享到微信" style="color:#1cbd8f">
+</a>
+<a href="#" class="bds_tsina fa fa-weibo" data-cmd="tsina" title="分享到新浪微博" style="color:#ff6363">
+</a>
+<a href="#" class="bds_twi fa fa-twitter" data-cmd="twi" title="分享到Twitter" style="color:#00A7EB">
+</a>
+<a href="#" class="bds_fbook fa fa-facebook" data-cmd="fbook" title="分享到Facebook" style="color:#00A7EB">
+</a>
+</div>
+<script>
+window._bd_share_config={
+    "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},
+    "share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='../../../../../static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+ 
+<div id="comments"></div>
+
+<script>
+    var gitment = new Gitment({
+    id: "Sat Feb 18 2017 00:00:00 GMT+0800",
+    owner: "",
+    repo: "",
+    oauth: {
+      client_id:"",
+      client_secret: "",
+    }
+  })
+  gitment.render('comments')
+</script>
+    </main>
+    <a class="not-found">not found!</a>
+    <div class="search-items">
+    </div>
+    <a href="#header" id="top" style="display:none">
+        <i class="fa fa-sort-asc fa-2x"></i>
+    </a>
+    <footer class="footer">
+    <div class="footer-copyright">©️2017
+    <a href="//github.com/Vevlins/toki" class="link" target="_blank">Toki</a>  by Vevlins
+    </div>
+</footer>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/toki.js"></script>  
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
