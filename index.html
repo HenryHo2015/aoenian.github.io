@@ -82,6 +82,52 @@
     
         <article class="post">
             <h1>
+                <a class="title" href="/2018/05/12/github-access-fast/"> 
+                    加快国内访问Github速度 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2018-05-12   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Github/">Github</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/fast/">fast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>
+有时候查看一些开源的项目和代码都会访问Github，自己的博客也在Page上，不过访问总是比较慢，原因不用说大家都知道，不过幸亏是还能访问，所以感觉已经挺知足了。
+</p>
+
+<p>
+但是慢点没关系，你不能最后样式都加载不出来吧，这有点过分了，所以搜索了一下解决方法，确实挺有效，记录如下。
+</p>
+
+<p>
+方法简单说就是在本地 <code>host</code> 文件中加入 <code>github.com</code> 的网站IP，绕过DNS解析。
+</p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2018/05/12/github-access-fast/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
                 <a class="title" href="/2018/05/06/github-hexo/"> 
                     Github和Hexo建站过程 
                 </a>
@@ -520,58 +566,6 @@
             </div>
             <div class="continue">
             <a href="/2017/03/12/router-config-1/">
-            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-            </div>
-        </article>
-        
-        <article class="post">
-            <h1>
-                <a class="title" href="/2017/03/08/switch-config-4/"> 
-                    交换机配置4——三层交换机VLAN联通 
-                </a>
-            </h1>
-                        <div class="meta">
-                <a class="date"> 
-                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
-                    2017-03-08   
-                </a>
-                
-                <a class="category">
-                    <i class="fa fa-th" aria-hidden="true"></i>  
-                </a>
-               
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Switch/">Switch</a></li></ul>
-                
-                <a class="tag">
-                    <i class="fa fa-tags" aria-hidden="true"></i>  
-                </a>
-                
-                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/vlan/">vlan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/三层交换机/">三层交换机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/链路聚合/">链路聚合</a></li></ul>
-            </div>
-            <div class="content">
-                
-                <p>
-<b>三层和二层交换机的链路聚合没有成功。可以通信，但聚合链路中拿走一条链路后则通信中断，这个是PT5.3版本的坑！！</b>
-</p>
-
-<p>
-<b>PT5.3这个大坑我上来就踩上了，这个版本的链路聚合有问题，当只有一条链路的时候，无法ping通。所以直觉就是链路聚合没有配置成功。请用6.2版本。</b>
-</p>
-
-<p>
-拓扑图如下：
-</p>
-
-
-<div class="figure">
-<p><img src="http://p1.bqimg.com/567571/05c407df35ae45f7.png" alt="05c407df35ae45f7.png">
-</p>
-</div>
-                
-            </div>
-            <div class="continue">
-            <a href="/2017/03/08/switch-config-4/">
             继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
             </a>
             </div>

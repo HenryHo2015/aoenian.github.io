@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>
         
-            交换机配置3——多交换机vlan划分
+            加快国内访问Github速度
         
     </title>
     <link rel="icon" href="/img/favicon.png"/>
@@ -80,147 +80,157 @@
     <main class="main">
         <article class="post">
             <h1>
-                <a class="title" href="/2017/03/05/switch-config-3/"> 
-                    交换机配置3——多交换机vlan划分 
+                <a class="title" href="/2018/05/12/github-access-fast/"> 
+                    加快国内访问Github速度 
                 </a>
             </h1>
             <div class="meta">
                 <a class="date"> 
                     <i class="fa fa-calendar" aria-hidden="true"></i>                    
-                    2017-03-05   
+                    2018-05-12   
                 </a>
                 
                 <a class="category">
                     <i class="fa fa-th" aria-hidden="true"></i>  
                 </a>
                
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Switch/">Switch</a></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Github/">Github</a></li></ul>
                 
                 <a class="tag">
                     <i class="fa fa-tags" aria-hidden="true"></i>  
                 </a>
                 
-                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/switch/">switch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vlan/">vlan</a></li></ul>
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/fast/">fast</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li></ul>
             </div>
 <div class="toc">
-  <ol class="toc-list"><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-1"><span class="toc-list-text">s1配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-2"><span class="toc-list-text">s2的配置</span></a></li><li class="toc-list-item toc-list-level-2"><a class="toc-list-link" href="#sec-3"><span class="toc-list-text">测试</span></a></li></ol>
+  
 </div>
             <div class="content">
                 
 
 <p>
-配置好的思科模拟器文件地址：<a href="https://github.com/aoenian/cisco-pkt/" target="_blank" rel="noopener">cisco-pkt</a>
+有时候查看一些开源的项目和代码都会访问Github，自己的博客也在Page上，不过访问总是比较慢，原因不用说大家都知道，不过幸亏是还能访问，所以感觉已经挺知足了。
 </p>
 
 <p>
-拓扑图
+但是慢点没关系，你不能最后样式都加载不出来吧，这有点过分了，所以搜索了一下解决方法，确实挺有效，记录如下。
 </p>
 
-
-<div class="figure">
-<p><img src="http://p1.bpimg.com/567571/0714c1e4dc533192.png" alt="0714c1e4dc533192.png">
+<p>
+方法简单说就是在本地 <code>host</code> 文件中加入 <code>github.com</code> 的网站IP，绕过DNS解析。
 </p>
-</div>
 
 <a id="more"></a>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">s1配置</h2>
-<div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-
-<pre class="src src-C">Switch(config)#vlan 10
-Switch(config-vlan)#name v10
-Switch(config-vlan)#exit
-Switch(config)#vlan 20
-Switch(config-vlan)#name v20
-Switch(config-vlan)#exit
-Switch(config)#interface f0/1
-Switch(config-if)#switchport mode access 
-Switch(config-if)#switchport access vlan 10
-Switch(config-if)#exit
-Switch(config)#interface f0/2
-Switch(config-if)#switchport mode access
-Switch(config-if)#switchport access vlan 20
-Switch(config-if)#exit
-Switch(config)#interface f0/24
-Switch(config-if)#switchport mode trunk         // 把24端口模式设置为trunk来进行交换机之间的通信
-
-%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to down
-
-%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to up
-
-Switch(config-if)#exit
-Switch(config)#exit
-Switch#write
-Building configuration...
-[OK]
-</pre>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">s2的配置</h2>
-<div class="outline-text-2" id="text-2">
 <p>
-<b>s2的配置和s1的配置几乎完全一样，这里只列出配置过程，不再注释</b>
+具体的操作如下：
 </p>
 
-<div class="org-src-container">
-
-<pre class="src src-C">Switch(config)#hostname s2      // 把交换机的名称改为s2
-s2(config)#interface f0/1
-s2(config-if)#exit
-s2(config)#vlan 10
-s2(config-vlan)#name v10
-s2(config-vlan)#exit
-s2(config)#vlan 20
-s2(config-vlan)#name v20
-s2(config-vlan)#exit
-s2(config)#interface f0/1
-s2(config-if)#switchport mode access 
-s2(config-if)#switchport access vlan 10
-s2(config-if)#exit
-s2(config)#interface f0/2
-s2(config-if)#switchport mode access 
-s2(config-if)#switchport access vlan 20
-s2(config-if)#exit
-s2(config)#interface f0/24
-s2(config-if)#switchport mode trunk
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">测试</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-pc1与pc3可以通信但与pc2无法通信
-</p>
-
-<p>
-pc2与pc4可以通信但与pc3无法通信
-</p>
-
-
-<p>
-<b>参考链接以及拓展阅读</b>
-</p>
-
-<ul class="org-ul">
-<li><a href="http://zhaoyuqiang.blog.51cto.com/6328846/1576016" target="_blank" rel="noopener"> Cisco基础【交换机】两个实例配置让你掌握交换机VLAN的划分</a>
+<ol class="org-ol">
+<li>打开查询域名映射的网站： <a href="http://tool.chinaz.com/dns/" target="_blank" rel="noopener">http://tool.chinaz.com/dns/</a> （国内的）  <a href="https://www.ipaddress.com/" target="_blank" rel="noopener">https://www.ipaddress.com/</a>  （国外的）
 </li>
-
-<li><a href="https://learningnetwork.cisco.com/docs/DOC-9289" target="_blank" rel="noopener">跨交换机的Vlan配置与管理</a>
+<li>查询下列域名的IP，多试几次，选择稳定的、延迟小的，然后记下IP地址
+<ul class="org-ul">
+<li><code>github.com</code>
+</li>
+<li><code>github.global.ssl.fastly.net</code>
+</li>
+<li><code>assets-cdn.github.com</code>
 </li>
 </ul>
-</div>
-</div>
+</li>
+<li>然后把查询到的IP和相应的域名按照格式写入到系统的 <code>hosts</code> 文件中后保存
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-Last Updated 2018-05-01 二 18:20.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">系统</th>
+<th scope="col" class="left">hosts文件位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Windows</td>
+<td class="left">C:\Windows\System32\drivers\etc\hosts</td>
+</tr>
+
+<tr>
+<td class="left">Linux</td>
+<td class="left">/etc/hosts</td>
+</tr>
+
+<tr>
+<td class="left">MacOS</td>
+<td class="left">/etc/hosts</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>刷新DNS
+通用的方法：重启机器或者禁用重连网络
+命令的方法如下：
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="left">
+
+<col class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">系统</th>
+<th scope="col" class="left">刷新DNS命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Windows</td>
+<td class="left"><code>ipconfig /flushdns</code></td>
+</tr>
+
+<tr>
+<td class="left">Ubuntu</td>
+<td class="left"><code>sudo /etc/init.d/networking restart</code></td>
+</tr>
+
+<tr>
+<td class="left">OS X v10.10.4 or later</td>
+<td class="left"><code>sudo killall -HUP mDNSResponder</code></td>
+</tr>
+
+<tr>
+<td class="left">OS X v10.10 through v10.10.3</td>
+<td class="left"><code>sudo discoveryutil mdnsflushcache</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>
+至于OS X的其他版本可参考官方网站： <a href="https://support.apple.com/en-us/HT202516" target="_blank" rel="noopener">Reset the DNS cache in OS X</a>
+</p>
+</li>
+<li>使用浏览器检验你的成果
+</li>
+</ol>
+
+<p>
+<b>参考博客</b>
+</p>
+<ul class="org-ul">
+<li><a href="https://blog.csdn.net/sunsteam/article/details/63253933" target="_blank" rel="noopener">Github访问慢解决办法</a>
+</li>
+<li><a href="https://www.jianshu.com/p/40d48340a6b2" target="_blank" rel="noopener">解决github访问慢方案</a>
+</li>
+</ul>
+
+Last Updated 2018-05-12 六 22:04.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
 
             </div>
           
@@ -232,7 +242,7 @@ Last Updated 2018-05-01 二 18:20.<br>Render by <a href="https://github.com/Code
                 </div>
                 <div class="link">
                     <a>本文链接:</a>
-                    <a class="permalink" href="https://aoenian.github.io/2017/03/05/switch-config-3/">https://aoenian.github.io/2017/03/05/switch-config-3/</a>
+                    <a class="permalink" href="https://aoenian.github.io/2018/05/12/github-access-fast/">https://aoenian.github.io/2018/05/12/github-access-fast/</a>
                 </div>
                 <div class="license">
                     <a>版权声明:</a>
@@ -249,14 +259,10 @@ Last Updated 2018-05-01 二 18:20.<br>Render by <a href="https://github.com/Code
 
 <div class="more">
 
-    <div class="prev">
-   <a href="/2017/03/05/switch-config-2/">  交换机配置2——单交换机VLAN划分</a>
-    </div>
-
 <div></div>
 
     <div class="next">
-    <a href="/2017/03/04/switch-config-1/"> 思科模拟器交换机设置1——密码设置 </a>
+    <a href="/2018/05/06/github-hexo/"> Github和Hexo建站过程 </a>
     </div>
     
 </div>
@@ -281,7 +287,7 @@ window._bd_share_config={
 
 <script>
     var gitment = new Gitment({
-    id: "Sun Mar 05 2017 00:00:00 GMT+0800",
+    id: "Sat May 12 2018 00:00:00 GMT+0800",
     owner: "",
     repo: "",
     oauth: {
