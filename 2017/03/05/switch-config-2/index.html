@@ -195,12 +195,7 @@
 <div class="outline-text-4" id="text-1-1-1">
 <div class="org-src-container">
 
-<pre class="src src-C">Switch#configure terminal       
-Switch(config)#vlan 10          // 创建vlan 10
-Switch(config-vlan)#name v10    // 为 vlan10 命名
-Switch(config-vlan)#exit
-Switch(config)#exit
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Switch<span class="preprocessor">#configure terminal       </span></span><br><span class="line">Switch(config)<span class="preprocessor">#vlan <span class="number">10</span>          <span class="comment">// 创建vlan 10</span></span></span><br><span class="line">Switch(config-vlan)<span class="preprocessor">#name v10    <span class="comment">// 为 vlan10 命名</span></span></span><br><span class="line">Switch(config-vlan)<span class="preprocessor">#exit</span></span><br><span class="line">Switch(config)<span class="preprocessor">#exit</span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -210,11 +205,7 @@ Switch(config)#exit
 <div class="outline-text-4" id="text-1-1-2">
 <div class="org-src-container">
 
-<pre class="src src-C">Switch#vlan database 
-Switch(vlan)#vlan 20 name v20
-VLAN 20 added:
-    Name: v20
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Switch<span class="preprocessor">#vlan database </span></span><br><span class="line">Switch(vlan)<span class="preprocessor">#vlan <span class="number">20</span> name v20</span></span><br><span class="line">VLAN <span class="number">20</span> added:</span><br><span class="line">    Name: v20</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -233,17 +224,7 @@ VLAN 20 added:
 <div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
 
-<pre class="src src-C">Switch(config)#interface f0/1           // 设置端口1
-Switch(config-if)#switchport mode access        // 设置端口模式
-Switch(config-if)#switchport access vlan 10     // 把此端口加入vlan10中
-Switch(config-if)#exit                  // 退回全局配置
-Switch(config)#interface range fastEthernet ?   // 查看帮助
-  &lt;0-9&gt;  FastEthernet interface number
-Switch(config)#interface range fastEthernet 0/2-10      // 设置2~10端口
-Switch(config-if-range)#switchport mode access          // 设置模式
-Switch(config-if-range)#switchport access vlan 10       
-Switch(config-if-range)#exit
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)<span class="preprocessor">#interface f0/<span class="number">1</span>           <span class="comment">// 设置端口1</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport mode access        <span class="comment">// 设置端口模式</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport access vlan <span class="number">10</span>     <span class="comment">// 把此端口加入vlan10中</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="preprocessor">#exit                  <span class="comment">// 退回全局配置</span></span></span><br><span class="line">Switch(config)<span class="preprocessor">#interface range fastEthernet ?   <span class="comment">// 查看帮助</span></span></span><br><span class="line">  &lt;<span class="number">0</span>-<span class="number">9</span>&gt;  <span class="function">FastEthernet interface number</span><br><span class="line"><span class="title">Switch</span><span class="params">(config)</span><span class="preprocessor">#interface range fastEthernet <span class="number">0</span>/<span class="number">2</span>-<span class="number">10</span>      <span class="comment">// 设置2~10端口</span></span></span><br><span class="line"><span class="title">Switch</span><span class="params">(config-<span class="keyword">if</span>-range)</span><span class="preprocessor">#switchport mode access          <span class="comment">// 设置模式</span></span></span><br><span class="line"><span class="title">Switch</span><span class="params">(config-<span class="keyword">if</span>-range)</span><span class="preprocessor">#switchport access vlan <span class="number">10</span>       </span></span><br><span class="line"><span class="title">Switch</span><span class="params">(config-<span class="keyword">if</span>-range)</span><span class="preprocessor">#exit</span></span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -253,10 +234,7 @@ Switch(config-if-range)#exit
 <div class="outline-text-4" id="text-1-2-2">
 <div class="org-src-container">
 
-<pre class="src src-C">Switch(config)#interface range f0/11-20
-Switch(config-if-range)#switchport mode access
-Switch(config-if-range)#switchport access vlan 20
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)<span class="preprocessor">#interface range f0/<span class="number">11</span>-<span class="number">20</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="preprocessor">#switchport mode access</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="preprocessor">#switchport access vlan <span class="number">20</span></span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -267,13 +245,7 @@ Switch(config-if-range)#switchport access vlan 20
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 
-<pre class="src src-C">Switch#write            // 一种方式
-Switch#copy running-config startup-config       // 另一种方法
-Destination filename [startup-config]? 
-Building configuration...
-[OK]
-Switch#
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Switch<span class="preprocessor">#write            <span class="comment">// 一种方式</span></span></span><br><span class="line">Switch<span class="preprocessor">#copy running-config startup-config       <span class="comment">// 另一种方法</span></span></span><br><span class="line">Destination filename [startup-config]? </span><br><span class="line">Building configuration...</span><br><span class="line">[OK]</span><br><span class="line">Switch<span class="preprocessor">#</span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -283,10 +255,7 @@ Switch#
 <div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
 
-<pre class="src src-C">Switch#show vlan        // 查看vlan配置
-
-Switch#show running-config      // 查看交换机配置
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Switch<span class="preprocessor">#show vlan        <span class="comment">// 查看vlan配置</span></span></span><br><span class="line"></span><br><span class="line">Switch<span class="preprocessor">#show running-config      <span class="comment">// 查看交换机配置</span></span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>

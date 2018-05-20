@@ -111,14 +111,7 @@
 <p><em>总觉得自己遇到的问题都特别奇葩。</em></p>
 <p>具体操作方法就是在vimrc文件中加入如下命令即可</p>
 <a id="more"></a>
-<pre><code class="vim">    augroup Format-Options
-        autocmd!
-        autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-        &quot; This can be done as well instead of the previous line, for setting formatoptions as you choose:
-        autocmd BufEnter * setlocal formatoptions=crqn2l1j
-    augroup END
-</code></pre>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">augroup</span> Format-Options</span><br><span class="line">    autocmd!</span><br><span class="line">    <span class="keyword">autocmd</span> BufEnter * <span class="keyword">setlocal</span> formatoptions-=<span class="keyword">c</span> formatoptions-=r formatoptions-=<span class="keyword">o</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">" This can be done as well instead of the previous line, for setting formatoptions as you choose:</span></span><br><span class="line">    <span class="keyword">autocmd</span> BufEnter * <span class="keyword">setlocal</span> formatoptions=crqn2l1j</span><br><span class="line"><span class="keyword">augroup</span> END</span><br></pre></td></tr></table></figure>
 <p>网络很多直接设置的方法在我这里都没有用，我的vim版本是7.4，而且我两台电脑上都不起作用。有时候找个靠谱的方法太难了。</p>
 
             </div>

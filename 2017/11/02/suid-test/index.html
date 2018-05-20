@@ -123,15 +123,7 @@
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 
-<pre class="src src-sh">[root@centos-rpi3 shc]# yum install automake
-[root@centos-rpi3 tmp]# git clone https://github.com/neurobin/shc.git
-[root@centos-rpi3 shc]# cd shc
-[root@centos-rpi3 shc]# mkdir m4
-[root@centos-rpi3 shc]# ./autogen.sh
-[root@centos-rpi3 shc]# ./configure
-[root@centos-rpi3 shc]# make
-[root@centos-rpi3 shc]# make install
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@centos-rpi3 shc]<span class="comment"># yum install automake</span></span><br><span class="line">[root@centos-rpi3 tmp]<span class="comment"># git clone https://github.com/neurobin/shc.git</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># cd shc</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># mkdir m4</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># ./autogen.sh</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># ./configure</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># make</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># make install</span></span><br></pre></td></tr></table></figure>
 </div>
 
 <a id="more"></a>
@@ -143,19 +135,7 @@
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 
-<pre class="src src-sh">[aoenian@centos-rpi3 tmp]$ vim rmfile.sh
-# rmfile.sh 
-# #!/bin/bash
-# rm -i /home/aoenian/file.txt
-
-[aoenian@centos-rpi3 tmp]$ shc -f rmfile.sh -o rmfile
-[aoenian@centos-rpi3 tmp]$ su test
-[test@centos-rpi3 tmp]$ ./rmfile
-[test@centos-rpi3 tmp]$ exit
-[aoenian@centos-rpi3 tmp]$ chmod 4755 rmfile
-[aoenian@centos-rpi3 tmp]$ su test
-[test@centos-rpi3 tmp]$ ./rmfile
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[aoenian@centos-rpi3 tmp]$ vim rmfile.sh</span><br><span class="line"><span class="comment"># rmfile.sh </span></span><br><span class="line"><span class="comment"># #!/bin/bash</span></span><br><span class="line"><span class="comment"># rm -i /home/aoenian/file.txt</span></span><br><span class="line"></span><br><span class="line">[aoenian@centos-rpi3 tmp]$ shc <span class="operator">-f</span> rmfile.sh -o rmfile</span><br><span class="line">[aoenian@centos-rpi3 tmp]$ su <span class="built_in">test</span></span><br><span class="line">[<span class="built_in">test</span>@centos-rpi3 tmp]$ ./rmfile</span><br><span class="line">[<span class="built_in">test</span>@centos-rpi3 tmp]$ <span class="built_in">exit</span></span><br><span class="line">[aoenian@centos-rpi3 tmp]$ chmod <span class="number">4755</span> rmfile</span><br><span class="line">[aoenian@centos-rpi3 tmp]$ su <span class="built_in">test</span></span><br><span class="line">[<span class="built_in">test</span>@centos-rpi3 tmp]$ ./rmfile</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -179,15 +159,7 @@
 
 <div class="org-src-container">
 
-<pre class="src src-sh">[aoenian@centos-rpi3 tmp]$ vi rmfile.c
-[aoenian@centos-rpi3 tmp]$ gcc -Wall rmfile.c -o rmfile
-[aoenian@centos-rpi3 tmp]$ touch test.txt
-[aoenian@centos-rpi3 tmp]$ chmod 4755 rmfile
-[aoenian@centos-rpi3 tmp]$ su test
-[test@centos-rpi3 tmp]$ ./rmfile
-The file to delete: test.txt
-Removed test.txt.
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[aoenian@centos-rpi3 tmp]$ vi rmfile.c</span><br><span class="line">[aoenian@centos-rpi3 tmp]$ gcc -Wall rmfile.c -o rmfile</span><br><span class="line">[aoenian@centos-rpi3 tmp]$ touch test.txt</span><br><span class="line">[aoenian@centos-rpi3 tmp]$ chmod <span class="number">4755</span> rmfile</span><br><span class="line">[aoenian@centos-rpi3 tmp]$ su <span class="built_in">test</span></span><br><span class="line">[<span class="built_in">test</span>@centos-rpi3 tmp]$ ./rmfile</span><br><span class="line">The file to delete: test.txt</span><br><span class="line">Removed test.txt.</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -204,18 +176,7 @@ rmfile.c文件的内容如下：
 
 <div class="org-src-container">
 
-<pre class="src src-C">#include&lt;stdio.h&gt;
-int main(){
-    char filename[80];
-    printf("The file to delete: ");
-    gets(filename);
-    if( remove(filename) == 0 )
-	printf("Removed %s.", filename);
-    else
-	perror("remove");
-    return 0;
-}
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="keyword">char</span> filename[<span class="number">80</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The file to delete: "</span>);</span><br><span class="line">    gets(filename);</span><br><span class="line">    <span class="keyword">if</span>( remove(filename) == <span class="number">0</span> )</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Removed %s."</span>, filename);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">	perror(<span class="string">"remove"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>

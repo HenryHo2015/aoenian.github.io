@@ -156,10 +156,7 @@
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">## RHEL/CentOS 7 64-Bit ##
-# wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm
-# rpm -ivh epel-release-7-10.noarch.rpm
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## RHEL/CentOS 7 64-Bit ##</span></span><br><span class="line"><span class="comment"># wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm</span></span><br><span class="line"><span class="comment"># rpm -ivh epel-release-7-10.noarch.rpm</span></span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -173,24 +170,7 @@
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">[root@CentOS-rpi3 aoenian]# cat /proc/version
-Linux version 4.9.50-v7.1.el7 (mockbuild@armv7-03.dev.CentOS.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC) ) #1 SMP Thu Sep 14 08:17:16 UTC 2017
-
-[root@CentOS-rpi3 aoenian]# uname -a
-Linux CentOS-rpi3 4.9.50-v7.1.el7 #1 SMP Thu Sep 14 08:17:16 UTC 2017 armv7l armv7l armv7l GNU/Linux
-
-[root@CentOS-rpi3 aoenian]# uname -r
-4.9.50-v7.1.el7
-
-[root@CentOS-rpi3 aoenian]# cat /etc/redhat-release
-CentOS Linux release 7.4.1708 (Core)
-
-[root@CentOS-rpi3 aoenian]# getconf LONG_BIT
-32
-
-[root@CentOS-rpi3 aoenian]# file /bin/ls
-/bin/ls: ELF 32-bit LSB executable, ARM, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=c591c4039d5eb3301eb8be1fa4ebaed8cd832240, stripped
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># cat /proc/version</span></span><br><span class="line">Linux version <span class="number">4.9</span>.<span class="number">50</span>-v7.<span class="number">1</span>.el7 (mockbuild@armv7-<span class="number">03</span>.dev.CentOS.org) (gcc version <span class="number">4.8</span>.<span class="number">5</span> <span class="number">20150623</span> (Red Hat <span class="number">4.8</span>.<span class="number">5</span>-<span class="number">16</span>) (GCC) ) <span class="comment">#1 SMP Thu Sep 14 08:17:16 UTC 2017</span></span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># uname -a</span></span><br><span class="line">Linux CentOS-rpi3 <span class="number">4.9</span>.<span class="number">50</span>-v7.<span class="number">1</span>.el7 <span class="comment">#1 SMP Thu Sep 14 08:17:16 UTC 2017 armv7l armv7l armv7l GNU/Linux</span></span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># uname -r</span></span><br><span class="line"><span class="number">4.9</span>.<span class="number">50</span>-v7.<span class="number">1</span>.el7</span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># cat /etc/redhat-release</span></span><br><span class="line">CentOS Linux release <span class="number">7.4</span>.<span class="number">1708</span> (Core)</span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># getconf LONG_BIT</span></span><br><span class="line"><span class="number">32</span></span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># file /bin/ls</span></span><br><span class="line">/bin/ls: ELF <span class="number">32</span>-bit LSB executable, ARM, version <span class="number">1</span> (SYSV), dynamically linked (uses shared libs), <span class="keyword">for</span> GNU/Linux <span class="number">2.6</span>.<span class="number">32</span>, BuildID[sha1]=c591c4039d5eb3301eb8be1fa4ebaed8<span class="built_in">cd</span>832240, stripped</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -204,13 +184,7 @@ CentOS Linux release 7.4.1708 (Core)
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">## RHEL/CentOS 6 32-Bit ##
-# wget http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-# rpm -ivh epel-release-6-8.noarch.rpm
-## RHEL/CentOS 6 64-Bit ##
-# wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-# rpm -ivh epel-release-6-8.noarch.rpm
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## RHEL/CentOS 6 32-Bit ##</span></span><br><span class="line"><span class="comment"># wget http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</span></span><br><span class="line"><span class="comment"># rpm -ivh epel-release-6-8.noarch.rpm</span></span><br><span class="line"><span class="comment">## RHEL/CentOS 6 64-Bit ##</span></span><br><span class="line"><span class="comment"># wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm</span></span><br><span class="line"><span class="comment"># rpm -ivh epel-release-6-8.noarch.rpm</span></span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -242,9 +216,7 @@ CentOS Linux release 7.4.1708 (Core)
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">rpm -qa | grep samba
-yum list installed | grep samba
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep samba</span><br><span class="line">yum list installed | grep samba</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -253,8 +225,7 @@ yum list installed | grep samba
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">yum remove samba*
-</pre>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yum remove samba*</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -263,8 +234,7 @@ yum list installed | grep samba
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">yum install samba* -y
-</pre>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">yum install samba* -y</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -281,8 +251,7 @@ yum list installed | grep samba
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">net config workstation
-</pre>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">net config workstation</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -301,10 +270,7 @@ yum list installed | grep samba
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">mkdir -p /samba/anonymous
-chmod -R 0777 /samba/anonymous
-chown -R nobody:nobody /samba/anonymous
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /samba/anonymous</span><br><span class="line">chmod -R <span class="number">0777</span> /samba/anonymous</span><br><span class="line">chown -R nobody:nobody /samba/anonymous</span><br></pre></td></tr></table></figure>
 </div>
 
 <ul class="org-ul">
@@ -314,17 +280,7 @@ chown -R nobody:nobody /samba/anonymous
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">systemctl stop firewalld.service #停止firewall
-systemctl disable firewalld.service #禁止firewall开机启动
-
-setenforce 0    # 关闭selinux
-getenforce      # 查看selinux的状态，应该是 Permissive
-
-# 彻底禁用selinux 编辑配置文件
-vim /etc/sysconfig/selinux    
-# 修改SELINUX
-SELINUX=disabled
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service <span class="comment">#停止firewall</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment">#禁止firewall开机启动</span></span><br><span class="line"></span><br><span class="line">setenforce <span class="number">0</span>    <span class="comment"># 关闭selinux</span></span><br><span class="line">getenforce      <span class="comment"># 查看selinux的状态，应该是 Permissive</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 彻底禁用selinux 编辑配置文件</span></span><br><span class="line">vim /etc/sysconfig/selinux    </span><br><span class="line"><span class="comment"># 修改SELINUX</span></span><br><span class="line">SELINUX=disabled</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -342,8 +298,7 @@ SELINUX=disabled
 
 <div class="org-src-container">
 
-<pre class="src src-Sh">cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
-</pre>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</span><br></pre></td></tr></table></figure>
 </div>
 
 <ul class="org-ul">
@@ -353,28 +308,7 @@ SELINUX=disabled
 
 <div class="org-src-container">
 
-<pre class="src src-python">vi /etc/samba/smb.conf
-
-# 可以把之前的内容注释掉，加入如下内容
-[global]
-	workgroup = WORKGROUP    # 跟win的工作组同名
-	server string = Samba Server Version %v    # 服务器描述
-	netbios name = CentOS    # 共享服务器在网络上显示的名字
-	security = user    # 使用 SAMBA 服务器本身的密码数据库
-	# 将所有Samba系统主机所不能正确识别的用户都映射成guest用户
-	map to guest = bad user    
-	dns proxy = no
-	log file = /var/log/samba/log.%m    # 日志文件位置
-	max log size = 50    # 日志大小
-
-[Anonymous]
-	comment = Anonymous File Server Share
-	path = /samba/anonymous
-	browsable = yes    # 让所有的用户看到这个项目
-	writable = yes    # 是否可以写入
-	guest ok = yes    # 是否允许guest账户访问
-	read only = no    # 是否只读，与wirtable类似，谁在后面厅听谁的
-</pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/samba/smb.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以把之前的内容注释掉，加入如下内容</span></span><br><span class="line">[<span class="keyword">global</span>]</span><br><span class="line">	workgroup = WORKGROUP    <span class="comment"># 跟win的工作组同名</span></span><br><span class="line">	server string = Samba Server Version %v    <span class="comment"># 服务器描述</span></span><br><span class="line">	netbios name = CentOS    <span class="comment"># 共享服务器在网络上显示的名字</span></span><br><span class="line">	security = user    <span class="comment"># 使用 SAMBA 服务器本身的密码数据库</span></span><br><span class="line">	<span class="comment"># 将所有Samba系统主机所不能正确识别的用户都映射成guest用户</span></span><br><span class="line">	map to guest = bad user    </span><br><span class="line">	dns proxy = no</span><br><span class="line">	log file = /var/log/samba/log.%m    <span class="comment"># 日志文件位置</span></span><br><span class="line">	max log size = <span class="number">50</span>    <span class="comment"># 日志大小</span></span><br><span class="line"></span><br><span class="line">[Anonymous]</span><br><span class="line">	comment = Anonymous File Server Share</span><br><span class="line">	path = /samba/anonymous</span><br><span class="line">	browsable = yes    <span class="comment"># 让所有的用户看到这个项目</span></span><br><span class="line">	writable = yes    <span class="comment"># 是否可以写入</span></span><br><span class="line">	guest ok = yes    <span class="comment"># 是否允许guest账户访问</span></span><br><span class="line">	read only = no    <span class="comment"># 是否只读，与wirtable类似，谁在后面厅听谁的</span></span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -388,11 +322,7 @@ SELINUX=disabled
 <div class="outline-text-4" id="text-2-2-3">
 <div class="org-src-container">
 
-<pre class="src src-sh">systemctl enable smb.service    # 加入开机启动
-systemctl enable nmb.service
-systemctl restart smb.service
-systemctl restart nmb.service
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> smb.service    <span class="comment"># 加入开机启动</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nmb.service</span><br><span class="line">systemctl restart smb.service</span><br><span class="line">systemctl restart nmb.service</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>

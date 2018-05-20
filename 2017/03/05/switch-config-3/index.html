@@ -124,33 +124,7 @@
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 
-<pre class="src src-C">Switch(config)#vlan 10
-Switch(config-vlan)#name v10
-Switch(config-vlan)#exit
-Switch(config)#vlan 20
-Switch(config-vlan)#name v20
-Switch(config-vlan)#exit
-Switch(config)#interface f0/1
-Switch(config-if)#switchport mode access 
-Switch(config-if)#switchport access vlan 10
-Switch(config-if)#exit
-Switch(config)#interface f0/2
-Switch(config-if)#switchport mode access
-Switch(config-if)#switchport access vlan 20
-Switch(config-if)#exit
-Switch(config)#interface f0/24
-Switch(config-if)#switchport mode trunk         // 把24端口模式设置为trunk来进行交换机之间的通信
-
-%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to down
-
-%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to up
-
-Switch(config-if)#exit
-Switch(config)#exit
-Switch#write
-Building configuration...
-[OK]
-</pre>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">Switch(config)#vlan 10</span><br><span class="line">Switch(config-vlan)#name v10</span><br><span class="line">Switch(config-vlan)#exit</span><br><span class="line">Switch(config)#vlan 20</span><br><span class="line">Switch(config-vlan)#name v20</span><br><span class="line">Switch(config-vlan)#exit</span><br><span class="line">Switch(config)#interface f0/1</span><br><span class="line">Switch(config-if)#switchport mode access </span><br><span class="line">Switch(config-if)#switchport access vlan 10</span><br><span class="line">Switch(config-if)#exit</span><br><span class="line">Switch(config)#interface f0/2</span><br><span class="line">Switch(config-if)#switchport mode access</span><br><span class="line">Switch(config-if)#switchport access vlan 20</span><br><span class="line">Switch(config-if)#exit</span><br><span class="line">Switch(config)#interface f0/24</span><br><span class="line">Switch(config-if)#switchport mode trunk         // 把24端口模式设置为trunk来进行交换机之间的通信</span><br><span class="line"></span><br><span class="line">%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to down</span><br><span class="line"></span><br><span class="line">%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/24, changed state to up</span><br><span class="line"></span><br><span class="line">Switch(config-if)#exit</span><br><span class="line">Switch(config)#exit</span><br><span class="line">Switch#write</span><br><span class="line">Building configuration...</span><br><span class="line">[OK]</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -165,26 +139,7 @@ Building configuration...
 
 <div class="org-src-container">
 
-<pre class="src src-C">Switch(config)#hostname s2      // 把交换机的名称改为s2
-s2(config)#interface f0/1
-s2(config-if)#exit
-s2(config)#vlan 10
-s2(config-vlan)#name v10
-s2(config-vlan)#exit
-s2(config)#vlan 20
-s2(config-vlan)#name v20
-s2(config-vlan)#exit
-s2(config)#interface f0/1
-s2(config-if)#switchport mode access 
-s2(config-if)#switchport access vlan 10
-s2(config-if)#exit
-s2(config)#interface f0/2
-s2(config-if)#switchport mode access 
-s2(config-if)#switchport access vlan 20
-s2(config-if)#exit
-s2(config)#interface f0/24
-s2(config-if)#switchport mode trunk
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)<span class="preprocessor">#hostname s2      <span class="comment">// 把交换机的名称改为s2</span></span></span><br><span class="line">s2(config)<span class="preprocessor">#interface f0/<span class="number">1</span></span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="preprocessor">#exit</span></span><br><span class="line">s2(config)<span class="preprocessor">#vlan <span class="number">10</span></span></span><br><span class="line">s2(config-vlan)<span class="preprocessor">#name v10</span></span><br><span class="line">s2(config-vlan)<span class="preprocessor">#exit</span></span><br><span class="line">s2(config)<span class="preprocessor">#vlan <span class="number">20</span></span></span><br><span class="line">s2(config-vlan)<span class="preprocessor">#name v20</span></span><br><span class="line">s2(config-vlan)<span class="preprocessor">#exit</span></span><br><span class="line">s2(config)<span class="preprocessor">#interface f0/<span class="number">1</span></span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport mode access </span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport access vlan <span class="number">10</span></span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="preprocessor">#exit</span></span><br><span class="line">s2(config)<span class="preprocessor">#interface f0/<span class="number">2</span></span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport mode access </span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport access vlan <span class="number">20</span></span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="preprocessor">#exit</span></span><br><span class="line">s2(config)<span class="preprocessor">#interface f0/<span class="number">24</span></span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport mode trunk</span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>

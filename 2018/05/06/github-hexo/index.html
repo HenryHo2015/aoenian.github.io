@@ -144,8 +144,7 @@
 <li><a href="https://brew.sh/index_zh-cn" target="_blank" rel="noopener">brew</a>    Mac系统下的包管理器
 <div class="org-src-container">
 
-<pre class="src src-Shell">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-</pre>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&#34;</span><br></pre></td></tr></table></figure>
 </div>
 </li>
 <li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs</a>
@@ -175,12 +174,7 @@
 
 <div class="org-src-container">
 
-<pre class="src src-Shell">$ mkdir ghblog
-$ hexo init ghblog
-$ cd ghblog
-$ npm install
-$ hexo s    # 启动服务器
-</pre>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">$ mkdir ghblog&#10;$ hexo init ghblog&#10;$ cd ghblog&#10;$ npm install&#10;$ hexo s    # &#21551;&#21160;&#26381;&#21153;&#22120;</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>
@@ -246,10 +240,7 @@ deploy:
 <div class="outline-text-4" id="text-3-3-1">
 <div class="org-src-container">
 
-<pre class="src src-Shell">cd ghblog/themes    # 进入主题目录
-git clone git@github.com:Vevlins/hexo-theme-toki.git    # 克隆主题
-npm i -S hexo-generator-json-content    # 安装 hexo-generator-json-content
-</pre>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">cd ghblog/themes    # &#36827;&#20837;&#20027;&#39064;&#30446;&#24405;&#10;git clone git@github.com:Vevlins/hexo-theme-toki.git    # &#20811;&#38534;&#20027;&#39064;&#10;npm i -S hexo-generator-json-content    # &#23433;&#35013; hexo-generator-json-content</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -259,36 +250,7 @@ npm i -S hexo-generator-json-content    # 安装 hexo-generator-json-content
 <div class="outline-text-4" id="text-3-3-2">
 <div class="org-src-container">
 
-<pre class="src src-Shell"># 关闭hexo自带代码高亮
-highlight:
-    enable: false
-
-# 更换主题
-theme: hexo-theme-toki
-
-# 更换url
-url: https://aoenian.github.io/
-
-# 增加 jsonContent配置
-jsonContent:
-    meta: false
-    pages: false
-    posts:
-	title: true
-	date: true
-	path: true
-	text: true
-	raw: false
-	content: false
-	slug: false
-	updated: false
-	comments: false
-	link: false
-	permalink: false
-	excerpt: false
-	categories: false
-	tags: false
-</pre>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"># &#20851;&#38381;hexo&#33258;&#24102;&#20195;&#30721;&#39640;&#20142;&#10;highlight:&#10;    enable: false&#10;&#10;# &#26356;&#25442;&#20027;&#39064;&#10;theme: hexo-theme-toki&#10;&#10;# &#26356;&#25442;url&#10;url: https://aoenian.github.io/&#10;&#10;# &#22686;&#21152; jsonContent&#37197;&#32622;&#10;jsonContent:&#10;    meta: false&#10;    pages: false&#10;    posts:&#10;&#9;title: true&#10;&#9;date: true&#10;&#9;path: true&#10;&#9;text: true&#10;&#9;raw: false&#10;&#9;content: false&#10;&#9;slug: false&#10;&#9;updated: false&#10;&#9;comments: false&#10;&#9;link: false&#10;&#9;permalink: false&#10;&#9;excerpt: false&#10;&#9;categories: false&#10;&#9;tags: false</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -311,10 +273,7 @@ jsonContent:
 <div class="outline-text-4" id="text-3-3-4">
 <div class="org-src-container">
 
-<pre class="src src-Shell">hexo new page about    # 建立about页面连接
-# 修改about中 index.md 中 layout:about 即可显示 
-# 分类页面和标签页面可按照相同的方法处理
-</pre>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">hexo new page about    # &#24314;&#31435;about&#39029;&#38754;&#36830;&#25509;&#10;# &#20462;&#25913;about&#20013; index.md &#20013; layout:about &#21363;&#21487;&#26174;&#31034; &#10;# &#20998;&#31867;&#39029;&#38754;&#21644;&#26631;&#31614;&#39029;&#38754;&#21487;&#25353;&#29031;&#30456;&#21516;&#30340;&#26041;&#27861;&#22788;&#29702;</span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>

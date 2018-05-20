@@ -252,18 +252,7 @@ Line配置模式的命令行提示符为： <code>Switch(config-line)#</code>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 
-<pre class="src src-C">Switch&gt;enable           // 进入特权模式
-Switch#config t         // 进入全局配置模式
-Enter configuration commands, one per line.  End with CNTL/Z.   
-Switch(config)#line console 0           // 进入console口配置
-Switch(config-line)#password cisco      // 设置密码
-Switch(config-line)#login               // 启用密码 很重要
-
-Switch(config-line)#end         // 退出到特权模式，也可以使用 exit
-Switch#copy running-config startup-config       // 把刚才的配置保存，避免重启后丢失
-
-Switch#reload           // 重启 验证
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Switch&gt;enable           <span class="comment">// 进入特权模式</span></span><br><span class="line">Switch<span class="preprocessor">#config t         <span class="comment">// 进入全局配置模式</span></span></span><br><span class="line">Enter configuration commands, one per line.  End with CNTL/Z.   </span><br><span class="line">Switch(config)<span class="preprocessor">#<span class="keyword">line</span> console <span class="number">0</span>           <span class="comment">// 进入console口配置</span></span></span><br><span class="line">Switch(config-line)<span class="preprocessor">#password cisco      <span class="comment">// 设置密码</span></span></span><br><span class="line">Switch(config-line)<span class="preprocessor">#login               <span class="comment">// 启用密码 很重要</span></span></span><br><span class="line"></span><br><span class="line">Switch(config-line)<span class="preprocessor">#end         <span class="comment">// 退出到特权模式，也可以使用 exit</span></span></span><br><span class="line">Switch<span class="preprocessor">#copy running-config startup-config       <span class="comment">// 把刚才的配置保存，避免重启后丢失</span></span></span><br><span class="line"></span><br><span class="line">Switch<span class="preprocessor">#reload           <span class="comment">// 重启 验证</span></span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -273,16 +262,7 @@ Switch#reload           // 重启 验证
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 
-<pre class="src src-C">// 特权密码有两种设置方法，password 和 secret ，建议使用 secret 设置
-// secret 设置优先级高，而且密码会使用密文显示
-Switch(config)#enable ?         // 两种密码设置方式
-  password  Assign the privileged level password
-  secret    Assign the privileged level secret
-
-Switch(config)#enable secret cisco      // 在全局模式下设置
-
-// 记得验证然后写入配置
-</pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 特权密码有两种设置方法，password 和 secret ，建议使用 secret 设置</span></span><br><span class="line"><span class="comment">// secret 设置优先级高，而且密码会使用密文显示</span></span><br><span class="line">Switch(config)<span class="preprocessor">#enable ?         <span class="comment">// 两种密码设置方式</span></span></span><br><span class="line">  <span class="function">password  Assign the privileged level password</span><br><span class="line">  secret    Assign the privileged level secret</span><br><span class="line"></span><br><span class="line"><span class="title">Switch</span><span class="params">(config)</span><span class="preprocessor">#enable secret cisco      <span class="comment">// 在全局模式下设置</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 记得验证然后写入配置</span></span></span><br></pre></td></tr></table></figure>
 </div>
 </div>
 </div>
@@ -296,20 +276,7 @@ Switch(config)#enable secret cisco      // 在全局模式下设置
 
 <div class="org-src-container">
 
-<pre class="src src-java">// 因为远程配置需要ip地址，所以需要给交换机配置管理ip
-Switch(config)#interface vlan 1         // 进入交换机的默认 1 号vlan
-Switch(config-if)#ip address 192.168.1.1 255.255.255.0  // 设置管理IP
-Switch(config-if)#no shutdown           // 启用vlan
-
-%LINK-5-CHANGED: Interface Vlan1, changed state to up
-%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
-
-Switch(config-if)#exit          // 退出到全局模式
-Switch(config)#line vty 0 4     // 配置远程虚拟接口 0 4 指5个接口 0到4
-Switch(config-line)#password cisco      // 设置密码
-Switch(config-line)#login               // 启用密码
-Switch(config-line)#end         // 退出
-</pre>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">// 因为远程配置需要ip地址，所以需要给交换机配置管理ip</span><br><span class="line">Switch(config)#interface vlan 1         // 进入交换机的默认 1 号vlan</span><br><span class="line">Switch(config-if)#ip address 192.168.1.1 255.255.255.0  // 设置管理IP</span><br><span class="line">Switch(config-if)#no shutdown           // 启用vlan</span><br><span class="line"></span><br><span class="line">%LINK-5-CHANGED: Interface Vlan1, changed state to up</span><br><span class="line">%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up</span><br><span class="line"></span><br><span class="line">Switch(config-if)#exit          // 退出到全局模式</span><br><span class="line">Switch(config)#line vty 0 4     // 配置远程虚拟接口 0 4 指5个接口 0到4</span><br><span class="line">Switch(config-line)#password cisco      // 设置密码</span><br><span class="line">Switch(config-line)#login               // 启用密码</span><br><span class="line">Switch(config-line)#end         // 退出</span><br></pre></td></tr></table></figure>
 </div>
 
 <p>

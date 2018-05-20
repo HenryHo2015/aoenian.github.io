@@ -82,6 +82,53 @@
     
         <article class="post">
             <h1>
+                <a class="title" href="/2018/05/20/raspi-version/"> 
+                    查看树莓派版本 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2018-05-20   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/RaspberryPi/">RaspberryPi</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspi/">raspi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/version/">version</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>
+安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作
+</p>
+
+<p>
+具体命令及作用如下：
+</p>
+
+<div class="org-src-container">
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT                <span class="comment"># 查看系统位数</span></span><br><span class="line">uname -a                        <span class="comment"># kernel 版本</span></span><br><span class="line">/opt/vc/bin/vcgencmd  version   <span class="comment"># firmware版本</span></span><br><span class="line">strings /boot/start.elf  |  grep VC_BUILD_ID    <span class="comment"># firmware版本</span></span><br><span class="line">cat /proc/version               <span class="comment"># kernel</span></span><br><span class="line">cat /etc/os-release             <span class="comment"># OS版本资讯</span></span><br><span class="line">cat /etc/issue                  <span class="comment"># Linux distro 版本</span></span><br><span class="line">cat /etc/debian_version         <span class="comment"># Debian版本编号</span></span><br></pre></td></tr></table></figure>
+</div>
+                
+            </div>
+            <div class="continue">
+            <a href="/2018/05/20/raspi-version/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
                 <a class="title" href="/2018/05/12/github-access-fast/"> 
                     加快国内访问Github速度 
                 </a>
@@ -220,15 +267,7 @@
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 
-<pre class="src src-sh">[root@centos-rpi3 shc]# yum install automake
-[root@centos-rpi3 tmp]# git clone https://github.com/neurobin/shc.git
-[root@centos-rpi3 shc]# cd shc
-[root@centos-rpi3 shc]# mkdir m4
-[root@centos-rpi3 shc]# ./autogen.sh
-[root@centos-rpi3 shc]# ./configure
-[root@centos-rpi3 shc]# make
-[root@centos-rpi3 shc]# make install
-</pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@centos-rpi3 shc]<span class="comment"># yum install automake</span></span><br><span class="line">[root@centos-rpi3 tmp]<span class="comment"># git clone https://github.com/neurobin/shc.git</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># cd shc</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># mkdir m4</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># ./autogen.sh</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># ./configure</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># make</span></span><br><span class="line">[root@centos-rpi3 shc]<span class="comment"># make install</span></span><br></pre></td></tr></table></figure>
 </div>
                 
             </div>
@@ -521,51 +560,6 @@
             </div>
             <div class="continue">
             <a href="/2017/03/18/switch-config-5/">
-            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-            </div>
-        </article>
-        
-        <article class="post">
-            <h1>
-                <a class="title" href="/2017/03/12/router-config-1/"> 
-                    思科路由器配置1——密码配置 
-                </a>
-            </h1>
-                        <div class="meta">
-                <a class="date"> 
-                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
-                    2017-03-12   
-                </a>
-                
-                <a class="category">
-                    <i class="fa fa-th" aria-hidden="true"></i>  
-                </a>
-               
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Router/">Router</a></li></ul>
-                
-                <a class="tag">
-                    <i class="fa fa-tags" aria-hidden="true"></i>  
-                </a>
-                
-                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/password/">password</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/router/">router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
-            </div>
-            <div class="content">
-                
-                <p>
-<a href="https://github.com/aoenian/cisco-pkt" target="_blank" rel="noopener">配置好的pkt文件</a>
-</p>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">密码配置</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-思科的交换机和路由器的密码配置操作是一样的，这里介绍的是交换机中没有涉及到的，但是也可以使用的配置。
-</p>
-                
-            </div>
-            <div class="continue">
-            <a href="/2017/03/12/router-config-1/">
             继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
             </a>
             </div>

@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <title>
         
-            树莓派安装ffmpeg（主要用于you-get视频的合并）
+            查看树莓派版本
         
     </title>
     <link rel="icon" href="/img/favicon.png"/>
@@ -80,45 +80,62 @@
     <main class="main">
         <article class="post">
             <h1>
-                <a class="title" href="/2016/12/01/installFfmpegOnRasp/"> 
-                    树莓派安装ffmpeg（主要用于you-get视频的合并） 
+                <a class="title" href="/2018/05/20/raspi-version/"> 
+                    查看树莓派版本 
                 </a>
             </h1>
             <div class="meta">
                 <a class="date"> 
                     <i class="fa fa-calendar" aria-hidden="true"></i>                    
-                    2016-12-01   
+                    2018-05-20   
                 </a>
                 
                 <a class="category">
                     <i class="fa fa-th" aria-hidden="true"></i>  
                 </a>
                
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry-Pi/">Raspberry Pi</a></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/RaspberryPi/">RaspberryPi</a></li></ul>
                 
                 <a class="tag">
                     <i class="fa fa-tags" aria-hidden="true"></i>  
                 </a>
                 
-                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspberry-pi/">raspberry pi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安装/">安装</a></li></ul>
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/raspi/">raspi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/version/">version</a></li></ul>
             </div>
 <div class="toc">
   
 </div>
             <div class="content">
-                <p>买了树莓派本来准备用来下BT，可谁知道国内除了迅雷，其他的下载软件的速度实在没办法看，所以平时下载大部分用you-get，还是挺好用的。</p>
-<p>因为文档上面说过需要安装ffmpeg，不过我在树莓派上使用了几次you-get居然下载合并成功了，不过由于我没注意看是否是分段下载的，也没注意是哪个网站，所以基本可以忽略，大还是老老实实安装。</p>
-<p>这也是我之前没有安装，可以昨天下载乐视出现问题了。无法合并，所以只能安装ffmpeg。</p>
-<p>具体的安装方法大家可以参考以下两个博客：</p>
-<ul>
-<li><p><a href="https://alair.cn/logs/raspberry-pi-install-ffmpeg.html" target="_blank" rel="noopener">https://alair.cn/logs/raspberry-pi-install-ffmpeg.html</a></p>
-</li>
-<li><p><a href="http://owenashurst.com/?p=242" target="_blank" rel="noopener">http://owenashurst.com/?p=242</a></p>
+                
+
+<p>
+安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作
+</p>
+
+<p>
+具体命令及作用如下：
+</p>
+
+<div class="org-src-container">
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT                <span class="comment"># 查看系统位数</span></span><br><span class="line">uname -a                        <span class="comment"># kernel 版本</span></span><br><span class="line">/opt/vc/bin/vcgencmd  version   <span class="comment"># firmware版本</span></span><br><span class="line">strings /boot/start.elf  |  grep VC_BUILD_ID    <span class="comment"># firmware版本</span></span><br><span class="line">cat /proc/version               <span class="comment"># kernel</span></span><br><span class="line">cat /etc/os-release             <span class="comment"># OS版本资讯</span></span><br><span class="line">cat /etc/issue                  <span class="comment"># Linux distro 版本</span></span><br><span class="line">cat /etc/debian_version         <span class="comment"># Debian版本编号</span></span><br></pre></td></tr></table></figure>
+</div>
+
+<a id="more"></a>
+
+<p>
+<i>虽然树莓派3b的硬件支持64位的系统，但是官方的系统还是32位的，主要应该是为了兼容之前的硬件</i>
+</p>
+
+<p>
+<b>参考</b>
+</p>
+<ul class="org-ul">
+<li><a href="https://www.raspberrypi.com.tw/10400/check-what-raspbian-version-you-are-running-on-the-raspberry-pi/" target="_blank" rel="noopener">如何看 Raspbian 的版本資訊？</a>
 </li>
 </ul>
-<a id="more"></a>
-<p>因为我是先按照第二个博客中的步骤操作，然后感觉太多又换到第一个博客。所以我也不清楚具体需要安装哪些，这就尴尬了-_-!</p>
-<p>不过我还是把我安装的步骤写下来以供参考：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先删除已经存在的依赖，然后更新系统重新安装依赖包</span></span><br><span class="line">sudo apt-get remove --purge libmp3lame-dev libtool libssl-dev libaacplus-* libx264 libvpx librtmp ffmpeg</span><br><span class="line"></span><br><span class="line">sudo apt-get update; sudo apt-get upgrade; sudo apt-get install libmp3lame-dev; sudo apt-get install -y libopus-dev; sudo apt-get install autoconf; sudo apt-get install libtool; sudo apt-get install checkinstall; sudo apt-get install libssl-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后按照上面第一个博客的步骤</span></span><br><span class="line"><span class="comment"># 安装h264编码器</span></span><br><span class="line">mkdir ~/src</span><br><span class="line"><span class="built_in">cd</span> ~/src</span><br><span class="line">git <span class="built_in">clone</span> git://git.videolan.org/x264</span><br><span class="line"><span class="built_in">cd</span> x264</span><br><span class="line">./configure --host=arm-unknown-linux-gnueabi --<span class="built_in">enable</span>-static --<span class="built_in">disable</span>-opencl</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># install ffmpeg</span></span><br><span class="line"><span class="built_in">cd</span> /usr/src</span><br><span class="line">git <span class="built_in">clone</span> git://source.ffmpeg.org/ffmpeg.git</span><br><span class="line"><span class="built_in">cd</span> ffmpeg</span><br><span class="line">sudo ./configure --arch=armel --target-os=linux --<span class="built_in">enable</span>-gpl --<span class="built_in">enable</span>-libx264 --<span class="built_in">enable</span>-nonfree</span><br><span class="line">make <span class="comment"># make 时间稍微长点，可以后台运行  nohup make &amp;</span></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+
+Last Updated 2018-05-20 日 18:51.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
 
             </div>
           
@@ -130,7 +147,7 @@
                 </div>
                 <div class="link">
                     <a>本文链接:</a>
-                    <a class="permalink" href="https://aoenian.github.io/2016/12/01/installFfmpegOnRasp/">https://aoenian.github.io/2016/12/01/installFfmpegOnRasp/</a>
+                    <a class="permalink" href="https://aoenian.github.io/2018/05/20/raspi-version/">https://aoenian.github.io/2018/05/20/raspi-version/</a>
                 </div>
                 <div class="license">
                     <a>版权声明:</a>
@@ -147,14 +164,10 @@
 
 <div class="more">
 
-    <div class="prev">
-   <a href="/2016/12/15/excelValueError/">  解决网页粘贴到Excel的数值计算出现#Value!错误</a>
-    </div>
-
 <div></div>
 
     <div class="next">
-    <a href="/2016/11/26/rimeConfig/"> Rime输入法配置——小鹤双拼 </a>
+    <a href="/2018/05/12/github-access-fast/"> 加快国内访问Github速度 </a>
     </div>
     
 </div>
@@ -179,7 +192,7 @@ window._bd_share_config={
 
 <script>
     var gitment = new Gitment({
-    id: "Thu Dec 01 2016 15:38:33 GMT+0800",
+    id: "Sun May 20 2018 00:00:00 GMT+0800",
     owner: "",
     repo: "",
     oauth: {
