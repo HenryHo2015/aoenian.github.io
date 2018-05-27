@@ -82,6 +82,58 @@
     
         <article class="post">
             <h1>
+                <a class="title" href="/2018/05/26/ffmpeg-concat-video/"> 
+                    ffmpeg剪切连接音视频 
+                </a>
+            </h1>
+                        <div class="meta">
+                <a class="date"> 
+                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
+                    2018-05-26   
+                </a>
+                
+                <a class="category">
+                    <i class="fa fa-th" aria-hidden="true"></i>  
+                </a>
+               
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FFmpeg/">FFmpeg</a></li></ul>
+                
+                <a class="tag">
+                    <i class="fa fa-tags" aria-hidden="true"></i>  
+                </a>
+                
+                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/concat/">concat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ffmpeg/">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/split/">split</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/video/">video</a></li></ul>
+            </div>
+            <div class="content">
+                
+                <p>
+这几天需要处理一下视频，开始以为只是简单的剪切和连接，没想到耗费了很多时间，现在把使用的方法总结出来，以后就不用重复寻找。
+</p>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">FFmpeg</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">音频</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+平时用音频操作基本就是剪切制作手机铃声，所以就只记录剪切的方法
+</p>
+
+<p>
+<code>ffmpeg -i input.mp3 -ss 00:01:12 -t 00:01:42 -acodec copy output.mp3</code>
+</p>
+                
+            </div>
+            <div class="continue">
+            <a href="/2018/05/26/ffmpeg-concat-video/">
+            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a>
+            </div>
+        </article>
+        
+        <article class="post">
+            <h1>
                 <a class="title" href="/2018/05/20/raspi-version/"> 
                     查看树莓派版本 
                 </a>
@@ -514,52 +566,6 @@
             </div>
             <div class="continue">
             <a href="/2017/03/22/switch-config-6/">
-            继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
-            </a>
-            </div>
-        </article>
-        
-        <article class="post">
-            <h1>
-                <a class="title" href="/2017/03/18/switch-config-5/"> 
-                    交换机配置5——链路聚合 
-                </a>
-            </h1>
-                        <div class="meta">
-                <a class="date"> 
-                    <i class="fa fa-calendar" aria-hidden="true"></i>                    
-                    2017-03-18   
-                </a>
-                
-                <a class="category">
-                    <i class="fa fa-th" aria-hidden="true"></i>  
-                </a>
-               
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Switch/">Switch</a></li></ul>
-                
-                <a class="tag">
-                    <i class="fa fa-tags" aria-hidden="true"></i>  
-                </a>
-                
-                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/三层/">三层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二层/">二层</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/链路聚合/">链路聚合</a></li></ul>
-            </div>
-            <div class="content">
-                
-                <p>
-<b>这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。</b>
-</p>
-
-<p>
-<a href="http://www.xiazaiba.com/html/28845.html" target="_blank" rel="noopener">PT6.2下载</a>
-</p>
-
-<p>
-<a href="https://github.com/aoenian/cisco-pkt" target="_blank" rel="noopener">配置好的pkt文件</a>
-</p>
-                
-            </div>
-            <div class="continue">
-            <a href="/2017/03/18/switch-config-5/">
             继续阅读            <i class="fa fa-angle-right" aria-hidden="true"></i>
             </a>
             </div>
