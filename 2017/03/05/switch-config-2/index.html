@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="单交换机VLAN配置   配置好的思科模拟器文件地址: cisco-pkt    配置参数                   名称 IP地址 所属VLAN 连接端口 网关     PC1 192.168.1.11/24 VLAN10 f0/1 192.168.1.254/24    PC2 192.168.1.12/24 VLAN10 f0/2 192.168.1.254/24    PC3">
+  <meta name="description" content="单交换机VLAN配置配置好的思科模拟器文件地址:cisco-pkt 配置参数    名称 IP地址 所属VLAN 连接端口 网关     PC1 192.168.1.11/24 VLAN10 f0/1 192.168.1.254/24   PC2 192.168.1.12/24 VLAN10 f0/2 192.168.1.254/24   PC3 192.168.2.11/24 VLAN20 f0">
 <meta name="keywords" content="switch,VLAN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="交换机配置2——单交换机VLAN划分">
+<meta property="og:title" content="思科交换机配置2——单交换机VLAN划分">
 <meta property="og:url" content="https://aoenian.github.io/2017/03/05/switch-config-2/index.html">
 <meta property="og:site_name" content="aoenian">
-<meta property="og:description" content="单交换机VLAN配置   配置好的思科模拟器文件地址: cisco-pkt    配置参数                   名称 IP地址 所属VLAN 连接端口 网关     PC1 192.168.1.11/24 VLAN10 f0/1 192.168.1.254/24    PC2 192.168.1.12/24 VLAN10 f0/2 192.168.1.254/24    PC3">
+<meta property="og:description" content="单交换机VLAN配置配置好的思科模拟器文件地址:cisco-pkt 配置参数    名称 IP地址 所属VLAN 连接端口 网关     PC1 192.168.1.11/24 VLAN10 f0/1 192.168.1.254/24   PC2 192.168.1.12/24 VLAN10 f0/2 192.168.1.254/24   PC3 192.168.2.11/24 VLAN20 f0">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-01T10:20:05.706Z">
+<meta property="og:updated_time" content="2018-06-23T09:20:09.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="交换机配置2——单交换机VLAN划分">
-<meta name="twitter:description" content="单交换机VLAN配置   配置好的思科模拟器文件地址: cisco-pkt    配置参数                   名称 IP地址 所属VLAN 连接端口 网关     PC1 192.168.1.11/24 VLAN10 f0/1 192.168.1.254/24    PC2 192.168.1.12/24 VLAN10 f0/2 192.168.1.254/24    PC3">
+<meta name="twitter:title" content="思科交换机配置2——单交换机VLAN划分">
+<meta name="twitter:description" content="单交换机VLAN配置配置好的思科模拟器文件地址:cisco-pkt 配置参数    名称 IP地址 所属VLAN 连接端口 网关     PC1 192.168.1.11/24 VLAN10 f0/1 192.168.1.254/24   PC2 192.168.1.12/24 VLAN10 f0/2 192.168.1.254/24   PC3 192.168.2.11/24 VLAN20 f0">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>交换机配置2——单交换机VLAN划分 | aoenian</title>
+  <title>思科交换机配置2——单交换机VLAN划分 | aoenian</title>
   
 
 
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">交换机配置2——单交换机VLAN划分
+          <h1 class="post-title" itemprop="name headline">思科交换机配置2——单交换机VLAN划分
               
             
           </h1>
@@ -340,7 +340,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-01 18:20:05" itemprop="dateModified" datetime="2018-05-01T18:20:05+08:00">2018-05-01</time>
+                <time title="修改时间：2018-06-23 17:20:09" itemprop="dateModified" datetime="2018-06-23T17:20:09+08:00">2018-06-23</time>
               
             
           </span>
@@ -357,7 +357,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Switch/" itemprop="url" rel="index"><span itemprop="name">Switch</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">Net</span></a></span>
 
                 
                 
@@ -391,175 +391,60 @@
       
 
       
-        
-
-
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">单交换机VLAN配置</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-配置好的思科模拟器文件地址: <a href="https://github.com/aoenian/cisco-pkt/" target="_blank" rel="noopener">cisco-pkt</a>
-</p>
-
-<p>
-配置参数
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col class="left">
-
-<col class="left">
-
-<col class="left">
-
-<col class="left">
-
-<col class="left">
-</colgroup>
+        <h1 id="单交换机VLAN配置"><a href="#单交换机VLAN配置" class="headerlink" title="单交换机VLAN配置"></a>单交换机VLAN配置</h1><p>配置好的思科模拟器文件地址:<a href="https://github.com/aoenian/cisco-pkt/" target="_blank" rel="noopener">cisco-pkt</a></p>
+<p>配置参数</p>
+<table>
 <thead>
 <tr>
-<th scope="col" class="left">名称</th>
-<th scope="col" class="left">IP地址</th>
-<th scope="col" class="left">所属VLAN</th>
-<th scope="col" class="left">连接端口</th>
-<th scope="col" class="left">网关</th>
+<th>名称</th>
+<th>IP地址</th>
+<th>所属VLAN</th>
+<th>连接端口</th>
+<th>网关</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">PC1</td>
-<td class="left">192.168.1.11/24</td>
-<td class="left">VLAN10</td>
-<td class="left">f0/1</td>
-<td class="left">192.168.1.254/24</td>
+<td>PC1</td>
+<td>192.168.1.11/24</td>
+<td>VLAN10</td>
+<td>f0/1</td>
+<td>192.168.1.254/24</td>
 </tr>
-
 <tr>
-<td class="left">PC2</td>
-<td class="left">192.168.1.12/24</td>
-<td class="left">VLAN10</td>
-<td class="left">f0/2</td>
-<td class="left">192.168.1.254/24</td>
+<td>PC2</td>
+<td>192.168.1.12/24</td>
+<td>VLAN10</td>
+<td>f0/2</td>
+<td>192.168.1.254/24</td>
 </tr>
-
 <tr>
-<td class="left">PC3</td>
-<td class="left">192.168.2.11/24</td>
-<td class="left">VLAN20</td>
-<td class="left">f0/11</td>
-<td class="left">192.168.2.254./24</td>
+<td>PC3</td>
+<td>192.168.2.11/24</td>
+<td>VLAN20</td>
+<td>f0/11</td>
+<td>192.168.2.254/24</td>
 </tr>
-
 <tr>
-<td class="left">PC4</td>
-<td class="left">192.168.2.12/24</td>
-<td class="left">VLAN20</td>
-<td class="left">f0/12</td>
-<td class="left">&#xa0;</td>
+<td>PC4</td>
+<td>192.168.2.12/24</td>
+<td>VLAN20</td>
+<td>f0/12</td>
+<td>192.168.2.254/24</td>
 </tr>
 </tbody>
 </table>
-
 <a id="more"></a>
-</div>
-
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1">创建VLAN</h3>
-<div class="outline-text-3" id="text-1-1">
-<p>
-<i>为了不占用太大的篇幅，一些命令的常规提示将不会写出来</i>
-</p>
-</div>
-
-<div id="outline-container-sec-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1">全局模式下配置</h4>
-<div class="outline-text-4" id="text-1-1-1">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="preprocessor">#configure terminal       </span></span><br><span class="line">Switch(config)<span class="preprocessor">#vlan <span class="number">10</span>          <span class="comment">// 创建vlan 10</span></span></span><br><span class="line">Switch(config-vlan)<span class="preprocessor">#name v10    <span class="comment">// 为 vlan10 命名</span></span></span><br><span class="line">Switch(config-vlan)<span class="preprocessor">#exit</span></span><br><span class="line">Switch(config)<span class="preprocessor">#exit</span></span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2">VLAN database 模式</h4>
-<div class="outline-text-4" id="text-1-1-2">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="preprocessor">#vlan database </span></span><br><span class="line">Switch(vlan)<span class="preprocessor">#vlan <span class="number">20</span> name v20</span></span><br><span class="line">VLAN <span class="number">20</span> added:</span><br><span class="line">    Name: v20</span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2">把端口加入相应的VLAN</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-端口的配置可以配置单个端口，也可以多个端口一块配置
-</p>
-</div>
-
-<div id="outline-container-sec-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1">把1~10号端口加入vlan10</h4>
-<div class="outline-text-4" id="text-1-2-1">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch(config)<span class="preprocessor">#interface f0/<span class="number">1</span>           <span class="comment">// 设置端口1</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport mode access        <span class="comment">// 设置端口模式</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="preprocessor">#switchport access vlan <span class="number">10</span>     <span class="comment">// 把此端口加入vlan10中</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="preprocessor">#exit                  <span class="comment">// 退回全局配置</span></span></span><br><span class="line">Switch(config)<span class="preprocessor">#interface range fastEthernet ?   <span class="comment">// 查看帮助</span></span></span><br><span class="line">  &lt;<span class="number">0</span>-<span class="number">9</span>&gt;  <span class="function">FastEthernet interface number</span><br><span class="line"><span class="title">Switch</span><span class="params">(config)</span><span class="preprocessor">#interface range fastEthernet <span class="number">0</span>/<span class="number">2</span>-<span class="number">10</span>      <span class="comment">// 设置2~10端口</span></span></span><br><span class="line"><span class="title">Switch</span><span class="params">(config-<span class="keyword">if</span>-range)</span><span class="preprocessor">#switchport mode access          <span class="comment">// 设置模式</span></span></span><br><span class="line"><span class="title">Switch</span><span class="params">(config-<span class="keyword">if</span>-range)</span><span class="preprocessor">#switchport access vlan <span class="number">10</span>       </span></span><br><span class="line"><span class="title">Switch</span><span class="params">(config-<span class="keyword">if</span>-range)</span><span class="preprocessor">#exit</span></span></span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2">把11-20号端口加入vlan20</h4>
-<div class="outline-text-4" id="text-1-2-2">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch(config)<span class="preprocessor">#interface range f0/<span class="number">11</span>-<span class="number">20</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="preprocessor">#switchport mode access</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="preprocessor">#switchport access vlan <span class="number">20</span></span></span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3">把配置写入</h3>
-<div class="outline-text-3" id="text-1-3">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="preprocessor">#write            <span class="comment">// 一种方式</span></span></span><br><span class="line">Switch<span class="preprocessor">#copy running-config startup-config       <span class="comment">// 另一种方法</span></span></span><br><span class="line">Destination filename [startup-config]? </span><br><span class="line">Building configuration...</span><br><span class="line">[OK]</span><br><span class="line">Switch<span class="preprocessor">#</span></span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4">查看vlan的配置</h3>
-<div class="outline-text-3" id="text-1-4">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="preprocessor">#show vlan        <span class="comment">// 查看vlan配置</span></span></span><br><span class="line"></span><br><span class="line">Switch<span class="preprocessor">#show running-config      <span class="comment">// 查看交换机配置</span></span></span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-1-5" class="outline-3">
-<h3 id="sec-1-5">测试</h3>
-<div class="outline-text-3" id="text-1-5">
-<p>
-pc1与pc2可以互相ping通，与pc3和pc4无法ping通
-</p>
-
-<p>
-更改pc3或pc4与pc1为一个网段的IP，依然无法与pc1通信。
-</p>
-</div>
-</div>
-</div>
-
-Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
+<h2 id="创建VLAN"><a href="#创建VLAN" class="headerlink" title="创建VLAN"></a>创建VLAN</h2><p><em>为了不占用太大的篇幅，一些命令的常规提示将不会写出来</em></p>
+<h3 id="全局模式下配置"><a href="#全局模式下配置" class="headerlink" title="全局模式下配置"></a>全局模式下配置</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="meta">#configure terminal   </span></span><br><span class="line">Switch(config)<span class="meta">#vlan 10      <span class="comment">// 创建vlan 10</span></span></span><br><span class="line">Switch(config-vlan)<span class="meta">#name v10    <span class="comment">// 为 vlan10 命名</span></span></span><br><span class="line">Switch(config-vlan)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#exit</span></span><br></pre></td></tr></table></figure>
+<h3 id="VLAN-database-模式"><a href="#VLAN-database-模式" class="headerlink" title="VLAN database 模式"></a>VLAN database 模式</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="meta">#vlan database </span></span><br><span class="line">Switch(vlan)<span class="meta">#vlan 20 name v20</span></span><br><span class="line">VLAN <span class="number">20</span> added:</span><br><span class="line">    Name: v20</span><br></pre></td></tr></table></figure>
+<h2 id="把端口加入相应的VLAN"><a href="#把端口加入相应的VLAN" class="headerlink" title="把端口加入相应的VLAN"></a>把端口加入相应的VLAN</h2><p>端口的配置可以配置单个端口，也可以多个端口一块配置</p>
+<h3 id="把1-10号端口加入vlan10"><a href="#把1-10号端口加入vlan10" class="headerlink" title="把1~10号端口加入vlan10"></a>把1~10号端口加入vlan10</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch(config)<span class="meta">#interface f0/1       <span class="comment">// 设置端口1</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access    <span class="comment">// 设置端口模式</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 10 <span class="comment">// 把此端口加入vlan10中</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#exit          <span class="comment">// 退回全局配置</span></span></span><br><span class="line">Switch(config)<span class="meta">#interface range fastEthernet ?   <span class="comment">// 查看帮助</span></span></span><br><span class="line">  &lt;<span class="number">0</span><span class="number">-9</span>&gt;  FastEthernet interface number</span><br><span class="line">Switch(config)<span class="meta">#interface range fastEthernet 0/2-10  <span class="comment">// 设置2~10端口</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="meta">#switchport mode access      <span class="comment">// 设置模式</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="meta">#switchport access vlan 10   </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="meta">#exit</span></span><br></pre></td></tr></table></figure>
+<h3 id="把11-20号端口加入vlan20"><a href="#把11-20号端口加入vlan20" class="headerlink" title="把11-20号端口加入vlan20"></a>把11-20号端口加入vlan20</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch(config)<span class="meta">#interface range f0/11-20</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="meta">#switchport mode access</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="meta">#switchport access vlan 20</span></span><br></pre></td></tr></table></figure>
+<h2 id="把配置写入"><a href="#把配置写入" class="headerlink" title="把配置写入"></a>把配置写入</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="meta">#write        <span class="comment">// 一种方式</span></span></span><br><span class="line">Switch<span class="meta">#copy running-config startup-config   <span class="comment">// 另一种方法</span></span></span><br><span class="line">Destination filename [startup-config]? </span><br><span class="line">Building configuration...</span><br><span class="line">[OK]</span><br><span class="line">Switch#</span><br></pre></td></tr></table></figure>
+<h2 id="查看vlan的配置"><a href="#查看vlan的配置" class="headerlink" title="查看vlan的配置"></a>查看vlan的配置</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="meta">#show vlan    <span class="comment">// 查看vlan配置</span></span></span><br><span class="line"></span><br><span class="line">Switch<span class="meta">#show running-config  <span class="comment">// 查看交换机配置</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>pc1与pc2可以互相ping通，与pc3和pc4无法ping通</p>
+<p>更改pc3或pc4与pc1为一个网段的IP，依然无法与pc1通信。</p>
 
       
     </div>
@@ -595,8 +480,8 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/04/switch-config-1/" rel="next" title="思科模拟器交换机设置1——密码设置">
-                <i class="fa fa-chevron-left"></i> 思科模拟器交换机设置1——密码设置
+              <a href="/2017/03/04/switch-config-1/" rel="next" title="思科交换机配置1——密码配置">
+                <i class="fa fa-chevron-left"></i> 思科交换机配置1——密码配置
               </a>
             
           </div>
@@ -605,8 +490,8 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/05/switch-config-3/" rel="prev" title="交换机配置3——多交换机vlan划分">
-                交换机配置3——多交换机vlan划分 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/05/switch-config-3/" rel="prev" title="思科交换机配置3——多交换机VLAN划分">
+                思科交换机配置3——多交换机VLAN划分 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -685,7 +570,7 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -712,27 +597,7 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -853,29 +718,7 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">65</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -911,7 +754,7 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">单交换机VLAN配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-1"><span class="nav-number">1.1.</span> <span class="nav-text">创建VLAN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-1-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">全局模式下配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-1-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">VLAN database 模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-2"><span class="nav-number">1.2.</span> <span class="nav-text">把端口加入相应的VLAN</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-1-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">把1~10号端口加入vlan10</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sec-1-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">把11-20号端口加入vlan20</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-3"><span class="nav-number">1.3.</span> <span class="nav-text">把配置写入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-4"><span class="nav-number">1.4.</span> <span class="nav-text">查看vlan的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sec-1-5"><span class="nav-number">1.5.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单交换机VLAN配置"><span class="nav-number">1.</span> <span class="nav-text">单交换机VLAN配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建VLAN"><span class="nav-number">1.1.</span> <span class="nav-text">创建VLAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局模式下配置"><span class="nav-number">1.1.1.</span> <span class="nav-text">全局模式下配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VLAN-database-模式"><span class="nav-number">1.1.2.</span> <span class="nav-text">VLAN database 模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把端口加入相应的VLAN"><span class="nav-number">1.2.</span> <span class="nav-text">把端口加入相应的VLAN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#把1-10号端口加入vlan10"><span class="nav-number">1.2.1.</span> <span class="nav-text">把1~10号端口加入vlan10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把11-20号端口加入vlan20"><span class="nav-number">1.2.2.</span> <span class="nav-text">把11-20号端口加入vlan20</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把配置写入"><span class="nav-number">1.3.</span> <span class="nav-text">把配置写入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看vlan的配置"><span class="nav-number">1.4.</span> <span class="nav-text">查看vlan的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">1.5.</span> <span class="nav-text">测试</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1109,75 +952,6 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
-
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
-
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap')
-      $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text()
-        }).toArray().join('\n')
-        var ta = document.createElement('textarea')
-        document.body.appendChild(ta)
-        ta.style.position = 'absolute'
-        ta.style.top = '0px'
-        ta.style.left = '0px'
-        ta.value = code
-        ta.select()
-        ta.focus()
-        var result = document.execCommand('copy')
-        document.body.removeChild(ta)
-        
-          if(result)$(this).text('复制成功')
-          else $(this).text('复制失败')
-        
-        $(this).blur()
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn')
-        setTimeout(function () {
-          $b.text('复制')
-        }, 300)
-      }).append(e)
-    })
-  </script>
-
 
 </body>
 </html>

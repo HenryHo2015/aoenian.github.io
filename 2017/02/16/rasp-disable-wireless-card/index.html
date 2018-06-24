@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="之前树莓派一直用的无线网卡，不过更新系统，安装软件，传输文件都实在太慢了，所以我找了一根网线把树莓派连在路由器上面。这样感觉好多了还是有线稳定啊。因为基本不再用无线，所以就准备把无线网卡禁用掉。 首先想到的就是在图形界面下面找到网络管理器，然后禁用。不过平时都是用的ssh连接的，没用过远程vnc，所以上网搜索了一下。把过程记录下来备用。">
+<meta name="keywords" content="wireless card,vnc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派永久禁用无线网卡">
+<meta property="og:url" content="https://aoenian.github.io/2017/02/16/rasp-disable-wireless-card/index.html">
+<meta property="og:site_name" content="aoenian">
+<meta property="og:description" content="之前树莓派一直用的无线网卡，不过更新系统，安装软件，传输文件都实在太慢了，所以我找了一根网线把树莓派连在路由器上面。这样感觉好多了还是有线稳定啊。因为基本不再用无线，所以就准备把无线网卡禁用掉。 首先想到的就是在图形界面下面找到网络管理器，然后禁用。不过平时都是用的ssh连接的，没用过远程vnc，所以上网搜索了一下。把过程记录下来备用。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-20T08:04:05.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树莓派永久禁用无线网卡">
+<meta name="twitter:description" content="之前树莓派一直用的无线网卡，不过更新系统，安装软件，传输文件都实在太慢了，所以我找了一根网线把树莓派连在路由器上面。这样感觉好多了还是有线稳定啊。因为基本不再用无线，所以就准备把无线网卡禁用掉。 首先想到的就是在图形界面下面找到网络管理器，然后禁用。不过平时都是用的ssh连接的，没用过远程vnc，所以上网搜索了一下。把过程记录下来备用。">
+
+
+
+
+
+
+  <link rel="canonical" href="https://aoenian.github.io/2017/02/16/rasp-disable-wireless-card/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>树莓派永久禁用无线网卡 | aoenian</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">aoenian</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/02/16/rasp-disable-wireless-card/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">树莓派永久禁用无线网卡
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-02-16 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-16T00:00:00+08:00">2017-02-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-20 16:04:05" itemprop="dateModified" datetime="2018-06-20T16:04:05+08:00">2018-06-20</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Raspberry-Pi/" itemprop="url" rel="index"><span itemprop="name">Raspberry Pi</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>之前树莓派一直用的无线网卡，不过更新系统，安装软件，传输文件都实在太慢了，所以我找了一根网线把树莓派连在路由器上面。这样感觉好多了还是有线稳定啊。因为基本不再用无线，所以就准备把无线网卡禁用掉。</p>
+<p>首先想到的就是在图形界面下面找到网络管理器，然后禁用。不过平时都是用的ssh连接的，没用过远程vnc，所以上网搜索了一下。把过程记录下来备用。</p>
+<a id="more"></a>
+<h2 id="树莓派远程vnc连接"><a href="#树莓派远程vnc连接" class="headerlink" title="树莓派远程vnc连接"></a>树莓派远程vnc连接</h2><h3 id="在树莓派上安装tightvnc服务端"><a href="#在树莓派上安装tightvnc服务端" class="headerlink" title="在树莓派上安装tightvnc服务端"></a>在树莓派上安装tightvnc服务端</h3><p>终端执行命令： <code>sudo apt-get install tightvncserver</code><br>安装完成以后执行命令： <code>tightvncserver</code> 启动。在启动的过程中软件会让用户输入控制密码，为了安全还是设置一个，还有一个只能观看的密码这个看自己需要，我没有设置。</p>
+<p>然后在网络上面下载一个 <code>tightvnc</code>的客户端就可以了，官方网站<a href="http://www.tightvnc.com/" target="_blank" rel="noopener">tightvnc</a>.<br>mac用户可以使用 <code>realvnc</code></p>
+<h3 id="vnc连接"><a href="#vnc连接" class="headerlink" title="vnc连接"></a>vnc连接</h3><p>启动pc上面的tightvnc，在remote host里面输入： <code>你的树莓派的IP地址:1</code> 点击连接即可。</p>
+<p><em>其实上面你输入的 <code>:1</code> 就是控制台号码，如果你留意的话，在tightvncserver启动的时候会出现一个 <code>:1</code>的提示，告诉你这是第几个控制台，当然你可以打开多个控制台。</em></p>
+<h2 id="永久禁用无线网卡"><a href="#永久禁用无线网卡" class="headerlink" title="永久禁用无线网卡"></a>永久禁用无线网卡</h2><p>搞定vnc以后一查看发现，网络控制管理里面没有禁用网卡的选项。只能看看其他的办法。</p>
+<p><strong>这里说一下，网络上使用 <code>sudo ifconfig eth0 down</code> 这个命令也可以不过重启以后就失效了，当然也可以做一个开机启动的脚本，这是后话。</strong></p>
+<p>这里用的方法是通过配置文件禁用无线网卡驱动。</p>
+<h3 id="安装-lshw-命令"><a href="#安装-lshw-命令" class="headerlink" title="安装 lshw 命令"></a>安装 <code>lshw</code> 命令</h3><p>终端执行命令 <code>sudo apt-get install lshw</code></p>
+<h3 id="执行-lshw-命令，查看无线驱动名称，并加入禁用名单"><a href="#执行-lshw-命令，查看无线驱动名称，并加入禁用名单" class="headerlink" title="执行 lshw 命令，查看无线驱动名称，并加入禁用名单"></a>执行 <code>lshw</code> 命令，查看无线驱动名称，并加入禁用名单</h3><p>执行命令以后查看 <code>network:0 description: Wireless interface</code> 在这个里面找到 <code>driver=brcmfmac</code> 那么这个 <code>brcmfmac</code> 就是驱动名称。</p>
+<p>记好你的机器显示的那个名称（我不确定大家是不是都一样），然后在文件 <code>/etc/modprobe.d/fbdev-blacklist.conf</code> 的末尾加入一行 <code>blacklist brcmfmac</code> ，保存退出。</p>
+<p><em>重启搞定，你会发现你的无线网络已经没有了。当然如果还想使用的话，把那一行代码删掉即可。</em></p>
+<p><strong>参考链接：</strong></p>
+<ul>
+<li><a href="http://os.51cto.com/art/201108/284130.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201108/284130.htm</a></li>
+<li><a href="http://shumeipai.nxez.com/2013/09/04/login-rpi-with-vnc.html" target="_blank" rel="noopener">http://shumeipai.nxez.com/2013/09/04/login-rpi-with-vnc.html</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/wireless-card/" rel="tag"># wireless card</a>
+          
+            <a href="/tags/vnc/" rel="tag"># vnc</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/15/excel-value-error/" rel="next" title="解决网页粘贴到Excel的数值计算出现#Value!错误">
+                <i class="fa fa-chevron-left"></i> 解决网页粘贴到Excel的数值计算出现#Value!错误
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/18/ss-in-terminal/" rel="prev" title="MacOS/RPI 终端使用ss代理">
+                MacOS/RPI 终端使用ss代理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="aoenian" />
+            
+              <p class="site-author-name" itemprop="name">aoenian</p>
+              <p class="site-description motion-element" itemprop="description">总会遇到一个彩虹般绚烂的人</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#树莓派远程vnc连接"><span class="nav-number">1.</span> <span class="nav-text">树莓派远程vnc连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在树莓派上安装tightvnc服务端"><span class="nav-number">1.1.</span> <span class="nav-text">在树莓派上安装tightvnc服务端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vnc连接"><span class="nav-number">1.2.</span> <span class="nav-text">vnc连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#永久禁用无线网卡"><span class="nav-number">2.</span> <span class="nav-text">永久禁用无线网卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-lshw-命令"><span class="nav-number">2.1.</span> <span class="nav-text">安装 lshw 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行-lshw-命令，查看无线驱动名称，并加入禁用名单"><span class="nav-number">2.2.</span> <span class="nav-text">执行 lshw 命令，查看无线驱动名称，并加入禁用名单</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aoenian</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言性子急的可以跳过，直接看后面的配置 需求树莓派安装了CentOS7以后感觉还不错，正好大部分学习linux的资料都是CentOS为主，所以就准备长期使用，然后这两天用you-get下载了一些视频，然后想拷贝出来，这时候突然发现CentOS不能写入ntfs格式的U盘，哎，开源和微软之间总有那么一道肉隐肉现的鸿沟。 那么需求来了，让CentOS读取ntfs，搜索一番，发现很简单就是安装一个ntfs">
+<meta name="keywords" content="centos,samba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7安装配置Samba">
+<meta property="og:url" content="https://aoenian.github.io/2017/10/29/centos-samba/index.html">
+<meta property="og:site_name" content="aoenian">
+<meta property="og:description" content="前言性子急的可以跳过，直接看后面的配置 需求树莓派安装了CentOS7以后感觉还不错，正好大部分学习linux的资料都是CentOS为主，所以就准备长期使用，然后这两天用you-get下载了一些视频，然后想拷贝出来，这时候突然发现CentOS不能写入ntfs格式的U盘，哎，开源和微软之间总有那么一道肉隐肉现的鸿沟。 那么需求来了，让CentOS读取ntfs，搜索一番，发现很简单就是安装一个ntfs">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-09T01:44:42.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS7安装配置Samba">
+<meta name="twitter:description" content="前言性子急的可以跳过，直接看后面的配置 需求树莓派安装了CentOS7以后感觉还不错，正好大部分学习linux的资料都是CentOS为主，所以就准备长期使用，然后这两天用you-get下载了一些视频，然后想拷贝出来，这时候突然发现CentOS不能写入ntfs格式的U盘，哎，开源和微软之间总有那么一道肉隐肉现的鸿沟。 那么需求来了，让CentOS读取ntfs，搜索一番，发现很简单就是安装一个ntfs">
+
+
+
+
+
+
+  <link rel="canonical" href="https://aoenian.github.io/2017/10/29/centos-samba/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>CentOS7安装配置Samba | aoenian</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">aoenian</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/10/29/centos-samba/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CentOS7安装配置Samba
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-29T00:00:00+08:00">2017-10-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-09 09:44:42" itemprop="dateModified" datetime="2018-06-09T09:44:42+08:00">2018-06-09</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><em>性子急的可以跳过，直接看后面的配置</em></p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>树莓派安装了CentOS7以后感觉还不错，正好大部分学习linux的资料都是CentOS为主，所以就准备长期使用，然后这两天用you-get下载了一些视频，然后想拷贝出来，这时候突然发现CentOS不能写入ntfs格式的U盘，哎，开源和微软之间总有那么一道肉隐肉现的鸿沟。</p>
+<p>那么需求来了，让CentOS读取ntfs，搜索一番，发现很简单就是安装一个ntfs-3g的软件的事情，不过就这么个问题废老大劲了。</p>
+<p><strong>2018-06-05更新：32位安装ntfs-3g可<a href="https://www.tuxera.com/community/open-source-ntfs-3g/" target="_blank" rel="noopener">官网</a>下载源码直接编译安装，64位的可以直接安装<a href="https://fedoraproject.org/wiki/EPEL" target="_blank" rel="noopener">EPEL</a>然后再安装相应的软件</strong></p>
+<a id="more"></a>
+<p>当时查看系统的位数，找到的一些系统信息查看的方法，总结记录如下。</p>
+<ul>
+<li>查看CentOS的版本</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># cat /proc/version</span></span><br><span class="line">Linux version 4.9.50-v7.1.el7 (mockbuild@armv7-03.dev.CentOS.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-16) (GCC) ) <span class="comment">#1 SMP Thu Sep 14 08:17:16 UTC 2017</span></span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># uname -a</span></span><br><span class="line">Linux CentOS-rpi3 4.9.50-v7.1.el7 <span class="comment">#1 SMP Thu Sep 14 08:17:16 UTC 2017 armv7l armv7l armv7l GNU/Linux</span></span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># uname -r</span></span><br><span class="line">4.9.50-v7.1.el7</span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># cat /etc/redhat-release</span></span><br><span class="line">CentOS Linux release 7.4.1708 (Core)</span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># getconf LONG_BIT</span></span><br><span class="line">32</span><br><span class="line"></span><br><span class="line">[root@CentOS-rpi3 aoenian]<span class="comment"># file /bin/ls</span></span><br><span class="line">/bin/ls: ELF 32-bit LSB executable, ARM, version 1 (SYSV), dynamically linked (uses shared libs), <span class="keyword">for</span> GNU/Linux 2.6.32, BuildID[sha1]=c591c4039d5eb3301eb8be1fa4ebaed8cd832240, stripped</span><br></pre></td></tr></table></figure>
+<h1 id="安装配置Samba"><a href="#安装配置Samba" class="headerlink" title="安装配置Samba"></a>安装配置Samba</h1><p>CentOS的共享比较麻烦具体下面介绍</p>
+<h2 id="安装Samba"><a href="#安装Samba" class="headerlink" title="安装Samba"></a>安装Samba</h2><p>先查看是否安装Samba</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -qa | grep samba</span><br><span class="line">yum list installed | grep samba</span><br></pre></td></tr></table></figure>
+<p>如果已经安装那么可以跳过，如果没有正确安装可以先删除再重新安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 删除samba</span></span><br><span class="line">yum remove samba*</span><br></pre></td></tr></table></figure>
+<p>接着，连上网络，安装samba</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install samba* -y</span><br></pre></td></tr></table></figure>
+<h2 id="配置一个完全权限的共享目录"><a href="#配置一个完全权限的共享目录" class="headerlink" title="配置一个完全权限的共享目录"></a>配置一个完全权限的共享目录</h2><h3 id="查看windows的工作组"><a href="#查看windows的工作组" class="headerlink" title="查看windows的工作组"></a>查看windows的工作组</h3><p>打开win的cmd窗口，快捷键 win+r 然后输入 cmd<br>回车即可，并在窗口输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net config workstation</span><br></pre></td></tr></table></figure>
+<p>找到 <code>Workstation domain</code> 一行，值应该是 <code>WORKGROUP</code> 下面配置Samba要用到</p>
+<h3 id="配置Samba"><a href="#配置Samba" class="headerlink" title="配置Samba"></a>配置Samba</h3><ul>
+<li>创建共享目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir -p /samba/anonymous</span><br><span class="line">chmod -R 0777 /samba/anonymous</span><br><span class="line">chown -R nobody:nobody /samba/anonymous</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关掉防火墙和selinux</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld.service <span class="comment">#停止firewall</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service <span class="comment">#禁止firewall开机启动</span></span><br><span class="line"></span><br><span class="line">setenforce 0    <span class="comment"># 关闭selinux</span></span><br><span class="line">getenforce      <span class="comment"># 查看selinux的状态，应该是 Permissive</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 彻底禁用selinux 编辑配置文件</span></span><br><span class="line">vim /etc/sysconfig/selinux    </span><br><span class="line"><span class="comment"># 修改SELINUX</span></span><br><span class="line">SELINUX=disabled</span><br></pre></td></tr></table></figure>
+<p><em>如果防火墙不关闭，查看共享会出现连接失败；如果selinux不关闭，则无法看到共享目录的内容</em></p>
+<p><em>当然为了安全期间，可以对Samba的端口放行，设置selinux分享Samba的目录，大家可以参考其他博文</em></p>
+<ul>
+<li>备份配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /etc/samba/smb.conf /etc/samba/smb.conf.bak</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/samba/smb.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以把之前的内容注释掉，加入如下内容</span></span><br><span class="line">[global]</span><br><span class="line">        workgroup = WORKGROUP    <span class="comment"># 跟win的工作组同名</span></span><br><span class="line">        server string = Samba Server Version %v    <span class="comment"># 服务器描述</span></span><br><span class="line">        netbios name = CentOS    <span class="comment"># 共享服务器在网络上显示的名字</span></span><br><span class="line">        security = user    <span class="comment"># 使用 SAMBA 服务器本身的密码数据库</span></span><br><span class="line">    <span class="comment"># 将所有Samba系统主机所不能正确识别的用户都映射成guest用户</span></span><br><span class="line">        map to guest = bad user    </span><br><span class="line">        dns proxy = no</span><br><span class="line">        <span class="built_in">log</span> file = /var/<span class="built_in">log</span>/samba/<span class="built_in">log</span>.%m    <span class="comment"># 日志文件位置</span></span><br><span class="line">        max <span class="built_in">log</span> size = 50    <span class="comment"># 日志大小</span></span><br><span class="line"></span><br><span class="line">[Anonymous]</span><br><span class="line">        comment = Anonymous File Server Share</span><br><span class="line">        path = /samba/anonymous</span><br><span class="line">        browsable = yes    <span class="comment"># 让所有的用户看到这个项目</span></span><br><span class="line">        writable = yes    <span class="comment"># 是否可以写入</span></span><br><span class="line">        guest ok = yes    <span class="comment"># 是否允许guest账户访问</span></span><br><span class="line">        <span class="built_in">read</span> only = no    <span class="comment"># 是否只读，与wirtable类似，谁在后面听谁的</span></span><br></pre></td></tr></table></figure>
+<p><em>保存配置文件，并退出，到此一个完全共享的目录基本配置完毕</em></p>
+<h3 id="重启smaba"><a href="#重启smaba" class="headerlink" title="重启smaba"></a>重启smaba</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> smb.service    <span class="comment"># 加入开机启动</span></span><br><span class="line">systemctl <span class="built_in">enable</span> nmb.service</span><br><span class="line">systemctl restart smb.service</span><br><span class="line">systemctl restart nmb.service</span><br></pre></td></tr></table></figure>
+<p><em>配置完成，可在其他系统查看共享目录和文件</em></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://lintut.com/easy-samba-installation-on-rhel-centos-7/" target="_blank" rel="noopener">Easy Samba installation on RHEL/CentOS7</a></li>
+<li><a href="https://www.unixmen.com/install-configure-samba-server-centos-7/" target="_blank" rel="noopener">Install And Configure Samba Server In CentOS7</a></li>
+<li><a href="http://billtym.blog.51cto.com/1745172/569551" target="_blank" rel="noopener">Samba常用配置及GUEST访问</a></li>
+<li><a href="https://wiki.centos.org/zh/HowTos/SetUpSamba" target="_blank" rel="noopener">设置 SAMBA</a></li>
+<li><a href="http://cn.linux.vbird.org/linux_server/0370samba_2.php" target="_blank" rel="noopener">鸟哥文件服务器</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/centos/" rel="tag"># centos</a>
+          
+            <a href="/tags/samba/" rel="tag"># samba</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/29/website-collect/" rel="next" title="网站备份">
+                <i class="fa fa-chevron-left"></i> 网站备份
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/02/suid-test/" rel="prev" title="文件特殊权限SUID测试">
+                文件特殊权限SUID测试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="aoenian" />
+            
+              <p class="site-author-name" itemprop="name">aoenian</p>
+              <p class="site-description motion-element" itemprop="description">总会遇到一个彩虹般绚烂的人</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">54</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.1.</span> <span class="nav-text">需求</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装配置Samba"><span class="nav-number">2.</span> <span class="nav-text">安装配置Samba</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Samba"><span class="nav-number">2.1.</span> <span class="nav-text">安装Samba</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置一个完全权限的共享目录"><span class="nav-number">2.2.</span> <span class="nav-text">配置一个完全权限的共享目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看windows的工作组"><span class="nav-number">2.2.1.</span> <span class="nav-text">查看windows的工作组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Samba"><span class="nav-number">2.2.2.</span> <span class="nav-text">配置Samba</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启smaba"><span class="nav-number">2.2.3.</span> <span class="nav-text">重启smaba</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aoenian</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。    PT6.2下载    配置好的pkt文件">
-<meta name="keywords" content="链路聚合,二层,三层">
+  <meta name="description" content="这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。 PT6.2下载 配置好的pkt文件">
+<meta name="keywords" content="链路聚合,三层">
 <meta property="og:type" content="article">
-<meta property="og:title" content="交换机配置5——链路聚合">
+<meta property="og:title" content="思科交换机配置5——链路聚合">
 <meta property="og:url" content="https://aoenian.github.io/2017/03/18/switch-config-5/index.html">
 <meta property="og:site_name" content="aoenian">
-<meta property="og:description" content="这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。    PT6.2下载    配置好的pkt文件">
+<meta property="og:description" content="这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。 PT6.2下载 配置好的pkt文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-01T10:20:05.709Z">
+<meta property="og:updated_time" content="2018-06-23T10:09:05.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="交换机配置5——链路聚合">
-<meta name="twitter:description" content="这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。    PT6.2下载    配置好的pkt文件">
+<meta name="twitter:title" content="思科交换机配置5——链路聚合">
+<meta name="twitter:description" content="这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。 PT6.2下载 配置好的pkt文件">
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>交换机配置5——链路聚合 | aoenian</title>
+  <title>思科交换机配置5——链路聚合 | aoenian</title>
   
 
 
@@ -298,7 +298,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">交换机配置5——链路聚合
+          <h1 class="post-title" itemprop="name headline">思科交换机配置5——链路聚合
               
             
           </h1>
@@ -340,7 +340,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-01 18:20:05" itemprop="dateModified" datetime="2018-05-01T18:20:05+08:00">2018-05-01</time>
+                <time title="修改时间：2018-06-23 18:09:05" itemprop="dateModified" datetime="2018-06-23T18:09:05+08:00">2018-06-23</time>
               
             
           </span>
@@ -357,7 +357,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Switch/" itemprop="url" rel="index"><span itemprop="name">Switch</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">Net</span></a></span>
 
                 
                 
@@ -391,64 +391,16 @@
       
 
       
-        
-
-<p>
-<b>这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。</b>
-</p>
-
-<p>
-<a href="http://www.xiazaiba.com/html/28845.html" target="_blank" rel="noopener">PT6.2下载</a>
-</p>
-
-<p>
-<a href="https://github.com/aoenian/cisco-pkt" target="_blank" rel="noopener">配置好的pkt文件</a>
-</p>
-
+        <p><strong>这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。</strong></p>
+<p><a href="http://www.xiazaiba.com/html/28845.html" target="_blank" rel="noopener">PT6.2下载</a></p>
+<p><a href="https://github.com/aoenian/cisco-pkt" target="_blank" rel="noopener">配置好的pkt文件</a></p>
 <a id="more"></a>
-
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">二层交换机链路聚合配置</h2>
-<div class="outline-text-2" id="text-1">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用两台2950，需要聚合的端口为f0/1-3</span></span><br><span class="line">S1(config)<span class="preprocessor">#interface range f0/<span class="number">1</span>-<span class="number">3</span></span></span><br><span class="line">S1(config-<span class="keyword">if</span>-range)<span class="preprocessor">#channel-group <span class="number">1</span> mode desirable      <span class="comment">// 链路聚合加入通道组1并设置相应模式</span></span></span><br><span class="line">S1(config-<span class="keyword">if</span>-range)<span class="preprocessor">#switchport mode trunk       <span class="comment">// 端口模式设置</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// S2设置与S1类似</span></span><br><span class="line">Switch(config)<span class="preprocessor">#hostname S2</span></span><br><span class="line">S2(config)<span class="preprocessor">#interface range f0/<span class="number">1</span>-<span class="number">3</span></span></span><br><span class="line">S2(config-<span class="keyword">if</span>-range)<span class="preprocessor">#channel-group <span class="number">1</span> mode desirable </span></span><br><span class="line">S2(config-<span class="keyword">if</span>-range)<span class="preprocessor">#switchport mode trunk</span></span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">三层交换机链路聚合配置</h2>
-<div class="outline-text-2" id="text-2">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch(config)<span class="preprocessor">#hostname S3</span></span><br><span class="line">S3(config)<span class="preprocessor">#interface range g0/<span class="number">1</span>-<span class="number">2</span></span></span><br><span class="line">S3(config-<span class="keyword">if</span>-range)<span class="preprocessor">#channel-group <span class="number">1</span> mode active         <span class="comment">// 使用LACP协议</span></span></span><br><span class="line">S3(config-<span class="keyword">if</span>-range)<span class="preprocessor">#switchport trunk encapsulation dot1q <span class="comment">// 802.1q协议封装</span></span></span><br><span class="line">S3(config-<span class="keyword">if</span>-range)<span class="preprocessor">#switchport trunk allowed vlan all   <span class="comment">// 允许vlan通过</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// S4的配置</span></span><br><span class="line">Switch(config)<span class="preprocessor">#hostname S4</span></span><br><span class="line">S4(config)<span class="preprocessor">#interface r g0/<span class="number">1</span>-<span class="number">2</span>   <span class="comment">// 与上面的配置相同，不过这里简写了</span></span></span><br><span class="line">S4(config-<span class="keyword">if</span>-range)<span class="preprocessor">#channel-g <span class="number">1</span> mode active </span></span><br><span class="line">S4(config-<span class="keyword">if</span>-range)<span class="preprocessor">#swit trunk e dot1q </span></span><br><span class="line">S4(config-<span class="keyword">if</span>-range)<span class="preprocessor">#swit t a vlan all</span></span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">三层以太通道的配置</h2>
-<div class="outline-text-2" id="text-3">
-<div class="org-src-container">
-
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 主要是为 port-channel 配置IP地址</span></span><br><span class="line"><span class="comment">// 用两台3560 聚合端口为 g0/1 和 g0/2</span></span><br><span class="line">Switch&gt;enable</span><br><span class="line">Switch<span class="preprocessor">#configure </span></span><br><span class="line">Configuring from terminal, memory, or network [terminal]? </span><br><span class="line">Enter configuration commands, one per line.  End with CNTL/Z.</span><br><span class="line">Switch(config)<span class="preprocessor">#ip routing</span></span><br><span class="line">Switch(config)<span class="preprocessor">#int range g0/<span class="number">1</span>-<span class="number">2</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="preprocessor">#no switchport </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="preprocessor">#channel-group <span class="number">1</span> mode active </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="preprocessor">#exit</span></span><br><span class="line">Switch(config)<span class="preprocessor">#int port-channel <span class="number">1</span></span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="preprocessor">#no switchport </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="preprocessor">#ip add <span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span> <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span></span></span><br></pre></td></tr></table></figure>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">参考博客</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="http://wugang2126.blog.51cto.com/329386/1161801" target="_blank" rel="noopener">cisco链路聚合配置</a>
-</li>
+<h1 id="二层交换机链路聚合配置"><a href="#二层交换机链路聚合配置" class="headerlink" title="二层交换机链路聚合配置"></a>二层交换机链路聚合配置</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用两台2950，需要聚合的端口为f0/1-3</span></span><br><span class="line">S1(config)<span class="meta">#interface range f0/1-3</span></span><br><span class="line">S1(config-<span class="keyword">if</span>-range)<span class="meta">#channel-group 1 mode desirable  <span class="comment">// 链路聚合加入通道组1并设置相应模式</span></span></span><br><span class="line">S1(config-<span class="keyword">if</span>-range)<span class="meta">#switchport mode trunk   <span class="comment">// 端口模式设置</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// S2设置与S1类似</span></span><br><span class="line">Switch(config)<span class="meta">#hostname S2</span></span><br><span class="line">S2(config)<span class="meta">#interface range f0/1-3</span></span><br><span class="line">S2(config-<span class="keyword">if</span>-range)<span class="meta">#channel-group 1 mode desirable </span></span><br><span class="line">S2(config-<span class="keyword">if</span>-range)<span class="meta">#switchport mode trunk</span></span><br></pre></td></tr></table></figure>
+<h1 id="三层交换机链路聚合配置"><a href="#三层交换机链路聚合配置" class="headerlink" title="三层交换机链路聚合配置"></a>三层交换机链路聚合配置</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch(config)<span class="meta">#hostname S3</span></span><br><span class="line">S3(config)<span class="meta">#interface range g0/1-2</span></span><br><span class="line">S3(config-<span class="keyword">if</span>-range)<span class="meta">#channel-group 1 mode active     <span class="comment">// 使用LACP协议</span></span></span><br><span class="line">S3(config-<span class="keyword">if</span>-range)<span class="meta">#switchport trunk encapsulation dot1q <span class="comment">// 802.1q协议封装</span></span></span><br><span class="line">S3(config-<span class="keyword">if</span>-range)<span class="meta">#switchport trunk allowed vlan all   <span class="comment">// 允许vlan通过</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// S4的配置</span></span><br><span class="line">Switch(config)<span class="meta">#hostname S4</span></span><br><span class="line">S4(config)<span class="meta">#interface r g0/1-2   <span class="comment">// 与上面的配置相同，不过这里简写了</span></span></span><br><span class="line">S4(config-<span class="keyword">if</span>-range)<span class="meta">#channel-g 1 mode active </span></span><br><span class="line">S4(config-<span class="keyword">if</span>-range)<span class="meta">#swit trunk e dot1q </span></span><br><span class="line">S4(config-<span class="keyword">if</span>-range)<span class="meta">#swit t a vlan all</span></span><br></pre></td></tr></table></figure>
+<h1 id="三层以太通道的配置"><a href="#三层以太通道的配置" class="headerlink" title="三层以太通道的配置"></a>三层以太通道的配置</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 主要是为 port-channel 配置IP地址</span></span><br><span class="line"><span class="comment">// 用两台3560 聚合端口为 g0/1 和 g0/2</span></span><br><span class="line">Switch&gt;enable</span><br><span class="line">Switch<span class="meta">#configure </span></span><br><span class="line">Configuring from terminal, memory, <span class="keyword">or</span> network [terminal]? </span><br><span class="line">Enter configuration commands, one per line.  End with CNTL/Z.</span><br><span class="line">Switch(config)<span class="meta">#ip routing</span></span><br><span class="line">Switch(config)<span class="meta">#int range g0/1-2</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="meta">#no switchport </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="meta">#channel-group 1 mode active </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>-range)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#int port-channel 1</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#no switchport </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#ip add 192.168.1.1 255.255.255.0</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h1><ul>
+<li><a href="http://wugang2126.blog.51cto.com/329386/1161801" target="_blank" rel="noopener">cisco链路聚合配置</a></li>
 </ul>
-</div>
-</div>
-
-Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/CodeFalling/hexo-renderer-org" target="_blank" rel="noopener">hexo-renderer-org</a> with <a href="http://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs</a> 25.3.1 (<a href="http://orgmode.org" target="_blank" rel="noopener">Org</a> mode 8.2.10)
 
       
     </div>
@@ -470,8 +422,6 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
         <div class="post-tags">
           
             <a href="/tags/链路聚合/" rel="tag"># 链路聚合</a>
-          
-            <a href="/tags/二层/" rel="tag"># 二层</a>
           
             <a href="/tags/三层/" rel="tag"># 三层</a>
           
@@ -496,8 +446,8 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/22/switch-config-6/" rel="prev" title="交换机配置6——生成树协议（STP）">
-                交换机配置6——生成树协议（STP） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/22/switch-config-6/" rel="prev" title="思科交换机配置6——生成树协议(STP)">
+                思科交换机配置6——生成树协议(STP) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -576,7 +526,7 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -603,27 +553,7 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -744,29 +674,7 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
                     
                       
                     
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">65</span>
+                    <span class="site-state-item-count">54</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -802,7 +710,7 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-1"><span class="nav-number">1.</span> <span class="nav-text">二层交换机链路聚合配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-2"><span class="nav-number">2.</span> <span class="nav-text">三层交换机链路聚合配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-3"><span class="nav-number">3.</span> <span class="nav-text">三层以太通道的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sec-4"><span class="nav-number">4.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二层交换机链路聚合配置"><span class="nav-number">1.</span> <span class="nav-text">二层交换机链路聚合配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三层交换机链路聚合配置"><span class="nav-number">2.</span> <span class="nav-text">三层交换机链路聚合配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三层以太通道的配置"><span class="nav-number">3.</span> <span class="nav-text">三层以太通道的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">4.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
             
 
           </div>
@@ -1000,75 +908,6 @@ Last Updated 2018-05-01 Tue 18:20.<br>Render by <a href="https://github.com/Code
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
-
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
-
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap')
-      $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text()
-        }).toArray().join('\n')
-        var ta = document.createElement('textarea')
-        document.body.appendChild(ta)
-        ta.style.position = 'absolute'
-        ta.style.top = '0px'
-        ta.style.left = '0px'
-        ta.value = code
-        ta.select()
-        ta.focus()
-        var result = document.execCommand('copy')
-        document.body.removeChild(ta)
-        
-          if(result)$(this).text('复制成功')
-          else $(this).text('复制失败')
-        
-        $(this).blur()
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn')
-        setTimeout(function () {
-          $b.text('复制')
-        }, 300)
-      }).append(e)
-    })
-  </script>
-
 
 </body>
 </html>
