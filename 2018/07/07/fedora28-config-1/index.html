@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="从使用manjaro以后感觉对中文的支持不是太好以后，就像换一个发行版，然后想到了fedora。 之前虽然也用过但是那时候觉得不是太好，好像连exfat格式的u盘都无法识别。现在趁着这个机会再装一次看看。 安装系统依然选择轻量级桌面，这次不再用lxde，选择了xfce，主要是相对kde和gnome要轻量，同时呢也有主题、图标的配置，终端的配色支持都有。比较折中。 xfce镜像记得下载完成后验证镜像">
+<meta name="keywords" content="fedora,xfce">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fedora28-XFCE桌面配置记录1——基本配置">
+<meta property="og:url" content="https://aoenian.github.io/2018/07/07/fedora28-config-1/index.html">
+<meta property="og:site_name" content="aoenian">
+<meta property="og:description" content="从使用manjaro以后感觉对中文的支持不是太好以后，就像换一个发行版，然后想到了fedora。 之前虽然也用过但是那时候觉得不是太好，好像连exfat格式的u盘都无法识别。现在趁着这个机会再装一次看看。 安装系统依然选择轻量级桌面，这次不再用lxde，选择了xfce，主要是相对kde和gnome要轻量，同时呢也有主题、图标的配置，终端的配色支持都有。比较折中。 xfce镜像记得下载完成后验证镜像">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-10T10:50:25.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fedora28-XFCE桌面配置记录1——基本配置">
+<meta name="twitter:description" content="从使用manjaro以后感觉对中文的支持不是太好以后，就像换一个发行版，然后想到了fedora。 之前虽然也用过但是那时候觉得不是太好，好像连exfat格式的u盘都无法识别。现在趁着这个机会再装一次看看。 安装系统依然选择轻量级桌面，这次不再用lxde，选择了xfce，主要是相对kde和gnome要轻量，同时呢也有主题、图标的配置，终端的配色支持都有。比较折中。 xfce镜像记得下载完成后验证镜像">
+
+
+
+
+
+
+  <link rel="canonical" href="https://aoenian.github.io/2018/07/07/fedora28-config-1/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Fedora28-XFCE桌面配置记录1——基本配置 | aoenian</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">aoenian</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2018/07/07/fedora28-config-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Fedora28-XFCE桌面配置记录1——基本配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-07 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-07T00:00:00+08:00">2018-07-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-10 18:50:25" itemprop="dateModified" datetime="2018-07-10T18:50:25+08:00">2018-07-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>从使用manjaro以后感觉对中文的支持不是太好以后，就像换一个发行版，然后想到了fedora。</p>
+<p>之前虽然也用过但是那时候觉得不是太好，好像连exfat格式的u盘都无法识别。现在趁着这个机会再装一次看看。</p>
+<h1 id="安装系统"><a href="#安装系统" class="headerlink" title="安装系统"></a>安装系统</h1><p>依然选择轻量级桌面，这次不再用lxde，选择了xfce，主要是相对kde和gnome要轻量，同时呢也有主题、图标的配置，终端的配色支持都有。比较折中。</p>
+<p><a href="https://spins.fedoraproject.org/xfce/" target="_blank" rel="noopener">xfce镜像</a>记得下载完成后验证镜像是否完整，写入u盘的软件我使用的是 <a href="https://sourceforge.net/projects/win32diskimager/" target="_blank" rel="noopener">Win32 Disk Imager</a></p>
+<p><strong>建议安装的时候选择中文版，这样输入法中文字体都会有，可以安装完成后再修改为英文。</strong></p>
+<a id="more"></a>
+<h1 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h1><h2 id="安装rpmfusion-free"><a href="#安装rpmfusion-free" class="headerlink" title="安装rpmfusion-free"></a>安装rpmfusion-free</h2><p>什么是<a href="https://rpmfusion.org/RPM%2520Fusion" target="_blank" rel="noopener">RPM Fusion</a>。配置介绍<a href="https://rpmfusion.org/Configuration/" target="_blank" rel="noopener">Configuration</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Fedora 22 and later 安装命令</span></span><br><span class="line">sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm</span><br></pre></td></tr></table></figure>
+<h2 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 不用更换软件源，官方的就很快</span></span><br><span class="line"><span class="comment"># 切换root用户或使用sudo命令</span></span><br><span class="line">dnf makecache</span><br><span class="line">dnf update</span><br></pre></td></tr></table></figure>
+<p><strong>更新完成系统后能够直接打开 <code>exfat</code> 格式的u盘</strong></p>
+<h1 id="软件安装配置"><a href="#软件安装配置" class="headerlink" title="软件安装配置"></a>软件安装配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># wine软件根据个人需要，如果你不用qq可以不安装</span></span><br><span class="line">dnf install zsh git vim wine</span><br></pre></td></tr></table></figure>
+<h2 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h2><p>项目地址：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a></p>
+<p>安装方法：检查系统是否安装 <code>curl</code> 或 <code>wget</code> 命令，并选择相应的命令执行，如果两个命令都没有那就最好装一个。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># wget</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)</span>"</span></span><br><span class="line"><span class="comment"># curl</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<p><strong>安装完成后记得切换默认shell为zsh，执行命令 <code>chsh -s /bin/zsh</code> 需要注销才能起作用</strong></p>
+<h2 id="Tim或QQ"><a href="#Tim或QQ" class="headerlink" title="Tim或QQ"></a>Tim或QQ</h2><p>我使用的是github上面的<a href="https://github.com/askme765cs/Wine-QQ-TIM" target="_blank" rel="noopener">Wine-QQ-TIM</a>项目。直接下载Appimage版本的TIM或者QQ。</p>
+<p>下载地址：</p>
+<blockquote>
+<p>Wine-QQ:<a href="http://yun.tzmm.com.cn/index.php/s/XRbfi6aOIjv5gwj" target="_blank" rel="noopener">http://yun.tzmm.com.cn/index.php/s/XRbfi6aOIjv5gwj</a><br>Wine-TIM:<a href="http://yun.tzmm.com.cn/index.php/s/5hJNzt2VR9aIEF2" target="_blank" rel="noopener">http://yun.tzmm.com.cn/index.php/s/5hJNzt2VR9aIEF2</a></p>
+</blockquote>
+<p><strong>在manjaro、Fedora28 xfce、Ubuntu18.04中安装 <code>wine</code> 以后都能正常运行，不过可能会出现字体发虚，中文输入的问题。</strong></p>
+<p><em>在Fedora28 Xfce中测试后是可以接收文件、用ibus输入中文的</em> 这里我建议大家不要太纠结腾讯的软件问题，毕竟移动终端已经很方便了，一般用PC端的情况也不多，如果能够基本满足就不用总折腾这个东西，浪费时间。</p>
+<h2 id="浏览器安装"><a href="#浏览器安装" class="headerlink" title="浏览器安装"></a>浏览器安装</h2><p>Opear浏览器下载地址：<a href="https://www.opera.com/computer/linux" target="_blank" rel="noopener">Opera browser for Linux</a>下载相应的RPM包以后，直接双击安装即可。</p>
+<p>chromium浏览器安装可以直接使用命令 <code>sudo dnf install chromium-xx.x86_64</code></p>
+<h3 id="Opera富强"><a href="#Opera富强" class="headerlink" title="Opera富强"></a>Opera富强</h3><p><strong>2018-07-08虽然今天看的时候富强功能已经和谐了，不过更改系统的语言地区的方法还是记录一下吧</strong></p>
+<ul>
+<li>找到系统的语言设置，位置在 <code>Administration-Language</code></li>
+<li>更改里面的语言为其他地区的语言，可以选择 <code>zh_HK.utf8</code></li>
+<li>然后注销，回到登录界面</li>
+<li>在登录界面右上角同样有一个语言选项，也更改为 <code>zh_HK.utf-8</code> <strong>这个更改很重要不然不起作用</strong></li>
+<li>修改完成后登入系统，这时候部分语言已经更改过来，建议重启完成完整的语言更换</li>
+</ul>
+<p><strong>注意：如果大家使用英文的话，默认是无法输入中文，即使你启动ibus也不行，请使用下面的方法</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># fedora默认使用 im-chooser 管理输入法</span></span><br><span class="line">im-chooser</span><br><span class="line"><span class="comment"># 在弹出的界面中选择 ibus 即可输入中文</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/fedora/" rel="tag"># fedora</a>
+          
+            <a href="/tags/xfce/" rel="tag"># xfce</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/30/manjaro-linux-start-end/" rel="next" title="Manjaro从使用到放弃">
+                <i class="fa fa-chevron-left"></i> Manjaro从使用到放弃
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="aoenian" />
+            
+              <p class="site-author-name" itemprop="name">aoenian</p>
+              <p class="site-description motion-element" itemprop="description">总会遇到一个彩虹般绚烂的人</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">60</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装系统"><span class="nav-number">1.</span> <span class="nav-text">安装系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统更新"><span class="nav-number">2.</span> <span class="nav-text">系统更新</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装rpmfusion-free"><span class="nav-number">2.1.</span> <span class="nav-text">安装rpmfusion-free</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新系统"><span class="nav-number">2.2.</span> <span class="nav-text">更新系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件安装配置"><span class="nav-number">3.</span> <span class="nav-text">软件安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">3.2.</span> <span class="nav-text">oh-my-zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tim或QQ"><span class="nav-number">3.3.</span> <span class="nav-text">Tim或QQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器安装"><span class="nav-number">3.4.</span> <span class="nav-text">浏览器安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Opera富强"><span class="nav-number">3.4.1.</span> <span class="nav-text">Opera富强</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aoenian</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
