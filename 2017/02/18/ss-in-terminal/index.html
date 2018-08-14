@@ -180,6 +180,15 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
+
 
 
 
@@ -494,23 +503,23 @@
 <h2 id="安装ss"><a href="#安装ss" class="headerlink" title="安装ss"></a>安装ss</h2><p><code>pip install shadowsocks</code></p>
 <p>编辑ss的配置文件，位置 <code>/etc/shadowsocks.json</code> ，填写代码如下：</p>
 <p><strong>注意：/etc目录下面没有配置文件无所谓，在home下面找个地方随便建一个就可以</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line">    <span class="string">"server_port"</span>:8388,</span><br><span class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="string">"local_port"</span>:1080,</span><br><span class="line">    <span class="string">"password"</span>:<span class="string">"yourpassword"</span>,</span><br><span class="line">    <span class="string">"timeout"</span>:300,</span><br><span class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="string">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"server"</span>:<span class="string">"your_server_ip"</span>,</span><br><span class="line">    <span class="string">"server_port"</span>:8388,</span><br><span class="line">    <span class="string">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="string">"local_port"</span>:1080,</span><br><span class="line">    <span class="string">"password"</span>:<span class="string">"yourpassword"</span>,</span><br><span class="line">    <span class="string">"timeout"</span>:300,</span><br><span class="line">    <span class="string">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="string">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 <p><strong>配置文件中的 <code>method</code> 需要注意，如果需要类似 <code>chacha20</code> 的加密方式，那么请看 <a href="https://ls12.me/libsodium-install.html" target="_blank" rel="noopener">这里</a>，不过我没有尝试。</strong></p>
 <h2 id="运行ss"><a href="#运行ss" class="headerlink" title="运行ss"></a>运行ss</h2><p>启动： <code>sslocal -c /etc/shadowsocks.json</code></p>
 <p>停止直接快捷键 <code>ctrl-c</code> 这里我没有选择后台运行主要是为了查看访问网站时候的出错信息</p>
 <p>如果需要后台运行可以使用如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sslocal -c /etc/shadowsocks.json -d start    <span class="comment"># 启动</span></span><br><span class="line">sslocal -c /etc/shadowsocks.json -d stop    <span class="comment"># 停止</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c /etc/shadowsocks.json -d start    <span class="comment"># 启动</span></span><br><span class="line">sslocal -c /etc/shadowsocks.json -d stop    <span class="comment"># 停止</span></span><br></pre></td></tr></table></figure></div>
 <h2 id="使用终端代理"><a href="#使用终端代理" class="headerlink" title="使用终端代理"></a>使用终端代理</h2><p>这里主要是由于ss使用的socks5协议终端不支持，所以需要使用协议转换工具。</p>
 <p>原文的 <code>polipo</code> 我这里没有配置成功，所以使用另一个软件 <code>proxychains</code></p>
 <ul>
 <li>安装proxychains</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Debian/Ubuntu:</span></span><br><span class="line">apt-get install proxychains</span><br><span class="line"><span class="comment"># Mac OS X:</span></span><br><span class="line">brew install proxychains-ng</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Debian/Ubuntu:</span></span><br><span class="line">apt-get install proxychains</span><br><span class="line"><span class="comment"># Mac OS X:</span></span><br><span class="line">brew install proxychains-ng</span><br></pre></td></tr></table></figure></div>
 <ul>
 <li>配置文件</li>
 </ul>
 <p>编辑 <code>~/.proxychains/proxychains.conf</code> 如果没有直接建一个</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">strict_chain</span><br><span class="line">proxy_dns </span><br><span class="line">remote_dns_subnet 224</span><br><span class="line">tcp_read_time_out 15000</span><br><span class="line">tcp_connect_time_out 8000</span><br><span class="line">localnet 127.0.0.0/255.0.0.0</span><br><span class="line">quiet_mode</span><br><span class="line"></span><br><span class="line">[ProxyList]</span><br><span class="line">socks5  127.0.0.1 1080</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">strict_chain</span><br><span class="line">proxy_dns </span><br><span class="line">remote_dns_subnet 224</span><br><span class="line">tcp_read_time_out 15000</span><br><span class="line">tcp_connect_time_out 8000</span><br><span class="line">localnet 127.0.0.0/255.0.0.0</span><br><span class="line">quiet_mode</span><br><span class="line"></span><br><span class="line">[ProxyList]</span><br><span class="line">socks5  127.0.0.1 1080</span><br></pre></td></tr></table></figure></div>
 <ul>
 <li><p>使用方法</p>
 <ul>
@@ -546,6 +555,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2017/02/18/ss-in-terminal/" title="MacOS/RPI 终端使用ss代理">https://aoenian.github.io/2017/02/18/ss-in-terminal/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -657,7 +680,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -684,7 +707,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -823,7 +848,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -853,6 +888,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

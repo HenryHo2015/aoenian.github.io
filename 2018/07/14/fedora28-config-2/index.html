@@ -146,18 +146,18 @@
 
 
 
-  <meta name="description" content="接上篇，搞定输入法然后想把系统整得好看一点。 输入法安装如果对中文输入法需求不高，ibus的自带拼音输入也就够用了，不过这个经常打交道的家伙还是来个顺手的更好。这里依然推荐Rime中州韵输入法，安装很简单一条命令就可以处理，而且如果你用全拼的话基本不用配置即可使用，需要了解的是输入法的配置快捷键是CTRL+` sudo dnf install ibus-rime">
+  <meta name="description" content="接上篇，搞定输入法然后想把系统整得好看一点。 输入法安装如果对中文输入法需求不高，ibus的自带拼音输入也就够用了，不过这个经常打交道的家伙还是来个顺手的更好。这里依然推荐Rime中州韵输入法，安装很简单一条命令就可以处理，而且如果你用全拼的话基本不用配置即可使用，需要了解的是输入法的配置快捷键是CTRL+` 1sudo dnf install ibus-rime">
 <meta name="keywords" content="fedora,system beauty">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fedora28配置记录2——系统美化">
 <meta property="og:url" content="https://aoenian.github.io/2018/07/14/fedora28-config-2/index.html">
 <meta property="og:site_name" content="aoenian">
-<meta property="og:description" content="接上篇，搞定输入法然后想把系统整得好看一点。 输入法安装如果对中文输入法需求不高，ibus的自带拼音输入也就够用了，不过这个经常打交道的家伙还是来个顺手的更好。这里依然推荐Rime中州韵输入法，安装很简单一条命令就可以处理，而且如果你用全拼的话基本不用配置即可使用，需要了解的是输入法的配置快捷键是CTRL+` sudo dnf install ibus-rime">
+<meta property="og:description" content="接上篇，搞定输入法然后想把系统整得好看一点。 输入法安装如果对中文输入法需求不高，ibus的自带拼音输入也就够用了，不过这个经常打交道的家伙还是来个顺手的更好。这里依然推荐Rime中州韵输入法，安装很简单一条命令就可以处理，而且如果你用全拼的话基本不用配置即可使用，需要了解的是输入法的配置快捷键是CTRL+` 1sudo dnf install ibus-rime">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-07-14T13:43:56.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fedora28配置记录2——系统美化">
-<meta name="twitter:description" content="接上篇，搞定输入法然后想把系统整得好看一点。 输入法安装如果对中文输入法需求不高，ibus的自带拼音输入也就够用了，不过这个经常打交道的家伙还是来个顺手的更好。这里依然推荐Rime中州韵输入法，安装很简单一条命令就可以处理，而且如果你用全拼的话基本不用配置即可使用，需要了解的是输入法的配置快捷键是CTRL+` sudo dnf install ibus-rime">
+<meta name="twitter:description" content="接上篇，搞定输入法然后想把系统整得好看一点。 输入法安装如果对中文输入法需求不高，ibus的自带拼音输入也就够用了，不过这个经常打交道的家伙还是来个顺手的更好。这里依然推荐Rime中州韵输入法，安装很简单一条命令就可以处理，而且如果你用全拼的话基本不用配置即可使用，需要了解的是输入法的配置快捷键是CTRL+` 1sudo dnf install ibus-rime">
 
 
 
@@ -179,6 +179,15 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
 
 
 
@@ -474,12 +483,12 @@
       
         <p>接上篇，搞定输入法然后想把系统整得好看一点。</p>
 <h1 id="输入法安装"><a href="#输入法安装" class="headerlink" title="输入法安装"></a>输入法安装</h1><p>如果对中文输入法需求不高，ibus的自带拼音输入也就够用了，不过这个经常打交道的家伙还是来个顺手的更好。这里依然推荐<a href="https://rime.im/" target="_blank" rel="noopener">Rime</a>中州韵输入法，安装很简单一条命令就可以处理，而且如果你用全拼的话基本不用配置即可使用，需要了解的是输入法的配置快捷键是<code>CTRL+`</code></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf install ibus-rime</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ibus-rime</span><br></pre></td></tr></table></figure></div>
 <a id="more"></a>
 <h1 id="图标和主题配置"><a href="#图标和主题配置" class="headerlink" title="图标和主题配置"></a>图标和主题配置</h1><ul>
 <li>安装主题软件</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主题配置软件 xfce-theme-manager</span></span><br><span class="line">sudo dnf install xfce-theme-manager.x86_64</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主题配置软件 xfce-theme-manager</span></span><br><span class="line">sudo dnf install xfce-theme-manager.x86_64</span><br></pre></td></tr></table></figure></div>
 <p><strong>安装此软件需要添加 <code>RPM Fusion</code> 源</strong></p>
 <ul>
 <li>获取安装主题和图标</li>
@@ -540,6 +549,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2018/07/14/fedora28-config-2/" title="Fedora28配置记录2——系统美化">https://aoenian.github.io/2018/07/14/fedora28-config-2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -651,7 +674,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -678,7 +701,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -817,7 +842,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -847,6 +882,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

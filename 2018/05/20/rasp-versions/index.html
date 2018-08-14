@@ -146,18 +146,18 @@
 
 
 
-  <meta name="description" content="安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作 具体命令及作用如下： getconf LONG_BIT        # 查看系统位数uname -a            # kernel 版本/opt/vc/bin/vcgencmd  version   # firmware版本strings /boot/start.elf  |  grep VC_BUILD_ID">
+  <meta name="description" content="安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作 具体命令及作用如下： 12345678getconf LONG_BIT        # 查看系统位数uname -a            # kernel 版本/opt/vc/bin/vcgencmd  version   # firmware版本strings /boot/start.elf  |  grep VC_BUIL">
 <meta name="keywords" content="versions">
 <meta property="og:type" content="article">
 <meta property="og:title" content="查看树莓派版本">
 <meta property="og:url" content="https://aoenian.github.io/2018/05/20/rasp-versions/index.html">
 <meta property="og:site_name" content="aoenian">
-<meta property="og:description" content="安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作 具体命令及作用如下： getconf LONG_BIT        # 查看系统位数uname -a            # kernel 版本/opt/vc/bin/vcgencmd  version   # firmware版本strings /boot/start.elf  |  grep VC_BUILD_ID">
+<meta property="og:description" content="安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作 具体命令及作用如下： 12345678getconf LONG_BIT        # 查看系统位数uname -a            # kernel 版本/opt/vc/bin/vcgencmd  version   # firmware版本strings /boot/start.elf  |  grep VC_BUIL">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-06-20T08:16:52.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查看树莓派版本">
-<meta name="twitter:description" content="安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作 具体命令及作用如下： getconf LONG_BIT        # 查看系统位数uname -a            # kernel 版本/opt/vc/bin/vcgencmd  version   # firmware版本strings /boot/start.elf  |  grep VC_BUILD_ID">
+<meta name="twitter:description" content="安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作 具体命令及作用如下： 12345678getconf LONG_BIT        # 查看系统位数uname -a            # kernel 版本/opt/vc/bin/vcgencmd  version   # firmware版本strings /boot/start.elf  |  grep VC_BUIL">
 
 
 
@@ -179,6 +179,15 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
 
 
 
@@ -486,7 +495,7 @@
       
         <p>安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作</p>
 <p>具体命令及作用如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">getconf LONG_BIT        <span class="comment"># 查看系统位数</span></span><br><span class="line">uname -a            <span class="comment"># kernel 版本</span></span><br><span class="line">/opt/vc/bin/vcgencmd  version   <span class="comment"># firmware版本</span></span><br><span class="line">strings /boot/start.elf  |  grep VC_BUILD_ID    <span class="comment"># firmware版本</span></span><br><span class="line">cat /proc/version       <span class="comment"># kernel</span></span><br><span class="line">cat /etc/os-release     <span class="comment"># OS版本资讯</span></span><br><span class="line">cat /etc/issue          <span class="comment"># Linux distro 版本</span></span><br><span class="line">cat /etc/debian_version     <span class="comment"># Debian版本编号</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">getconf LONG_BIT        <span class="comment"># 查看系统位数</span></span><br><span class="line">uname -a            <span class="comment"># kernel 版本</span></span><br><span class="line">/opt/vc/bin/vcgencmd  version   <span class="comment"># firmware版本</span></span><br><span class="line">strings /boot/start.elf  |  grep VC_BUILD_ID    <span class="comment"># firmware版本</span></span><br><span class="line">cat /proc/version       <span class="comment"># kernel</span></span><br><span class="line">cat /etc/os-release     <span class="comment"># OS版本资讯</span></span><br><span class="line">cat /etc/issue          <span class="comment"># Linux distro 版本</span></span><br><span class="line">cat /etc/debian_version     <span class="comment"># Debian版本编号</span></span><br></pre></td></tr></table></figure></div>
 <p><em>虽然树莓派3b的硬件支持64位的系统，但是官方的系统还是32位的，主要应该是为了兼容之前的硬件</em></p>
 <p><strong>参考</strong></p>
 <ul>
@@ -506,6 +515,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2018/05/20/rasp-versions/" title="查看树莓派版本">https://aoenian.github.io/2018/05/20/rasp-versions/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -606,7 +629,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -633,7 +656,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -772,7 +797,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -802,6 +837,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

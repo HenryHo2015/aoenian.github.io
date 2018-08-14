@@ -180,6 +180,15 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
+
 
 
 
@@ -499,7 +508,7 @@
 <a id="more"></a>
 <p>因为我是先按照第二个博客中的步骤操作，然后感觉太多又换到第一个博客。所以我也不清楚具体需要安装哪些，这就尴尬了-_-!</p>
 <p>不过我还是把我安装的步骤写下来以供参考：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先删除已经存在的依赖，然后更新系统重新安装依赖包</span></span><br><span class="line">sudo apt-get remove --purge libmp3lame-dev libtool libssl-dev libaacplus-* libx264 libvpx librtmp ffmpeg</span><br><span class="line"></span><br><span class="line">sudo apt-get update; sudo apt-get upgrade; sudo apt-get install libmp3lame-dev; sudo apt-get install -y libopus-dev; sudo apt-get install autoconf; sudo apt-get install libtool; sudo apt-get install checkinstall; sudo apt-get install libssl-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后按照上面第一个博客的步骤</span></span><br><span class="line"><span class="comment"># 安装h264编码器</span></span><br><span class="line">mkdir ~/src</span><br><span class="line"><span class="built_in">cd</span> ~/src</span><br><span class="line">git <span class="built_in">clone</span> git://git.videolan.org/x264</span><br><span class="line"><span class="built_in">cd</span> x264</span><br><span class="line">./configure --host=arm-unknown-linux-gnueabi --<span class="built_in">enable</span>-static --<span class="built_in">disable</span>-opencl</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># install ffmpeg</span></span><br><span class="line"><span class="built_in">cd</span> /usr/src</span><br><span class="line">git <span class="built_in">clone</span> git://source.ffmpeg.org/ffmpeg.git</span><br><span class="line"><span class="built_in">cd</span> ffmpeg</span><br><span class="line">sudo ./configure --arch=armel --target-os=linux --<span class="built_in">enable</span>-gpl --<span class="built_in">enable</span>-libx264 --<span class="built_in">enable</span>-nonfree</span><br><span class="line">make <span class="comment"># make 时间稍微长点，可以后台运行  nohup make &amp;</span></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先删除已经存在的依赖，然后更新系统重新安装依赖包</span></span><br><span class="line">sudo apt-get remove --purge libmp3lame-dev libtool libssl-dev libaacplus-* libx264 libvpx librtmp ffmpeg</span><br><span class="line"></span><br><span class="line">sudo apt-get update; sudo apt-get upgrade; sudo apt-get install libmp3lame-dev; sudo apt-get install -y libopus-dev; sudo apt-get install autoconf; sudo apt-get install libtool; sudo apt-get install checkinstall; sudo apt-get install libssl-dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后按照上面第一个博客的步骤</span></span><br><span class="line"><span class="comment"># 安装h264编码器</span></span><br><span class="line">mkdir ~/src</span><br><span class="line"><span class="built_in">cd</span> ~/src</span><br><span class="line">git <span class="built_in">clone</span> git://git.videolan.org/x264</span><br><span class="line"><span class="built_in">cd</span> x264</span><br><span class="line">./configure --host=arm-unknown-linux-gnueabi --<span class="built_in">enable</span>-static --<span class="built_in">disable</span>-opencl</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># install ffmpeg</span></span><br><span class="line"><span class="built_in">cd</span> /usr/src</span><br><span class="line">git <span class="built_in">clone</span> git://source.ffmpeg.org/ffmpeg.git</span><br><span class="line"><span class="built_in">cd</span> ffmpeg</span><br><span class="line">sudo ./configure --arch=armel --target-os=linux --<span class="built_in">enable</span>-gpl --<span class="built_in">enable</span>-libx264 --<span class="built_in">enable</span>-nonfree</span><br><span class="line">make <span class="comment"># make 时间稍微长点，可以后台运行  nohup make &amp;</span></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -514,6 +523,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2016/12/01/install-ffmpeg-on-rasp/" title="树莓派安装ffmpeg（主要用于you-get下载视频的合并）">https://aoenian.github.io/2016/12/01/install-ffmpeg-on-rasp/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -616,7 +639,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -643,7 +666,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -782,7 +807,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -812,6 +847,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

@@ -180,6 +180,15 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
+
 
 
 
@@ -491,13 +500,13 @@
 <p><strong>建议安装的时候选择中文版，这样输入法中文字体都会有，可以安装完成后再修改为英文。</strong></p>
 <a id="more"></a>
 <h1 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h1><h2 id="安装rpmfusion-free"><a href="#安装rpmfusion-free" class="headerlink" title="安装rpmfusion-free"></a>安装rpmfusion-free</h2><p>什么是<a href="https://rpmfusion.org/RPM%2520Fusion" target="_blank" rel="noopener">RPM Fusion</a>。配置介绍<a href="https://rpmfusion.org/Configuration/" target="_blank" rel="noopener">Configuration</a></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Fedora 22 and later 安装命令</span></span><br><span class="line">sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm</span><br></pre></td></tr></table></figure>
-<h2 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 不用更换软件源，官方的就很快</span></span><br><span class="line"><span class="comment"># 切换root用户或使用sudo命令</span></span><br><span class="line">dnf makecache</span><br><span class="line">dnf update</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Fedora 22 and later 安装命令</span></span><br><span class="line">sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm</span><br></pre></td></tr></table></figure></div>
+<h2 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不用更换软件源，官方的就很快</span></span><br><span class="line"><span class="comment"># 切换root用户或使用sudo命令</span></span><br><span class="line">dnf makecache</span><br><span class="line">dnf update</span><br></pre></td></tr></table></figure></div>
 <p><strong>更新完成系统后能够直接打开 <code>exfat</code> 格式的u盘</strong></p>
-<h1 id="软件安装配置"><a href="#软件安装配置" class="headerlink" title="软件安装配置"></a>软件安装配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># wine软件根据个人需要，如果你不用qq可以不安装</span></span><br><span class="line">dnf install zsh git vim wine</span><br></pre></td></tr></table></figure>
+<h1 id="软件安装配置"><a href="#软件安装配置" class="headerlink" title="软件安装配置"></a>软件安装配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wine软件根据个人需要，如果你不用qq可以不安装</span></span><br><span class="line">dnf install zsh git vim wine</span><br></pre></td></tr></table></figure></div>
 <h2 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h2><p>项目地址：<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a></p>
 <p>安装方法：检查系统是否安装 <code>curl</code> 或 <code>wget</code> 命令，并选择相应的命令执行，如果两个命令都没有那就最好装一个。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># wget</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)</span>"</span></span><br><span class="line"><span class="comment"># curl</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># wget</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)</span>"</span></span><br><span class="line"><span class="comment"># curl</span></span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span></span><br></pre></td></tr></table></figure></div>
 <p><strong>安装完成后记得切换默认shell为zsh，执行命令 <code>chsh -s /bin/zsh</code> 需要注销才能起作用</strong></p>
 <h2 id="Tim或QQ"><a href="#Tim或QQ" class="headerlink" title="Tim或QQ"></a>Tim或QQ</h2><p>我使用的是github上面的<a href="https://github.com/askme765cs/Wine-QQ-TIM" target="_blank" rel="noopener">Wine-QQ-TIM</a>项目。直接下载Appimage版本的TIM或者QQ。</p>
 <p>下载地址：</p>
@@ -517,7 +526,7 @@
 <li>修改完成后登入系统，这时候部分语言已经更改过来，建议重启完成完整的语言更换</li>
 </ul>
 <p><strong>注意：如果大家使用英文的话，默认是无法输入中文，即使你启动ibus也不行，请使用下面的方法</strong></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># fedora默认使用 im-chooser 管理输入法</span></span><br><span class="line">im-chooser</span><br><span class="line"><span class="comment"># 在弹出的界面中选择 ibus 即可输入中文</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fedora默认使用 im-chooser 管理输入法</span></span><br><span class="line">im-chooser</span><br><span class="line"><span class="comment"># 在弹出的界面中选择 ibus 即可输入中文</span></span><br></pre></td></tr></table></figure></div>
 
       
     </div>
@@ -532,6 +541,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2018/07/07/fedora28-config-1/" title="Fedora28配置记录1——基本配置">https://aoenian.github.io/2018/07/07/fedora28-config-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -643,7 +666,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -670,7 +693,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -809,7 +834,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -839,6 +874,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

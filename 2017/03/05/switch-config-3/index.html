@@ -147,7 +147,7 @@
 
 
   <meta name="description" content="配置好的思科模拟器文件地址：cisco-pkt 拓扑图:">
-<meta name="keywords" content="VLAN,switchs">
+<meta name="keywords" content="switchs,VLAN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="思科交换机配置3——多交换机VLAN划分">
 <meta property="og:url" content="https://aoenian.github.io/2017/03/05/switch-config-3/index.html">
@@ -181,6 +181,15 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
 
 
 
@@ -489,9 +498,9 @@
         <p>配置好的思科模拟器文件地址：<a href="https://github.com/aoenian/cisco-pkt/" target="_blank" rel="noopener">cisco-pkt</a></p>
 <p>拓扑图:<br><img src="https://raw.githubusercontent.com/aoenian/postbackup/master/topupic/switch3.PNG" alt=""></p>
 <a id="more"></a>
-<h1 id="s1配置"><a href="#s1配置" class="headerlink" title="s1配置"></a>s1配置</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch(config)<span class="meta">#vlan 10</span></span><br><span class="line">Switch(config-vlan)<span class="meta">#name v10</span></span><br><span class="line">Switch(config-vlan)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#vlan 20</span></span><br><span class="line">Switch(config-vlan)<span class="meta">#name v20</span></span><br><span class="line">Switch(config-vlan)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#interface f0/1</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 10</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#interface f0/2</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 20</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#interface f0/24</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport mode trunk     <span class="comment">// 把24端口模式设置为trunk来进行交换机之间的通信</span></span></span><br><span class="line"></span><br><span class="line">%LINEPROTO<span class="number">-5</span>-UPDOWN: Line protocol on Interface FastEthernet0/<span class="number">24</span>, changed state to down</span><br><span class="line"></span><br><span class="line">%LINEPROTO<span class="number">-5</span>-UPDOWN: Line protocol on Interface FastEthernet0/<span class="number">24</span>, changed state to up</span><br><span class="line"></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#exit</span></span><br><span class="line">Switch<span class="meta">#write</span></span><br><span class="line">Building configuration...</span><br><span class="line">[OK]</span><br></pre></td></tr></table></figure>
+<h1 id="s1配置"><a href="#s1配置" class="headerlink" title="s1配置"></a>s1配置</h1><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="C"><figure class="iseeu highlight /c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)<span class="meta">#vlan 10</span></span><br><span class="line">Switch(config-vlan)<span class="meta">#name v10</span></span><br><span class="line">Switch(config-vlan)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#vlan 20</span></span><br><span class="line">Switch(config-vlan)<span class="meta">#name v20</span></span><br><span class="line">Switch(config-vlan)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#interface f0/1</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access </span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 10</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#interface f0/2</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 20</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#interface f0/24</span></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#switchport mode trunk     <span class="comment">// 把24端口模式设置为trunk来进行交换机之间的通信</span></span></span><br><span class="line"></span><br><span class="line">%LINEPROTO<span class="number">-5</span>-UPDOWN: Line protocol on Interface FastEthernet0/<span class="number">24</span>, changed state to down</span><br><span class="line"></span><br><span class="line">%LINEPROTO<span class="number">-5</span>-UPDOWN: Line protocol on Interface FastEthernet0/<span class="number">24</span>, changed state to up</span><br><span class="line"></span><br><span class="line">Switch(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">Switch(config)<span class="meta">#exit</span></span><br><span class="line">Switch<span class="meta">#write</span></span><br><span class="line">Building configuration...</span><br><span class="line">[OK]</span><br></pre></td></tr></table></figure></div>
 <h1 id="s2的配置"><a href="#s2的配置" class="headerlink" title="s2的配置"></a>s2的配置</h1><p><strong>s2的配置和s1的配置几乎完全一样，这里只列出配置过程，不再注释</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch(config)<span class="meta">#hostname s2  <span class="comment">// 把交换机的名称改为s2</span></span></span><br><span class="line">s2(config)<span class="meta">#interface f0/1</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#vlan 10</span></span><br><span class="line">s2(config-vlan)<span class="meta">#name v10</span></span><br><span class="line">s2(config-vlan)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#vlan 20</span></span><br><span class="line">s2(config-vlan)<span class="meta">#name v20</span></span><br><span class="line">s2(config-vlan)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#interface f0/1</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access </span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 10</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#interface f0/2</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access </span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 20</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#interface f0/24</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport mode trunk</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="C"><figure class="iseeu highlight /c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Switch(config)<span class="meta">#hostname s2  <span class="comment">// 把交换机的名称改为s2</span></span></span><br><span class="line">s2(config)<span class="meta">#interface f0/1</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#vlan 10</span></span><br><span class="line">s2(config-vlan)<span class="meta">#name v10</span></span><br><span class="line">s2(config-vlan)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#vlan 20</span></span><br><span class="line">s2(config-vlan)<span class="meta">#name v20</span></span><br><span class="line">s2(config-vlan)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#interface f0/1</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access </span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 10</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#interface f0/2</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport mode access </span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport access vlan 20</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">s2(config)<span class="meta">#interface f0/24</span></span><br><span class="line">s2(config-<span class="keyword">if</span>)<span class="meta">#switchport mode trunk</span></span><br></pre></td></tr></table></figure></div>
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>pc1与pc3可以通信但与pc2无法通信</p>
 <p>pc2与pc4可以通信但与pc3无法通信</p>
 <p><strong>参考链接以及拓展阅读</strong></p>
@@ -516,14 +525,28 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2017/03/05/switch-config-3/" title="思科交换机配置3——多交换机VLAN划分">https://aoenian.github.io/2017/03/05/switch-config-3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/VLAN/" rel="tag"># VLAN</a>
-          
             <a href="/tags/switchs/" rel="tag"># switchs</a>
+          
+            <a href="/tags/VLAN/" rel="tag"># VLAN</a>
           
         </div>
       
@@ -626,7 +649,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -653,7 +676,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -792,7 +817,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -822,6 +857,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

@@ -180,6 +180,15 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
+
 
 
 
@@ -498,11 +507,11 @@
 <h1 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h1><p>烧录U盘、安装系统、整个过程比较流畅，这里确实要说一下比Arch好多了。</p>
 <p><strong>需要注意的地方就是安装系统的时候进度条可能会停住并显示 <code>Unsquash filesystem</code> 这个多等一下就好</strong> 开始我以为是系统镜像有问题，又重新做了一遍。</p>
 <h1 id="系统更新"><a href="#系统更新" class="headerlink" title="系统更新"></a>系统更新</h1><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>官方的软件源在我这里的网络还是比较慢，需要更换，操作命令如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -i -c China -m rank</span><br></pre></td></tr></table></figure></div>
 <p>等一会后会弹出镜像选择对话框，勾选 <code>http://mirrors.ustc.edu.cn/manjaro/</code> 并点击两次 <code>OK</code> 即可。</p>
 <p>具体教程参考<a href="http://mirrors.ustc.edu.cn/help/manjaro.html" target="_blank" rel="noopener">中科大Manjaro源使用帮助</a>。</p>
 <h2 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h2><p>之前没有用过Arch系列，所以对 <code>pacman</code> 命令不熟。这里参考官方wiki <a href="https://wiki.manjaro.org/index.php?title=Pacman_Overview" target="_blank" rel="noopener">PacmanOverview</a>，主要命令摘录如下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo pacman -Syy        <span class="comment"># 换源后更新缓存</span></span><br><span class="line">sudo pacman -Syyu       <span class="comment"># 更新系统</span></span><br><span class="line">sudo pacman -S base-devel yaourt    <span class="comment"># 安装 AUR</span></span><br><span class="line">sudo reboot    <span class="comment"># 重启系统</span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syy        <span class="comment"># 换源后更新缓存</span></span><br><span class="line">sudo pacman -Syyu       <span class="comment"># 更新系统</span></span><br><span class="line">sudo pacman -S base-devel yaourt    <span class="comment"># 安装 AUR</span></span><br><span class="line">sudo reboot    <span class="comment"># 重启系统</span></span><br></pre></td></tr></table></figure></div>
 <h2 id="放弃原因"><a href="#放弃原因" class="headerlink" title="放弃原因"></a>放弃原因</h2><p>前后装了三个不同的桌面系统，分别是 <code>KDE、LXDE、XFCE</code></p>
 <p>下面的内容只是个人的感觉，也是个人遇到的情况，大家可做参考，不涉及系统信仰问题。现在已经过了折腾的年纪，哪个好用，哪个适合自己用哪个。</p>
 <blockquote>
@@ -547,6 +556,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2018/06/30/manjaro-linux-start-end/" title="Manjaro从使用到放弃">https://aoenian.github.io/2018/06/30/manjaro-linux-start-end/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -658,7 +681,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -685,7 +708,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -824,7 +849,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -854,6 +889,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

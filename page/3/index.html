@@ -178,6 +178,15 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
+
 
 
 
@@ -365,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/10/29/centos-samba/">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/03/08/switch-config-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="aoenian">
@@ -384,8 +393,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/29/centos-samba/" itemprop="url">
-                  CentOS7安装配置Samba
+                <a class="post-title-link" href="/2017/03/08/switch-config-4/" itemprop="url">
+                  思科交换机配置4——三层交换机VLAN联通
                 </a>
               
             
@@ -411,7 +420,7 @@
                 
               
 
-              <time title="创建时间：2017-10-29 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-29T00:00:00+08:00">2017-10-29</time>
+              <time title="创建时间：2017-03-08 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-08T00:00:00+08:00">2017-03-08</time>
             
 
             
@@ -428,7 +437,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-09 09:44:42" itemprop="dateModified" datetime="2018-06-09T09:44:42+08:00">2018-06-09</time>
+                <time title="修改时间：2018-06-23 18:05:24" itemprop="dateModified" datetime="2018-06-23T18:05:24+08:00">2018-06-23</time>
               
             
           </span>
@@ -445,7 +454,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">Net</span></a></span>
 
                 
                 
@@ -480,13 +489,12 @@
 
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><em>性子急的可以跳过，直接看后面的配置</em></p>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>树莓派安装了CentOS7以后感觉还不错，正好大部分学习linux的资料都是CentOS为主，所以就准备长期使用，然后这两天用you-get下载了一些视频，然后想拷贝出来，这时候突然发现CentOS不能写入ntfs格式的U盘，哎，开源和微软之间总有那么一道肉隐肉现的鸿沟。</p>
-<p>那么需求来了，让CentOS读取ntfs，搜索一番，发现很简单就是安装一个ntfs-3g的软件的事情，不过就这么个问题废老大劲了。</p>
-<p><strong>2018-06-05更新：32位安装ntfs-3g可<a href="https://www.tuxera.com/community/open-source-ntfs-3g/" target="_blank" rel="noopener">官网</a>下载源码直接编译安装，64位的可以直接安装<a href="https://fedoraproject.org/wiki/EPEL" target="_blank" rel="noopener">EPEL</a>然后再安装相应的软件</strong></p>
+          <p><strong>三层和二层交换机的链路聚合没有成功。可以通信，但聚合链路中拿走一条链路后则通信中断，这个是PT5.3版本的坑！！</strong></p>
+<p><strong>PT5.3这个大坑我上来就踩上了，这个版本的链路聚合有问题，当只有一条链路的时候，无法ping通。所以直觉就是链路聚合没有配置成功。请用6.2版本。</strong></p>
+<p>拓扑图如下：<br><img src="https://raw.githubusercontent.com/aoenian/postbackup/master/topupic/switch4.png" alt=""></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/29/centos-samba/#more" rel="contents">
+            <a class="btn" href="/2017/03/08/switch-config-4/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -542,7 +550,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/04/29/website-collect/">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/03/05/switch-config-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="aoenian">
@@ -561,8 +569,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/29/website-collect/" itemprop="url">
-                  网站备份
+                <a class="post-title-link" href="/2017/03/05/switch-config-2/" itemprop="url">
+                  思科交换机配置2——单交换机VLAN划分
                 </a>
               
             
@@ -588,7 +596,7 @@
                 
               
 
-              <time title="创建时间：2017-04-29 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-29T00:00:00+08:00">2017-04-29</time>
+              <time title="创建时间：2017-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-05T00:00:00+08:00">2017-03-05</time>
             
 
             
@@ -605,7 +613,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-24 13:39:01" itemprop="dateModified" datetime="2018-06-24T13:39:01+08:00">2018-06-24</time>
+                <time title="修改时间：2018-06-23 17:20:09" itemprop="dateModified" datetime="2018-06-23T17:20:09+08:00">2018-06-23</time>
               
             
           </span>
@@ -657,17 +665,1345 @@
 
       
         
-          <p>这段时间整理了一下浏览器的书签发现里面收藏了很多书签，然后重新整理了一下，把一些感觉不错的记录下来，然后把浏览器里面的都删除掉。其实平时浏览的网站基本就那几个。</p>
-<p>按照网站的内容分类吧，比较直观。 <em>站点后有 <code>@</code> 符号表示需要特殊渠道访问</em></p>
-<h1 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h1><ul>
-<li><a href="http://www.itmop.com/" target="_blank" rel="noopener">IT猫扑网</a> 无意间看到，有各平台的软件下载</li>
-<li><a href="http://www.xdowns.com/" target="_blank" rel="noopener">绿盟</a> 之前的良心软件网站。（现在下载需要登录了，也很久没用过了）</li>
-<li><a href="https://emlvirus.gitbooks.io/windows-apps-that-amaze-us/content/" target="_blank" rel="noopener">Windows绝赞应用</a>    介绍Windows绝妙应用的项目，同时也介绍一些流氓应用</li>
-<li><a href="http://www.zdfans.com/" target="_blank" rel="noopener">zd423</a> 良心软件下载站</li>
+          <h1 id="单交换机VLAN配置"><a href="#单交换机VLAN配置" class="headerlink" title="单交换机VLAN配置"></a>单交换机VLAN配置</h1><p>配置好的思科模拟器文件地址:<a href="https://github.com/aoenian/cisco-pkt/" target="_blank" rel="noopener">cisco-pkt</a></p>
+<p>配置参数</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>IP地址</th>
+<th>所属VLAN</th>
+<th>连接端口</th>
+<th>网关</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PC1</td>
+<td>192.168.1.11/24</td>
+<td>VLAN10</td>
+<td>f0/1</td>
+<td>192.168.1.254/24</td>
+</tr>
+<tr>
+<td>PC2</td>
+<td>192.168.1.12/24</td>
+<td>VLAN10</td>
+<td>f0/2</td>
+<td>192.168.1.254/24</td>
+</tr>
+<tr>
+<td>PC3</td>
+<td>192.168.2.11/24</td>
+<td>VLAN20</td>
+<td>f0/11</td>
+<td>192.168.2.254/24</td>
+</tr>
+<tr>
+<td>PC4</td>
+<td>192.168.2.12/24</td>
+<td>VLAN20</td>
+<td>f0/12</td>
+<td>192.168.2.254/24</td>
+</tr>
+</tbody>
+</table>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/05/switch-config-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/03/05/switch-config-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/05/switch-config-3/" itemprop="url">
+                  思科交换机配置3——多交换机VLAN划分
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-05T00:00:00+08:00">2017-03-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-23 18:00:30" itemprop="dateModified" datetime="2018-06-23T18:00:30+08:00">2018-06-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">Net</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>配置好的思科模拟器文件地址：<a href="https://github.com/aoenian/cisco-pkt/" target="_blank" rel="noopener">cisco-pkt</a></p>
+<p>拓扑图:<br><img src="https://raw.githubusercontent.com/aoenian/postbackup/master/topupic/switch3.PNG" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/05/switch-config-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/03/04/switch-config-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/03/04/switch-config-1/" itemprop="url">
+                  思科交换机配置1——密码配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-04T00:00:00+08:00">2017-03-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-23 16:59:58" itemprop="dateModified" datetime="2018-06-23T16:59:58+08:00">2018-06-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">Net</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>交换机的配置将会是一个系列文章，我会把自己配置过的例子都写出来做一个系列，也避免之后每次遇到都要去网络搜索。使用 packet tracer 的版本号为6.2(5.3版本会出现问题)，查看此文需要对思科模拟器有一定的了解。</strong></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/04/switch-config-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/02/22/broadcast-multicast/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/22/broadcast-multicast/" itemprop="url">
+                  IP地址相关以及广播和组播的区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-02-22 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-22T00:00:00+08:00">2017-02-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-08 20:07:20" itemprop="dateModified" datetime="2018-06-08T20:07:20+08:00">2018-06-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">Net</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="关于IP地址的一些问题"><a href="#关于IP地址的一些问题" class="headerlink" title="关于IP地址的一些问题"></a>关于IP地址的一些问题</h1><h2 id="IP地址的分类"><a href="#IP地址的分类" class="headerlink" title="IP地址的分类"></a>IP地址的分类</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>前缀位</th>
+<th>首字节值</th>
+<th>网络数</th>
+<th>主机数</th>
+<th>私有地址范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>0</td>
+<td>0-127</td>
+<td>2<sup>7</sup>-2</td>
+<td>2<sup>24</sup>-2</td>
+<td>10.0.0.0-10.255.255.255</td>
+</tr>
+<tr>
+<td>B</td>
+<td>10</td>
+<td>128-191</td>
+<td>2<sup>14</sup></td>
+<td>2<sup>16</sup>-2</td>
+<td>172.16.0.0-172.31.255.255</td>
+</tr>
+<tr>
+<td>C</td>
+<td>110</td>
+<td>192-223</td>
+<td>2<sup>21</sup></td>
+<td>2<sup>8</sup>-2</td>
+<td>192.168.0.0-192.168.255.255</td>
+</tr>
+<tr>
+<td>D</td>
+<td>1110</td>
+<td>224-239</td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
+<tr>
+<td>E</td>
+<td>1111</td>
+<td>240-255</td>
+<td>/</td>
+<td>/</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>
+<p><strong>备注：</strong><br>A类网络中网络数减去2，原因为0和127开头的地址作为保留地址块，具体会在后面介绍。主机数减2是由于计算时需要除去全’0’和全’1’，原因下面介绍）</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/22/broadcast-multicast/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/02/18/ss-in-terminal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/18/ss-in-terminal/" itemprop="url">
+                  MacOS/RPI 终端使用ss代理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-02-18 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-18T00:00:00+08:00">2017-02-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-23 16:01:12" itemprop="dateModified" datetime="2018-06-23T16:01:12+08:00">2018-06-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Raspberry-Pi/" itemprop="url" rel="index"><span itemprop="name">Raspberry Pi</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这段时间需要编写程序访问一个网站，不过出现一个问题就是，网站无法在国内正常的访问，我是真的崩溃了。vim下载个插件，网络出问题，emacs整个配置也是问题百出。哎，无语凝噎！！</p>
+<p>所以咱们不能坐以待毙，终端使用ss走起。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/18/ss-in-terminal/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/02/16/rasp-disable-wireless-card/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/16/rasp-disable-wireless-card/" itemprop="url">
+                  树莓派永久禁用无线网卡
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-02-16 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-16T00:00:00+08:00">2017-02-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-20 16:04:05" itemprop="dateModified" datetime="2018-06-20T16:04:05+08:00">2018-06-20</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Raspberry-Pi/" itemprop="url" rel="index"><span itemprop="name">Raspberry Pi</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>之前树莓派一直用的无线网卡，不过更新系统，安装软件，传输文件都实在太慢了，所以我找了一根网线把树莓派连在路由器上面。这样感觉好多了还是有线稳定啊。因为基本不再用无线，所以就准备把无线网卡禁用掉。</p>
+<p>首先想到的就是在图形界面下面找到网络管理器，然后禁用。不过平时都是用的ssh连接的，没用过远程vnc，所以上网搜索了一下。把过程记录下来备用。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/16/rasp-disable-wireless-card/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2016/12/15/excel-value-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/15/excel-value-error/" itemprop="url">
+                  解决网页粘贴到Excel的数值计算出现#Value!错误
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-15 21:22:56" itemprop="dateCreated datePublished" datetime="2016-12-15T21:22:56+08:00">2016-12-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-11 20:55:21" itemprop="dateModified" datetime="2018-06-11T20:55:21+08:00">2018-06-11</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>今天在做excel表格的公式计算时候出现一个<code>#value!</code>的问题，出现的原因就是我把网络上面的数字粘贴到了Excel里面然后用公式计算，结果就死活算不出来。</p>
+<p>搜索了网络上面的方法，最终得到了解决，有一些解决方案在这次虽然没有起效，这里也做一下记录：</p>
+<ol>
+<li><p>更改单元格类型，更改为数字，不过大部分不是这种原因</p>
+</li>
+<li><p>在旁边一个空的单元格中输入数字1，然后复制这个单元格，选中从网页粘贴过来的数字然后选择 选择性粘贴——乘以。 其实主要还是为了把单元格的文本格式改为数字格式</p>
+</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2016/12/15/excel-value-error/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2016/12/01/install-ffmpeg-on-rasp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="aoenian">
+      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aoenian">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/01/install-ffmpeg-on-rasp/" itemprop="url">
+                  树莓派安装ffmpeg（主要用于you-get下载视频的合并）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-01 15:38:33" itemprop="dateCreated datePublished" datetime="2016-12-01T15:38:33+08:00">2016-12-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-06-17 19:39:16" itemprop="dateModified" datetime="2018-06-17T19:39:16+08:00">2018-06-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Raspberry-Pi/" itemprop="url" rel="index"><span itemprop="name">Raspberry Pi</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>买了树莓派本来准备用来下BT，可谁知道国内除了迅雷，其他的下载软件的速度实在没办法看，所以平时下载大部分用you-get，还是挺好用的。</p>
+<p>因为文档上面说过需要安装ffmpeg，不过开始我没有安装使用you-get也下载合并成功了，但是我没注意看是否分段下载的，也没注意是哪个网站。昨天下载乐视出现问题了，无法合并，所以只能安装ffmpeg。</p>
+<p><strong>2018-06-17更新：由于长时间没有关注you-get项目，这段时间感觉很多网站已经无法下载，不过自己看视频也少了，ffpmeg可以直接用apt-get安装不过可能版本会低一点，一般不影响。</strong></p>
+<p><strong>Windows使用ffmpeg可以<a href="https://ffmpeg.zeranoe.com/builds/" target="_blank" rel="noopener">官网</a>下载Static或Shared版本</strong></p>
+<p><strong>具体的教程还是移步到<a href="https://blog.csdn.net/leixiaohua1020/article/details/15811977" target="_blank" rel="noopener">雷霄骅的博客</a></strong></p>
+<p>具体的安装方法大家可以参考以下两个博客：</p>
+<ul>
+<li><p><a href="https://alair.cn/logs/raspberry-pi-install-ffmpeg.html" target="_blank" rel="noopener">https://alair.cn/logs/raspberry-pi-install-ffmpeg.html</a></p>
+</li>
+<li><p><a href="http://owenashurst.com/?p=242" target="_blank" rel="noopener">http://owenashurst.com/?p=242</a></p>
+</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/29/website-collect/#more" rel="contents">
+            <a class="btn" href="/2016/12/01/install-ffmpeg-on-rasp/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -723,7 +2059,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/04/19/emacs-broken-hard-link/">
+    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2016/11/26/rime-input-config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="aoenian">
@@ -742,8 +2078,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/04/19/emacs-broken-hard-link/" itemprop="url">
-                  如何避免Emacs破坏文件的硬链接
+                <a class="post-title-link" href="/2016/11/26/rime-input-config/" itemprop="url">
+                  Rime输入法配置——小鹤双拼
                 </a>
               
             
@@ -769,7 +2105,7 @@
                 
               
 
-              <time title="创建时间：2017-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-19T00:00:00+08:00">2017-04-19</time>
+              <time title="创建时间：2016-11-26 11:00:45" itemprop="dateCreated datePublished" datetime="2016-11-26T11:00:45+08:00">2016-11-26</time>
             
 
             
@@ -786,7 +2122,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-06-10 15:43:09" itemprop="dateModified" datetime="2018-06-10T15:43:09+08:00">2018-06-10</time>
+                <time title="修改时间：2018-06-23 11:16:45" itemprop="dateModified" datetime="2018-06-23T11:16:45+08:00">2018-06-23</time>
               
             
           </span>
@@ -803,7 +2139,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Editor/" itemprop="url" rel="index"><span itemprop="name">Editor</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a></span>
 
                 
                 
@@ -838,363 +2174,12 @@
 
       
         
-          <p>使用了markdown以后感觉不错，能够全心放在写作内容上面，不过用了一段时间以后开始发愁编辑器的问题，在网络搜索的过程中进入了org-mode的坑，配上emacs，用着很爽，也不会发愁注册啦，版权之类的问题。所以就开始使用org-mode进行文字记录。</p>
-<p>问题的出现是在写博客的过程中，在blog目录下写完一篇文章后我会把文件硬链接到post目录下，这样呢如果文章预览解析有问题需要更改，那么留在blog目录下的文章也会随之改变，保证两边的文章是一样的。</p>
+          <p>以前一直在用搜狗，不过随着搜狗输入法离输入这条路越来越远，导致不得不寻找一款替代品，然后找到了QQ输入法，其实腾讯的产品还是不错的，起码输入法不会整天提示你系统垃圾太多。</p>
+<p><strong>重磅消息：时隔四年，小狼毫更新了，适配Windows10，哈哈</strong>  <a href="https://rime.im/download/" target="_blank" rel="noopener">下载地址</a></p>
+<p>四月份的时候windows上面的小狼毫收到更新通知还以为是幻觉-_-!</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/19/emacs-broken-hard-link/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/04/17/router-config-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="aoenian">
-      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="aoenian">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/17/router-config-2/" itemprop="url">
-                  思科路由器配置2——单臂路由
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-17T00:00:00+08:00">2017-04-17</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-23 18:00:58" itemprop="dateModified" datetime="2018-06-23T18:00:58+08:00">2018-06-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">Net</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://baike.baidu.com/item/%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1" target="_blank" rel="noopener">单臂路由</a>:是指在路由器的一个接口上通过配置子接口（或“逻辑接口”，并不存在真正物理接口）的方式，实现原来相互隔离的不同VLAN（虚拟局域网）之间的互联互通。</p>
-<p><a href="https://github.com/aoenian/cisco-pkt" target="_blank" rel="noopener">配置好的pkt文件</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/17/router-config-2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://aoenian.github.io/2017/03/22/switch-config-6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="aoenian">
-      <meta itemprop="description" content="总会遇到一个彩虹般绚烂的人">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="aoenian">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/03/22/switch-config-6/" itemprop="url">
-                  思科交换机配置6——生成树协议(STP)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-03-22 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-22T00:00:00+08:00">2017-03-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-06-24 09:23:34" itemprop="dateModified" datetime="2018-06-24T09:23:34+08:00">2018-06-24</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Net/" itemprop="url" rel="index"><span itemprop="name">Net</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="https://github.com/aoenian/cisco-pkt" target="_blank" rel="noopener">配置好的pkt文件</a></p>
-<p><strong>网络的拓扑结构以及配置参考 《网络设置配置与管理》 吴伯桥主编清华大学出版社</strong> </p>
-<p><em>书中部分配置命令在模拟器中并不存在，下文中已更改</em></p>
-<p>拓扑图：<br><img src="https://raw.githubusercontent.com/aoenian/postbackup/master/topupic/switch6.PNG" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/22/switch-config-6/#more" rel="contents">
+            <a class="btn" href="/2016/11/26/rime-input-config/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1239,7 +2224,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1286,7 +2271,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1313,7 +2298,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1452,7 +2439,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1482,6 +2479,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

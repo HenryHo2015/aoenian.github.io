@@ -180,6 +180,15 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
+
 
 
 
@@ -501,23 +510,23 @@
 <ul>
 <li>文件方法 <a href="https://segmentfault.com/a/1190000000414341" target="_blank" rel="noopener">原文</a></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 基本就是把想要连接的视频的路径写在一个文本文件中，然后用命令连接，适合连接文件较多的情况</span></span><br><span class="line">$ cat mylist.txt</span><br><span class="line">file <span class="string">'/path/to/file1'</span></span><br><span class="line">file <span class="string">'/path/to/file2'</span></span><br><span class="line">file <span class="string">'/path/to/file3'</span></span><br><span class="line">$ ffmpeg -f concat -i mylist.txt -c copy output</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 基本就是把想要连接的视频的路径写在一个文本文件中，然后用命令连接，适合连接文件较多的情况</span></span><br><span class="line">$ cat mylist.txt</span><br><span class="line">file <span class="string">'/path/to/file1'</span></span><br><span class="line">file <span class="string">'/path/to/file2'</span></span><br><span class="line">file <span class="string">'/path/to/file3'</span></span><br><span class="line">$ ffmpeg -f concat -i mylist.txt -c copy output</span><br></pre></td></tr></table></figure></div>
 <ul>
 <li>直接命令方法</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 连接文件较少比较合适</span></span><br><span class="line">ffmpeg -i <span class="string">"concat:input1.mp4|input2.mp4|input3.mp4"</span> -c copy output.mp4</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 连接文件较少比较合适</span></span><br><span class="line">ffmpeg -i <span class="string">"concat:input1.mp4|input2.mp4|input3.mp4"</span> -c copy output.mp4</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>视频虽然格式相同，如都是MP4，但是码率，宽高都不相同，这就比较麻烦，还没有好的解决方法，以下仅供参考 <strong>如果大家有解决方案，请麻烦告诉一下</strong></p>
 <p>在网络上搜索的这种情况，基本思路就是把视频转换到临时格式，合并后再转换回源格式</p>
 <ul>
 <li>使用ts格式过渡 <a href="https://superuser.com/a/1059261" target="_blank" rel="noopener">原文</a></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate1.ts</span><br><span class="line">ffmpeg -i input2.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate2.ts</span><br><span class="line">ffmpeg -i <span class="string">"concat:intermediate1.ts|intermediate2.ts"</span> -c copy -bsf:a aac_adtstoasc output.mp4</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate1.ts</span><br><span class="line">ffmpeg -i input2.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate2.ts</span><br><span class="line">ffmpeg -i <span class="string">"concat:intermediate1.ts|intermediate2.ts"</span> -c copy -bsf:a aac_adtstoasc output.mp4</span><br></pre></td></tr></table></figure></div>
 <p><em>这种方法可以完成视频的连接，画面没有问题，但是视频的声音会丢失</em></p>
 <ul>
 <li>使用mpg格式过渡 <a href="https://stackoverflow.com/a/7333453" target="_blank" rel="noopener">原文</a></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i 1.mp4 -qscale 0 1.mpg</span><br><span class="line">ffmpeg -i 2.mp4 -qscale 0 2.mpg</span><br><span class="line">cat 1.mpg 2.mpg | ffmpeg -f mpeg -i - -qscale 0 -vcodec mpeg4 output.mp4</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i 1.mp4 -qscale 0 1.mpg</span><br><span class="line">ffmpeg -i 2.mp4 -qscale 0 2.mpg</span><br><span class="line">cat 1.mpg 2.mpg | ffmpeg -f mpeg -i - -qscale 0 -vcodec mpeg4 output.mp4</span><br></pre></td></tr></table></figure></div>
 <p><em>视频可以连接，声音还在，不过视频会压缩为一样的宽高</em></p>
 <ul>
 <li>最后是我已经实验过的几种转换方法和连接方法，不过都失败了</li>
@@ -541,6 +550,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2018/05/26/ffmpeg-concat-video/" title="FFmpeg剪切连接音视频">https://aoenian.github.io/2018/05/26/ffmpeg-concat-video/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -650,7 +673,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -677,7 +700,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -816,7 +841,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -846,6 +881,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

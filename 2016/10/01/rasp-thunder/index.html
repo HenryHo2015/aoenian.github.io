@@ -180,6 +180,15 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
+
 
 
 
@@ -496,7 +505,7 @@
 <p>默认登录名为： pi </p>
 <p>默认登录密码为：raspberry （建议等会儿改成简单的，太麻烦）</p>
 <p>登入系统以后打开终端，如果ssh的话就只有终端界面，执行命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设定root用户密码</span></span><br><span class="line">sudo passwd   <span class="comment"># 回车以后输入两次root密码（密码不会显示）</span></span><br><span class="line"><span class="comment"># 打开root用户登录限制,因为默认是不允许root用户直接登录</span></span><br><span class="line">sudo passwd --unlock root  <span class="comment"># 但是你会发现新版的树莓派系统这个命令不行了接着看下面</span></span><br><span class="line"><span class="comment"># 需要修改ssh的配置文件 这里我用vi 你也可以用 nano</span></span><br><span class="line">sudo vi /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># 把PermitRootLogin 的参数更改为 yes</span></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"><span class="comment"># 重启即可用root用户登录</span></span><br><span class="line">sudo reboot</span><br><span class="line"><span class="comment"># 修该pi用户密码 根据自己需要</span></span><br><span class="line">sudo passwd pi</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设定root用户密码</span></span><br><span class="line">sudo passwd   <span class="comment"># 回车以后输入两次root密码（密码不会显示）</span></span><br><span class="line"><span class="comment"># 打开root用户登录限制,因为默认是不允许root用户直接登录</span></span><br><span class="line">sudo passwd --unlock root  <span class="comment"># 但是你会发现新版的树莓派系统这个命令不行了接着看下面</span></span><br><span class="line"><span class="comment"># 需要修改ssh的配置文件 这里我用vi 你也可以用 nano</span></span><br><span class="line">sudo vi /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># 把PermitRootLogin 的参数更改为 yes</span></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"><span class="comment"># 重启即可用root用户登录</span></span><br><span class="line">sudo reboot</span><br><span class="line"><span class="comment"># 修该pi用户密码 根据自己需要</span></span><br><span class="line">sudo passwd pi</span><br></pre></td></tr></table></figure></div>
 <ul>
 <li>挂载u盘</li>
 </ul>
@@ -505,12 +514,12 @@
 <p>这里我使用的是手动挂载u盘，一个原因是上面教程中的自动挂载没有用，另一个我的树莓派并不是下载为主，只是偶尔使用。</p>
 <p>需要自动挂载可以查看<a href="https://blog.gtwang.org/iot/raspberry-pi-auto-mount-usb-disk/" target="_blank" rel="noopener">这里</a>不过我并没有验证是否有效，后面验证完毕后会更新这里的内容。</p>
 <p>下面介绍手动挂载</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 插入u盘后，查看dev 如果出现sda1 则说明u盘已经识别</span></span><br><span class="line">ls /dev/sd*</span><br><span class="line"><span class="comment"># 在/mnt 目录下建立挂载目录</span></span><br><span class="line">sudo mkdir /mnt/usb</span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">sudo mount -t ntfs /dev/sda1 /mnt/usb</span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">sudo umount /mnt/usb</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 插入u盘后，查看dev 如果出现sda1 则说明u盘已经识别</span></span><br><span class="line">ls /dev/sd*</span><br><span class="line"><span class="comment"># 在/mnt 目录下建立挂载目录</span></span><br><span class="line">sudo mkdir /mnt/usb</span><br><span class="line"><span class="comment"># 挂载</span></span><br><span class="line">sudo mount -t ntfs /dev/sda1 /mnt/usb</span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">sudo umount /mnt/usb</span><br></pre></td></tr></table></figure></div>
 <p>然后就可在/media/usb 目录下看到u盘的文件。具体的mount命令使用可查看[mount][m]<br>[m]: <a href="http://www.runoob.com/linux/linux-comm-mount.html" target="_blank" rel="noopener">http://www.runoob.com/linux/linux-comm-mount.html</a></p>
 <ul>
 <li>安装迅雷程序</li>
 </ul>
-<p>先把下载的迅雷文件的压缩包解压出来，然后放在u盘里面，文件下载地址：[点我][2]<br>[2]: <a href="http://luyou.xunlei.com/thread-12545-1-1.html" target="_blank" rel="noopener">http://luyou.xunlei.com/thread-12545-1-1.html</a><br>树莓派请下载： Xware1.0.31_armel_v5te_glibc.zip 然后把u盘插入树莓派<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 当然先挂载，然后进入u盘目录，我把迅雷的名字更改,纯粹为了方便</span></span><br><span class="line">mv Xware1.0.31_armel_v5te_glibc xunlei</span><br><span class="line"><span class="comment"># 启动远程下载</span></span><br><span class="line">./portal</span><br></pre></td></tr></table></figure></p>
+<p>先把下载的迅雷文件的压缩包解压出来，然后放在u盘里面，文件下载地址：[点我][2]<br>[2]: <a href="http://luyou.xunlei.com/thread-12545-1-1.html" target="_blank" rel="noopener">http://luyou.xunlei.com/thread-12545-1-1.html</a><br>树莓派请下载： Xware1.0.31_armel_v5te_glibc.zip 然后把u盘插入树莓派<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 当然先挂载，然后进入u盘目录，我把迅雷的名字更改,纯粹为了方便</span></span><br><span class="line">mv Xware1.0.31_armel_v5te_glibc xunlei</span><br><span class="line"><span class="comment"># 启动远程下载</span></span><br><span class="line">./portal</span><br></pre></td></tr></table></figure></div></p>
 <p>接着会出现<code>THE ACTIVE CODE IS: ******</code> 星号代表你的设备码。然后登录远程迅雷在面板左侧添加设备，把设备码输入即可。</p>
 <p><a href="http://yuancheng.xunlei.com/login.html#" target="_blank" rel="noopener">远程迅雷地址</a></p>
 <p><strong>到这里基本就完成了，至于速度就是你的资源热度和网速了。</strong></p>
@@ -529,6 +538,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2016/10/01/rasp-thunder/" title="树莓派下载系列（一）————迅雷远程">https://aoenian.github.io/2016/10/01/rasp-thunder/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -640,7 +663,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -667,7 +690,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -806,7 +831,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -836,6 +871,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           

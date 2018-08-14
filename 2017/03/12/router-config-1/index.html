@@ -180,6 +180,15 @@
 
 
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123897163-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123897163-1');
+</script>
+
 
 
 
@@ -487,12 +496,12 @@
         <p><a href="https://github.com/aoenian/cisco-pkt" target="_blank" rel="noopener">配置好的pkt文件</a></p>
 <h1 id="密码配置"><a href="#密码配置" class="headerlink" title="密码配置"></a>密码配置</h1><p>思科的交换机和路由器的密码配置操作是一样的，这里介绍的是交换机中没有涉及到的，但是也可以使用的配置。</p>
 <a id="more"></a>
-<h2 id="console密码"><a href="#console密码" class="headerlink" title="console密码"></a>console密码</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Switch<span class="meta">#erase startup-config             <span class="comment">// 删除原有配置</span></span></span><br><span class="line">Switch<span class="meta">#reload                           <span class="comment">// 重启交换机</span></span></span><br><span class="line">Switch(config)<span class="meta">#<span class="meta-keyword">line</span> console 0</span></span><br><span class="line">Switch(config-line)<span class="meta">#password cisco      <span class="comment">// 设置console口登录密码</span></span></span><br><span class="line">Switch(config-line)<span class="meta">#login               <span class="comment">// 开启登录验证</span></span></span><br><span class="line">Switch(config-line)<span class="meta">#login local  <span class="comment">// 开启本地验证，不开启则后面创建的本地用户不能登录</span></span></span><br><span class="line"></span><br><span class="line">Switch(config-line)<span class="meta">#exit</span></span><br><span class="line"><span class="comment">// 创建本地用户以后，从console口登录则需要输入用户名和密码</span></span><br><span class="line">Switch(config)<span class="meta">#username cisco password cisco    <span class="comment">// 创建本地用户并设置密码</span></span></span><br><span class="line"><span class="comment">// 用户权限定义为 0-15 级，最高为15级 任何命令都可操作</span></span><br><span class="line">Switch(config)<span class="meta">#username cisco privilege 15 password cisco  <span class="comment">// 该用户登录直接进入特权模式</span></span></span><br><span class="line">Switch(config)<span class="meta">#service password-encryption  <span class="comment">// 把明文密码加密</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="console密码"><a href="#console密码" class="headerlink" title="console密码"></a>console密码</h2><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="C"><figure class="iseeu highlight /c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Switch<span class="meta">#erase startup-config             <span class="comment">// 删除原有配置</span></span></span><br><span class="line">Switch<span class="meta">#reload                           <span class="comment">// 重启交换机</span></span></span><br><span class="line">Switch(config)<span class="meta">#<span class="meta-keyword">line</span> console 0</span></span><br><span class="line">Switch(config-line)<span class="meta">#password cisco      <span class="comment">// 设置console口登录密码</span></span></span><br><span class="line">Switch(config-line)<span class="meta">#login               <span class="comment">// 开启登录验证</span></span></span><br><span class="line">Switch(config-line)<span class="meta">#login local  <span class="comment">// 开启本地验证，不开启则后面创建的本地用户不能登录</span></span></span><br><span class="line"></span><br><span class="line">Switch(config-line)<span class="meta">#exit</span></span><br><span class="line"><span class="comment">// 创建本地用户以后，从console口登录则需要输入用户名和密码</span></span><br><span class="line">Switch(config)<span class="meta">#username cisco password cisco    <span class="comment">// 创建本地用户并设置密码</span></span></span><br><span class="line"><span class="comment">// 用户权限定义为 0-15 级，最高为15级 任何命令都可操作</span></span><br><span class="line">Switch(config)<span class="meta">#username cisco privilege 15 password cisco  <span class="comment">// 该用户登录直接进入特权模式</span></span></span><br><span class="line">Switch(config)<span class="meta">#service password-encryption  <span class="comment">// 把明文密码加密</span></span></span><br></pre></td></tr></table></figure></div>
 <h2 id="远程ssh登录"><a href="#远程ssh登录" class="headerlink" title="远程ssh登录"></a>远程ssh登录</h2><p>今天看到网络上面介绍 telnet 登录是明文传输，建议采用 <code>ssh</code> 方式登录。这里就介绍一下ssh登录的方法</p>
 <p><em>这里用模拟器测试一下发现，模拟器中支持 domain-name 配置的是三层交换机和路由器，二层交换机无法配置</em></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">Router(config)<span class="meta">#hostname R1841       <span class="comment">// 设置hostname</span></span></span><br><span class="line">R1841(config)<span class="meta">#ip domain-name router.com     <span class="comment">// 设置domain-name</span></span></span><br><span class="line">R1841(config)<span class="meta">#username cisco privilege 15 password cisco  <span class="comment">// 创建本地用户和密码</span></span></span><br><span class="line">R1841(config)<span class="meta">#service password-encryption   <span class="comment">// 把密码加密</span></span></span><br><span class="line">R1841(config)<span class="meta">#enable secret cisco   <span class="comment">// 设置特权密码，不然后面远程无法进入特权模式</span></span></span><br><span class="line">R1841(config)<span class="meta">#crypto key generate rsa   <span class="comment">// 生成ssh密钥</span></span></span><br><span class="line">The name <span class="keyword">for</span> the keys will be: R1841.router.com</span><br><span class="line">Choose the size of the key modulus in the range of <span class="number">360</span> to <span class="number">2048</span> <span class="keyword">for</span> your</span><br><span class="line">  General Purpose Keys. Choosing a key modulus greater than <span class="number">512</span> may take</span><br><span class="line">  a few minutes.</span><br><span class="line"></span><br><span class="line">How many bits in the modulus [<span class="number">512</span>]: <span class="number">1024</span>   <span class="comment">// 这里需要产生1024位的密钥因为ssh版本2需要位数较多</span></span><br><span class="line">% Generating <span class="number">1024</span> bit RSA keys, keys will be non-exportable...[OK]</span><br><span class="line"></span><br><span class="line">R1841(config)<span class="meta">#ip ssh version 2  <span class="comment">// 设置使用的ssh版本</span></span></span><br><span class="line">*<span class="number">3</span>? <span class="number">1</span> <span class="number">0</span>:<span class="number">7</span>:<span class="number">2.224</span>:  %SSH<span class="number">-5</span>-ENABLED: SSH <span class="number">1.99</span> has been enabled </span><br><span class="line">R1841(config)<span class="meta">#ip ssh time-out 120   <span class="comment">// ssh会话超时时间</span></span></span><br><span class="line">R1841(config)<span class="meta">#ip ssh authentication-retries 3   <span class="comment">// ssh验证的最大次数</span></span></span><br><span class="line">R1841(config)<span class="meta">#<span class="meta-keyword">line</span> vty 0 4</span></span><br><span class="line">R1841(config-line)<span class="meta">#transport input all  <span class="comment">// 启用所有的认证（telnet和ssh）</span></span></span><br><span class="line">R1841(config-line)<span class="meta">#login local      <span class="comment">// 启用本地验证</span></span></span><br><span class="line">R1841(config-line)<span class="meta">#exit</span></span><br><span class="line">R1841(config)<span class="meta">#interface f0/0        </span></span><br><span class="line">R1841(config-<span class="keyword">if</span>)<span class="meta">#no shutdown        <span class="comment">// 启动路由器端口</span></span></span><br><span class="line">%LINK<span class="number">-5</span>-CHANGED: Interface FastEthernet0/<span class="number">0</span>, changed state to up</span><br><span class="line">%LINEPROTO<span class="number">-5</span>-UPDOWN: Line protocol on Interface FastEthernet0/<span class="number">0</span>, changed state to up</span><br><span class="line"></span><br><span class="line">R1841(config-<span class="keyword">if</span>)<span class="meta">#ip address 192.168.1.1 255.255.255.0   <span class="comment">// 设置远程登录IP</span></span></span><br><span class="line">R1841(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">R1841(config)<span class="meta">#exit</span></span><br><span class="line">R1841<span class="meta">#write     <span class="comment">// 写入配置</span></span></span><br><span class="line"></span><br><span class="line">R1841(config)<span class="meta">#crypto key zeroize rsa    <span class="comment">// 删除ssh密钥禁止ssh登录</span></span></span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="C"><figure class="iseeu highlight /c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Router(config)<span class="meta">#hostname R1841       <span class="comment">// 设置hostname</span></span></span><br><span class="line">R1841(config)<span class="meta">#ip domain-name router.com     <span class="comment">// 设置domain-name</span></span></span><br><span class="line">R1841(config)<span class="meta">#username cisco privilege 15 password cisco  <span class="comment">// 创建本地用户和密码</span></span></span><br><span class="line">R1841(config)<span class="meta">#service password-encryption   <span class="comment">// 把密码加密</span></span></span><br><span class="line">R1841(config)<span class="meta">#enable secret cisco   <span class="comment">// 设置特权密码，不然后面远程无法进入特权模式</span></span></span><br><span class="line">R1841(config)<span class="meta">#crypto key generate rsa   <span class="comment">// 生成ssh密钥</span></span></span><br><span class="line">The name <span class="keyword">for</span> the keys will be: R1841.router.com</span><br><span class="line">Choose the size of the key modulus in the range of <span class="number">360</span> to <span class="number">2048</span> <span class="keyword">for</span> your</span><br><span class="line">  General Purpose Keys. Choosing a key modulus greater than <span class="number">512</span> may take</span><br><span class="line">  a few minutes.</span><br><span class="line"></span><br><span class="line">How many bits in the modulus [<span class="number">512</span>]: <span class="number">1024</span>   <span class="comment">// 这里需要产生1024位的密钥因为ssh版本2需要位数较多</span></span><br><span class="line">% Generating <span class="number">1024</span> bit RSA keys, keys will be non-exportable...[OK]</span><br><span class="line"></span><br><span class="line">R1841(config)<span class="meta">#ip ssh version 2  <span class="comment">// 设置使用的ssh版本</span></span></span><br><span class="line">*<span class="number">3</span>? <span class="number">1</span> <span class="number">0</span>:<span class="number">7</span>:<span class="number">2.224</span>:  %SSH<span class="number">-5</span>-ENABLED: SSH <span class="number">1.99</span> has been enabled </span><br><span class="line">R1841(config)<span class="meta">#ip ssh time-out 120   <span class="comment">// ssh会话超时时间</span></span></span><br><span class="line">R1841(config)<span class="meta">#ip ssh authentication-retries 3   <span class="comment">// ssh验证的最大次数</span></span></span><br><span class="line">R1841(config)<span class="meta">#<span class="meta-keyword">line</span> vty 0 4</span></span><br><span class="line">R1841(config-line)<span class="meta">#transport input all  <span class="comment">// 启用所有的认证（telnet和ssh）</span></span></span><br><span class="line">R1841(config-line)<span class="meta">#login local      <span class="comment">// 启用本地验证</span></span></span><br><span class="line">R1841(config-line)<span class="meta">#exit</span></span><br><span class="line">R1841(config)<span class="meta">#interface f0/0        </span></span><br><span class="line">R1841(config-<span class="keyword">if</span>)<span class="meta">#no shutdown        <span class="comment">// 启动路由器端口</span></span></span><br><span class="line">%LINK<span class="number">-5</span>-CHANGED: Interface FastEthernet0/<span class="number">0</span>, changed state to up</span><br><span class="line">%LINEPROTO<span class="number">-5</span>-UPDOWN: Line protocol on Interface FastEthernet0/<span class="number">0</span>, changed state to up</span><br><span class="line"></span><br><span class="line">R1841(config-<span class="keyword">if</span>)<span class="meta">#ip address 192.168.1.1 255.255.255.0   <span class="comment">// 设置远程登录IP</span></span></span><br><span class="line">R1841(config-<span class="keyword">if</span>)<span class="meta">#exit</span></span><br><span class="line">R1841(config)<span class="meta">#exit</span></span><br><span class="line">R1841<span class="meta">#write     <span class="comment">// 写入配置</span></span></span><br><span class="line"></span><br><span class="line">R1841(config)<span class="meta">#crypto key zeroize rsa    <span class="comment">// 删除ssh密钥禁止ssh登录</span></span></span><br></pre></td></tr></table></figure></div>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>使用pc连接路由器的f0/0接口，即可在命令行进行登录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// telnet 登录</span><br><span class="line">PC&gt;telnet 192.168.1.1</span><br><span class="line">Trying 192.168.1.1 ...Open</span><br><span class="line">User Access Verification</span><br><span class="line">Username: cisco</span><br><span class="line">Password: </span><br><span class="line">// ssh登录</span><br><span class="line">PC&gt;ssh -l cisco 192.168.1.1</span><br><span class="line">Open</span><br><span class="line">Password:</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// telnet 登录</span><br><span class="line">PC&gt;telnet 192.168.1.1</span><br><span class="line">Trying 192.168.1.1 ...Open</span><br><span class="line">User Access Verification</span><br><span class="line">Username: cisco</span><br><span class="line">Password: </span><br><span class="line">// ssh登录</span><br><span class="line">PC&gt;ssh -l cisco 192.168.1.1</span><br><span class="line">Open</span><br><span class="line">Password:</span><br></pre></td></tr></table></figure></div>
 <p><strong>参考博客</strong></p>
 <ul>
 <li><a href="http://willy.blog.51cto.com/5093185/1054260" target="_blank" rel="noopener">设置思科设备console密码、enable密码、vty登录密码</a></li>
@@ -513,6 +522,20 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>aoenian</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://aoenian.github.io/2017/03/12/router-config-1/" title="思科路由器配置1——密码配置">https://aoenian.github.io/2017/03/12/router-config-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -624,7 +647,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -651,7 +674,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -790,7 +815,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">63</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">68</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -820,6 +855,20 @@
           
 
           
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://liuyangxiong.cn/" title="Ape Code" target="_blank">Ape Code</a>
+                  </li>
+                
+              </ul>
+            </div>
           
 
           
