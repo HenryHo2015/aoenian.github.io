@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>aoenian</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://aoenian.github.io/"/>
+  <updated>2018-08-14T13:45:06.546Z</updated>
+  <id>https://aoenian.github.io/</id>
+  
+  <author>
+    <name>aoenian</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VSCode建立用户代码片段</title>
+    <link href="https://aoenian.github.io/2018/08/13/vscode-user-snippet/"/>
+    <id>https://aoenian.github.io/2018/08/13/vscode-user-snippet/</id>
+    <published>2018-08-12T16:00:00.000Z</published>
+    <updated>2018-08-14T13:45:06.546Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;编辑器尝试过很多，感觉没有特别适合的，当然我并不是深度用户，所以不做过多的评论。遇到VSCode以后感觉还是蛮不错，从一个普通用户的角度来说。&lt;/p&gt;
+&lt;p&gt;现在主要用的编辑器是两个 &lt;code&gt;Emacs&lt;/code&gt; 和 &lt;code&gt;VSCode&lt;/code&gt; ，前者用来写org文件，后者编辑修改一些小程序和配置文件。&lt;/p&gt;
+&lt;p&gt;遇到这个问题是因为在编写简单的 &lt;code&gt;HTML&lt;/code&gt; 文件时使用VSCode自带的补全有些内容暂时不需要，所以想自己写一个类似 &lt;code&gt;emmet&lt;/code&gt; 官方的自动补全，试了一下操作很方便，这里做个记录备份。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Editor" scheme="https://aoenian.github.io/categories/Editor/"/>
+    
+    
+      <category term="vscode" scheme="https://aoenian.github.io/tags/vscode/"/>
+    
+      <category term="snippet" scheme="https://aoenian.github.io/tags/snippet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Next主题样式配置2-代码块显示程序语言名字</title>
+    <link href="https://aoenian.github.io/2018/08/09/next-theme-customized-2/"/>
+    <id>https://aoenian.github.io/2018/08/09/next-theme-customized-2/</id>
+    <published>2018-08-08T16:00:00.000Z</published>
+    <updated>2018-08-14T13:50:29.474Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直想在代码块上面显示这个代码块使用的程序语言的名字，但是没有找到好的方法，这两天在搜索的时候发现了一个高手的&lt;a href=&quot;https://w3ctrain.com/2017/12/11/hexo-code-block/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;博客&lt;/a&gt;里面介绍了这个方法，就借鉴了过来。&lt;/p&gt;
+&lt;p&gt;因为自己的水平有限，后端基本啥也不会，所以原理就不多说了（其实看不懂），这里把步骤、代码以及一些小的修改记录如下。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://aoenian.github.io/categories/Hexo/"/>
+    
+    
+      <category term="next" scheme="https://aoenian.github.io/tags/next/"/>
+    
+      <category term="code block" scheme="https://aoenian.github.io/tags/code-block/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Next主题样式配置1-行内代码、下划线、字体</title>
+    <link href="https://aoenian.github.io/2018/08/06/next-theme-customized-1/"/>
+    <id>https://aoenian.github.io/2018/08/06/next-theme-customized-1/</id>
+    <published>2018-08-05T16:00:00.000Z</published>
+    <updated>2018-08-08T12:45:46.016Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用Github Pages做博客以后，一直用的主题就是Next，中间换过一次，但是太折腾了，后来又换回来了。&lt;/p&gt;
+&lt;p&gt;不过在使用过程中修改了一些配置和样式，让有些地方更适合自己，这里把配置记录一下，以便以后参考。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://aoenian.github.io/categories/Hexo/"/>
+    
+    
+      <category term="next" scheme="https://aoenian.github.io/tags/next/"/>
+    
+      <category term="style" scheme="https://aoenian.github.io/tags/style/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>惠普Pavilion笔记本安装Windows7</title>
+    <link href="https://aoenian.github.io/2018/08/05/hp-pavilion-install-win7/"/>
+    <id>https://aoenian.github.io/2018/08/05/hp-pavilion-install-win7/</id>
+    <published>2018-08-04T16:00:00.000Z</published>
+    <updated>2018-08-05T03:24:01.907Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;注意：惠普的Pavilion系列的CPU可能Win7不支持，触摸屏Win7也不支持，还有就是笔记本的功能按键可能也不行，如果Win7不是必需，建议安装Win10系统。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果一定需要安装Win7则需要更改BIOS，不然系统安装完
+        
+      
+    
+    </summary>
+    
+      <category term="Windows" scheme="https://aoenian.github.io/categories/Windows/"/>
+    
+    
+      <category term="Win7" scheme="https://aoenian.github.io/tags/Win7/"/>
+    
+      <category term="pavilion" scheme="https://aoenian.github.io/tags/pavilion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fedora28去掉Chrome/Opera浏览器的默认密钥环</title>
+    <link href="https://aoenian.github.io/2018/07/18/fedora28-erase-default-keyring/"/>
+    <id>https://aoenian.github.io/2018/07/18/fedora28-erase-default-keyring/</id>
+    <published>2018-07-17T16:00:00.000Z</published>
+    <updated>2018-07-22T12:47:18.738Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;安装浏览器的时候弹出的设置默认密钥，建议大家不要设置，不过既然你看到这篇文章估计已经晚了。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;那么解决方法如下：&lt;/p&gt;
+&lt;p&gt;打开终端 执行命令 &lt;code&gt;seahorse&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://aoenian.github.io/categories/Linux/"/>
+    
+    
+      <category term="fedora" scheme="https://aoenian.github.io/tags/fedora/"/>
+    
+      <category term="keyring" scheme="https://aoenian.github.io/tags/keyring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fedora28配置记录2——系统美化</title>
+    <link href="https://aoenian.github.io/2018/07/14/fedora28-config-2/"/>
+    <id>https://aoenian.github.io/2018/07/14/fedora28-config-2/</id>
+    <published>2018-07-13T16:00:00.000Z</published>
+    <updated>2018-07-14T13:43:56.290Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;接上篇，搞定输入法然后想把系统整得好看一点。&lt;/p&gt;
+&lt;h1 id=&quot;输入法安装&quot;&gt;&lt;a href=&quot;#输入法安装&quot; class=&quot;headerlink&quot; title=&quot;输入法安装&quot;&gt;&lt;/a&gt;输入法安装&lt;/h1&gt;&lt;p&gt;如果对中文输入法需求不高，ibus的自带拼音输入也就够用了，不过这个经常打交道的家伙还是来个顺手的更好。这里依然推荐&lt;a href=&quot;https://rime.im/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Rime&lt;/a&gt;中州韵输入法，安装很简单一条命令就可以处理，而且如果你用全拼的话基本不用配置即可使用，需要了解的是输入法的配置快捷键是&lt;code&gt;CTRL+`&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo dnf install ibus-rime&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://aoenian.github.io/categories/Linux/"/>
+    
+    
+      <category term="fedora" scheme="https://aoenian.github.io/tags/fedora/"/>
+    
+      <category term="system beauty" scheme="https://aoenian.github.io/tags/system-beauty/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Fedora28配置记录1——基本配置</title>
+    <link href="https://aoenian.github.io/2018/07/07/fedora28-config-1/"/>
+    <id>https://aoenian.github.io/2018/07/07/fedora28-config-1/</id>
+    <published>2018-07-06T16:00:00.000Z</published>
+    <updated>2018-07-21T10:47:11.622Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从使用manjaro以后感觉对中文的支持不是太好以后，就想换一个发行版，然后想到了fedora。&lt;/p&gt;
+&lt;p&gt;之前虽然也用过但是那时候觉得不是太好，好像连exfat格式的u盘都无法识别。现在趁着这个机会再装一次看看。&lt;/p&gt;
+&lt;h1 id=&quot;安装系统&quot;&gt;&lt;a href=&quot;#安装系统&quot; class=&quot;headerlink&quot; title=&quot;安装系统&quot;&gt;&lt;/a&gt;安装系统&lt;/h1&gt;&lt;p&gt;依然选择轻量级桌面，这次不再用lxde，选择了xfce，主要是相对kde和gnome要轻量，同时呢也有主题、图标的配置，终端的配色支持都有。比较折中。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://spins.fedoraproject.org/xfce/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;xfce镜像&lt;/a&gt;记得下载完成后验证镜像是否完整，写入u盘的软件我使用的是 &lt;a href=&quot;https://sourceforge.net/projects/win32diskimager/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Win32 Disk Imager&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;建议安装的时候选择中文版，这样输入法中文字体都会有，可以安装完成后再修改为英文。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://aoenian.github.io/categories/Linux/"/>
+    
+    
+      <category term="fedora" scheme="https://aoenian.github.io/tags/fedora/"/>
+    
+      <category term="xfce" scheme="https://aoenian.github.io/tags/xfce/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Manjaro从使用到放弃</title>
+    <link href="https://aoenian.github.io/2018/06/30/manjaro-linux-start-end/"/>
+    <id>https://aoenian.github.io/2018/06/30/manjaro-linux-start-end/</id>
+    <published>2018-06-29T16:00:00.000Z</published>
+    <updated>2018-07-01T01:56:46.650Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这段时间准备把一个老台式机换成Linux系统，然后就准备不在折腾了，慢慢打磨一段时间。在搜索选择发行版的时候发现了&lt;a href=&quot;https://www.manjaro.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;欢迎使用Manjaro&lt;/a&gt;这个网站，看到很多优点，然后就安装了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;对用户友好、全球排名第1的Linux发行版&lt;/li&gt;
+&lt;li&gt;滚动更新可以使软件保持最新&lt;/li&gt;
+&lt;li&gt;AUR软件仓库有着世界上最齐全的Linux软件&lt;/li&gt;
+&lt;li&gt;丰富的wiki和活跃的社区让所有问题都可以快速得到满意的答案&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;具体细节大家可以去网站了解&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://aoenian.github.io/categories/Linux/"/>
+    
+    
+      <category term="manjaro" scheme="https://aoenian.github.io/tags/manjaro/"/>
+    
+      <category term="ibus" scheme="https://aoenian.github.io/tags/ibus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决Mac系统Chrome Helper进程占用100%CPU</title>
+    <link href="https://aoenian.github.io/2018/06/27/chrome-helper-high-cpu/"/>
+    <id>https://aoenian.github.io/2018/06/27/chrome-helper-high-cpu/</id>
+    <published>2018-06-26T16:00:00.000Z</published>
+    <updated>2018-06-27T03:18:18.396Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间在用Mac的时候突然风扇狂转，一会温度就起来了。觉得很奇怪没有看视频，玩游戏，就是浏览网页，找到系统监视器查看，发现 &lt;code&gt;Google Chrome Helper&lt;/code&gt; 的CPU占用率达到120%，谷歌以后找到解决方法。&lt;/p&gt;
+&lt;p&gt;解决方法如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://apple.stackexchange.com/questions/272000/how-to-make-google-chrome-helper-not-use-as-much-cpu&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Invoke ⋮ Chrome Menu → More Tools → Task Manager to see what exactly consumes CPU. Because the helper is a black box from the OS’ side of view. I personally found a mining extension that way.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;一般是插件的问题，不过我遇到有一次居然是百度贴吧网页出现100%占用，找到占用资源的插件网页关掉即可。&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
+    
+    
+      <category term="Mac" scheme="https://aoenian.github.io/tags/Mac/"/>
+    
+      <category term="Chrome Helper" scheme="https://aoenian.github.io/tags/Chrome-Helper/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FFmpeg剪切连接音视频</title>
+    <link href="https://aoenian.github.io/2018/05/26/ffmpeg-concat-video/"/>
+    <id>https://aoenian.github.io/2018/05/26/ffmpeg-concat-video/</id>
+    <published>2018-05-25T16:00:00.000Z</published>
+    <updated>2018-06-13T02:35:10.629Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天需要处理一下视频，开始以为就是简单的剪切和连接，没想到耗费了很多时间，现在把使用过的方法总结出来，以后就不用重复寻找。&lt;/p&gt;
+&lt;h1 id=&quot;音频&quot;&gt;&lt;a href=&quot;#音频&quot; class=&quot;headerlink&quot; title=&quot;音频&quot;&gt;&lt;/a&gt;音频&lt;/h1&gt;&lt;p&gt;平时用音频操作基本就是剪切制作手机铃声，所以就只记录剪切的方法&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ffmpeg -i input.mp3 -ss 00:01:12 -t 00:01:42 -acodec copy output.mp3&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="FFmpeg" scheme="https://aoenian.github.io/categories/FFmpeg/"/>
+    
+    
+      <category term="concat video" scheme="https://aoenian.github.io/tags/concat-video/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>查看树莓派版本</title>
+    <link href="https://aoenian.github.io/2018/05/20/rasp-versions/"/>
+    <id>https://aoenian.github.io/2018/05/20/rasp-versions/</id>
+    <published>2018-05-19T16:00:00.000Z</published>
+    <updated>2018-06-20T08:16:52.008Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作&lt;/p&gt;
+&lt;p&gt;具体命令及作用如下：&lt;/p&gt;
+&lt;div class=&quot;highlight-wrap&quot;autocomplete=&quot;off&quot; autocorrect=&quot;off&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Raspberry Pi" scheme="https://aoenian.github.io/categories/Raspberry-Pi/"/>
+    
+    
+      <category term="versions" scheme="https://aoenian.github.io/tags/versions/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>加快国内访问Github网站的速度</title>
+    <link href="https://aoenian.github.io/2018/05/12/github-access-fast/"/>
+    <id>https://aoenian.github.io/2018/05/12/github-access-fast/</id>
+    <published>2018-05-11T16:00:00.000Z</published>
+    <updated>2018-08-05T03:31:42.574Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有时候查看一些开源的项目和代码都会访问Github，自己的博客也在Page上，不过访问总是比较慢，原因不用说大家都知道，不过幸亏是还能访问，所以感觉已经挺知足了。&lt;/p&gt;
+&lt;p&gt;但是慢点没关系，你不能最后样式都加载不出来吧，这有点过分了，所以搜索了一下解决方法，确实挺有效，记录如下。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2018-06-13更新：这种方法在家庭宽带的作用还是蛮大的，但是在非独立宽带如机房环境中可能没有效果。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;方法简单说就是在本地 &lt;code&gt;hosts&lt;/code&gt; 文件中加入 &lt;code&gt;github.com&lt;/code&gt; 的网站IP，绕过DNS解析。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
+    
+    
+      <category term="github" scheme="https://aoenian.github.io/tags/github/"/>
+    
+      <category term="fast" scheme="https://aoenian.github.io/tags/fast/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件特殊权限SUID测试</title>
+    <link href="https://aoenian.github.io/2017/11/02/suid-test/"/>
+    <id>https://aoenian.github.io/2017/11/02/suid-test/</id>
+    <published>2017-11-01T16:00:00.000Z</published>
+    <updated>2018-06-23T08:32:36.960Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;测试方法1（失败）&quot;&gt;&lt;a href=&quot;#测试方法1（失败）&quot; class=&quot;headerlink&quot; title=&quot;测试方法1（失败）&quot;&gt;&lt;/a&gt;测试方法1（失败）&lt;/h1&gt;&lt;p&gt;思路:使用shell脚本，然后把脚本编译为二进制，赋予 suid&lt;br&gt;权限，用不同的用户执行这样就能比较是否执行的时候用户是文件的所属用户&lt;/p&gt;
+&lt;h2 id=&quot;安装shc编译shell脚本&quot;&gt;&lt;a href=&quot;#安装shc编译shell脚本&quot; class=&quot;headerlink&quot; title=&quot;安装shc编译shell脚本&quot;&gt;&lt;/a&gt;安装shc编译shell脚本&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@centos-rpi3 shc]&lt;span class=&quot;comment&quot;&gt;# yum install automake&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@centos-rpi3 tmp]&lt;span class=&quot;comment&quot;&gt;# git clone https://github.com/neurobin/shc.git&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@centos-rpi3 shc]&lt;span class=&quot;comment&quot;&gt;# cd shc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@centos-rpi3 shc]&lt;span class=&quot;comment&quot;&gt;# mkdir m4&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@centos-rpi3 shc]&lt;span class=&quot;comment&quot;&gt;# ./autogen.sh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@centos-rpi3 shc]&lt;span class=&quot;comment&quot;&gt;# ./configure&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@centos-rpi3 shc]&lt;span class=&quot;comment&quot;&gt;# make&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[root@centos-rpi3 shc]&lt;span class=&quot;comment&quot;&gt;# make install&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://aoenian.github.io/categories/Linux/"/>
+    
+    
+      <category term="SUID" scheme="https://aoenian.github.io/tags/SUID/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7安装配置Samba</title>
+    <link href="https://aoenian.github.io/2017/10/29/centos-samba/"/>
+    <id>https://aoenian.github.io/2017/10/29/centos-samba/</id>
+    <published>2017-10-28T16:00:00.000Z</published>
+    <updated>2018-06-09T01:44:42.477Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;em&gt;性子急的可以跳过，直接看后面的配置&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;需求&quot;&gt;&lt;a href=&quot;#需求&quot; class=&quot;headerlink&quot; title=&quot;需求&quot;&gt;&lt;/a&gt;需求&lt;/h2&gt;&lt;p&gt;树莓派安装了CentOS7以后感觉还不错，正好大部分学习linux的资料都是CentOS为主，所以就准备长期使用，然后这两天用you-get下载了一些视频，然后想拷贝出来，这时候突然发现CentOS不能写入ntfs格式的U盘，哎，开源和微软之间总有那么一道肉隐肉现的鸿沟。&lt;/p&gt;
+&lt;p&gt;那么需求来了，让CentOS读取ntfs，搜索一番，发现很简单就是安装一个ntfs-3g的软件的事情，不过就这么个问题废老大劲了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2018-06-05更新：32位安装ntfs-3g可&lt;a href=&quot;https://www.tuxera.com/community/open-source-ntfs-3g/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官网&lt;/a&gt;下载源码直接编译安装，64位的可以直接安装&lt;a href=&quot;https://fedoraproject.org/wiki/EPEL&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;EPEL&lt;/a&gt;然后再安装相应的软件&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://aoenian.github.io/categories/Linux/"/>
+    
+    
+      <category term="centos" scheme="https://aoenian.github.io/tags/centos/"/>
+    
+      <category term="samba" scheme="https://aoenian.github.io/tags/samba/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网站备份</title>
+    <link href="https://aoenian.github.io/2017/04/29/website-collect/"/>
+    <id>https://aoenian.github.io/2017/04/29/website-collect/</id>
+    <published>2017-04-28T16:00:00.000Z</published>
+    <updated>2018-06-24T05:39:01.771Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这段时间整理了一下浏览器的书签发现里面收藏了很多书签，然后重新整理了一下，把一些感觉不错的记录下来，然后把浏览器里面的都删除掉。其实平时浏览的网站基本就那几个。&lt;/p&gt;
+&lt;p&gt;按照网站的内容分类吧，比较直观。 &lt;em&gt;站点后有 &lt;code&gt;@&lt;/code&gt; 符号表示需要特殊渠道访问&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&quot;软件下载&quot;&gt;&lt;a href=&quot;#软件下载&quot; class=&quot;headerlink&quot; title=&quot;软件下载&quot;&gt;&lt;/a&gt;软件下载&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.itmop.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;IT猫扑网&lt;/a&gt; 无意间看到，有各平台的软件下载&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.xdowns.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;绿盟&lt;/a&gt; 之前的良心软件网站。（现在下载需要登录了，也很久没用过了）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emlvirus.gitbooks.io/windows-apps-that-amaze-us/content/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Windows绝赞应用&lt;/a&gt;    介绍Windows绝妙应用的项目，同时也介绍一些流氓应用&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.zdfans.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;zd423&lt;/a&gt; 良心软件下载站&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
+    
+    
+      <category term="website" scheme="https://aoenian.github.io/tags/website/"/>
+    
+      <category term="bookmark" scheme="https://aoenian.github.io/tags/bookmark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何避免Emacs破坏文件的硬链接</title>
+    <link href="https://aoenian.github.io/2017/04/19/emacs-broken-hard-link/"/>
+    <id>https://aoenian.github.io/2017/04/19/emacs-broken-hard-link/</id>
+    <published>2017-04-18T16:00:00.000Z</published>
+    <updated>2018-06-10T07:43:09.678Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用了markdown以后感觉不错，能够全心放在写作内容上面，不过用了一段时间以后开始发愁编辑器的问题，在网络搜索的过程中进入了org-mode的坑，配上emacs，用着很爽，也不会发愁注册啦，版权之类的问题。所以就开始使用org-mode进行文字记录。&lt;/p&gt;
+&lt;p&gt;问题的出现是在写博客的过程中，在blog目录下写完一篇文章后我会把文件硬链接到post目录下，这样呢如果文章预览解析有问题需要更改，那么留在blog目录下的文章也会随之改变，保证两边的文章是一样的。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Editor" scheme="https://aoenian.github.io/categories/Editor/"/>
+    
+    
+      <category term="Emacs" scheme="https://aoenian.github.io/tags/Emacs/"/>
+    
+      <category term="hard link" scheme="https://aoenian.github.io/tags/hard-link/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思科路由器配置2——单臂路由</title>
+    <link href="https://aoenian.github.io/2017/04/17/router-config-2/"/>
+    <id>https://aoenian.github.io/2017/04/17/router-config-2/</id>
+    <published>2017-04-16T16:00:00.000Z</published>
+    <updated>2018-06-23T10:00:58.059Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://baike.baidu.com/item/%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;单臂路由&lt;/a&gt;:是指在路由器的一个接口上通过配置子接口（或“逻辑接口”，并不存在真正物理接口）的方式，实现原来相互隔离的不同VLAN（虚拟局域网）之间的互联互通。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/aoenian/cisco-pkt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;配置好的pkt文件&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
+    
+    
+      <category term="router" scheme="https://aoenian.github.io/tags/router/"/>
+    
+      <category term="one-armed" scheme="https://aoenian.github.io/tags/one-armed/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思科交换机配置6——生成树协议(STP)</title>
+    <link href="https://aoenian.github.io/2017/03/22/switch-config-6/"/>
+    <id>https://aoenian.github.io/2017/03/22/switch-config-6/</id>
+    <published>2017-03-21T16:00:00.000Z</published>
+    <updated>2018-06-24T01:23:34.190Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/aoenian/cisco-pkt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;配置好的pkt文件&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;网络的拓扑结构以及配置参考 《网络设置配置与管理》 吴伯桥主编清华大学出版社&lt;/strong&gt; &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;书中部分配置命令在模拟器中并不存在，下文中已更改&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;拓扑图：&lt;br&gt;&lt;img src=&quot;https://raw.githubusercontent.com/aoenian/postbackup/master/topupic/switch6.PNG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
+    
+    
+      <category term="switch" scheme="https://aoenian.github.io/tags/switch/"/>
+    
+      <category term="STP" scheme="https://aoenian.github.io/tags/STP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思科交换机配置5——链路聚合</title>
+    <link href="https://aoenian.github.io/2017/03/18/switch-config-5/"/>
+    <id>https://aoenian.github.io/2017/03/18/switch-config-5/</id>
+    <published>2017-03-17T16:00:00.000Z</published>
+    <updated>2018-06-23T10:09:05.920Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.xiazaiba.com/html/28845.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PT6.2下载&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/aoenian/cisco-pkt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;配置好的pkt文件&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
+    
+    
+      <category term="链路聚合" scheme="https://aoenian.github.io/tags/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/"/>
+    
+      <category term="三层" scheme="https://aoenian.github.io/tags/%E4%B8%89%E5%B1%82/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>思科路由器配置1——密码配置</title>
+    <link href="https://aoenian.github.io/2017/03/12/router-config-1/"/>
+    <id>https://aoenian.github.io/2017/03/12/router-config-1/</id>
+    <published>2017-03-11T16:00:00.000Z</published>
+    <updated>2018-06-23T03:23:39.456Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://github.com/aoenian/cisco-pkt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;配置好的pkt文件&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;密码配置&quot;&gt;&lt;a href=&quot;#密码配置&quot; class=&quot;headerlink&quot; title=&quot;密码配置&quot;&gt;&lt;/a&gt;密码配置&lt;/h1&gt;&lt;p&gt;思科的交换机和路由器的密码配置操作是一样的，这里介绍的是交换机中没有涉及到的，但是也可以使用的配置。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
+    
+    
+      <category term="router" scheme="https://aoenian.github.io/tags/router/"/>
+    
+      <category term="password" scheme="https://aoenian.github.io/tags/password/"/>
+    
+  </entry>
+  
+</feed>

@@ -124,7 +124,7 @@
     root: '/',
     scheme: 'Mist',
     version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -160,6 +160,8 @@
 <meta name="twitter:description" content="安装软件的时候想查看树莓派系统是32位还是64位就出现了以下的操作 具体命令及作用如下： 12345678getconf LONG_BIT        # 查看系统位数uname -a            # kernel 版本/opt/vc/bin/vcgencmd  version   # firmware版本strings /boot/start.elf  |  grep VC_BUIL">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="aoenian" type="application/atom+xml" />
 
 
 
@@ -815,6 +817,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           

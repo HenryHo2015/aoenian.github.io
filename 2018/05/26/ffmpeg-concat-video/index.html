@@ -124,7 +124,7 @@
     root: '/',
     scheme: 'Mist',
     version: '6.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -160,6 +160,8 @@
 <meta name="twitter:description" content="这几天需要处理一下视频，开始以为就是简单的剪切和连接，没想到耗费了很多时间，现在把使用过的方法总结出来，以后就不用重复寻找。 音频平时用音频操作基本就是剪切制作手机铃声，所以就只记录剪切的方法 ffmpeg -i input.mp3 -ss 00:01:12 -t 00:01:42 -acodec copy output.mp3">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="aoenian" type="application/atom+xml" />
 
 
 
@@ -859,6 +861,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
