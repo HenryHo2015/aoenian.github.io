@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://aoenian.github.io/"/>
-  <updated>2018-08-14T13:45:06.546Z</updated>
+  <updated>2018-10-03T02:37:55.872Z</updated>
   <id>https://aoenian.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>控制打印的css样式</title>
+    <link href="https://aoenian.github.io/2018/09/25/control-print-style/"/>
+    <id>https://aoenian.github.io/2018/09/25/control-print-style/</id>
+    <published>2018-09-24T16:00:00.000Z</published>
+    <updated>2018-10-03T02:37:55.872Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间遇到一个问题，有很多图片然后需要打印出来，但是呢图片太大放在word里面以后发现只有一半在打印区域，剩下的都出去了。&lt;/p&gt;
+&lt;p&gt;首先想到的解决方法就是找一下如何在word里面批量修改图片大小，你别说还真有，但是步骤很复杂，当然复杂不怕，关键是起作用就行。不过里面有个操作很可怕，里面需要图片的插入方式是 &lt;strong&gt;四周型&lt;/strong&gt;，我一看我的这个word文件，里面的图片都是嵌入式，一张张改类型还不如我直接一张张改大小得了。对了， &lt;em&gt;word里面的格式刷好像对图片也没用。&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
+    
+    
+      <category term="front" scheme="https://aoenian.github.io/tags/front/"/>
+    
+      <category term="web" scheme="https://aoenian.github.io/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>VSCode建立用户代码片段</title>
@@ -496,29 +519,6 @@
       <category term="链路聚合" scheme="https://aoenian.github.io/tags/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/"/>
     
       <category term="三层" scheme="https://aoenian.github.io/tags/%E4%B8%89%E5%B1%82/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>思科路由器配置1——密码配置</title>
-    <link href="https://aoenian.github.io/2017/03/12/router-config-1/"/>
-    <id>https://aoenian.github.io/2017/03/12/router-config-1/</id>
-    <published>2017-03-11T16:00:00.000Z</published>
-    <updated>2018-06-23T03:23:39.456Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;https://github.com/aoenian/cisco-pkt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;配置好的pkt文件&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;密码配置&quot;&gt;&lt;a href=&quot;#密码配置&quot; class=&quot;headerlink&quot; title=&quot;密码配置&quot;&gt;&lt;/a&gt;密码配置&lt;/h1&gt;&lt;p&gt;思科的交换机和路由器的密码配置操作是一样的，这里介绍的是交换机中没有涉及到的，但是也可以使用的配置。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
-    
-    
-      <category term="router" scheme="https://aoenian.github.io/tags/router/"/>
-    
-      <category term="password" scheme="https://aoenian.github.io/tags/password/"/>
     
   </entry>
   
