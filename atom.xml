@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://aoenian.github.io/"/>
-  <updated>2018-10-03T02:37:55.872Z</updated>
+  <updated>2018-10-06T04:19:37.262Z</updated>
   <id>https://aoenian.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Emacs配置-Org导出HTML代码高亮显示</title>
+    <link href="https://aoenian.github.io/2018/10/04/org-export-html-highlight/"/>
+    <id>https://aoenian.github.io/2018/10/04/org-export-html-highlight/</id>
+    <published>2018-10-03T16:00:00.000Z</published>
+    <updated>2018-10-06T04:19:37.262Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前端时间一直用Emacs编辑Org模式的文档，然后导出html文件用浏览器导出为pdf。但是发现导出的html文件没有代码高亮，搜索了一下，发现方法比较简单，安装 &lt;code&gt;htmlize.el&lt;/code&gt; 包然后在配置文件启用即可。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Editor" scheme="https://aoenian.github.io/categories/Editor/"/>
+    
+    
+      <category term="Org" scheme="https://aoenian.github.io/tags/Org/"/>
+    
+      <category term="highlight" scheme="https://aoenian.github.io/tags/highlight/"/>
+    
+  </entry>
   
   <entry>
     <title>控制打印的css样式</title>
@@ -495,30 +517,6 @@
       <category term="switch" scheme="https://aoenian.github.io/tags/switch/"/>
     
       <category term="STP" scheme="https://aoenian.github.io/tags/STP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>思科交换机配置5——链路聚合</title>
-    <link href="https://aoenian.github.io/2017/03/18/switch-config-5/"/>
-    <id>https://aoenian.github.io/2017/03/18/switch-config-5/</id>
-    <published>2017-03-17T16:00:00.000Z</published>
-    <updated>2018-06-23T10:09:05.920Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;这个配置一定使用6.0以上的版本，我使用5.3的版本可以聚合成功，但是当链路只剩一条时显示绿色，却无法通信，浪费了很多时间。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.xiazaiba.com/html/28845.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PT6.2下载&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/aoenian/cisco-pkt&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;配置好的pkt文件&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Net" scheme="https://aoenian.github.io/categories/Net/"/>
-    
-    
-      <category term="链路聚合" scheme="https://aoenian.github.io/tags/%E9%93%BE%E8%B7%AF%E8%81%9A%E5%90%88/"/>
-    
-      <category term="三层" scheme="https://aoenian.github.io/tags/%E4%B8%89%E5%B1%82/"/>
     
   </entry>
   
